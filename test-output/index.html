@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-SL8Z-Project">
+              <span class="suite-name border-failed">SL8Z-Project</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-SL8Z-Project">
+                    <span>C:\Users\i\workspace\SL8Z-Project-Testng\Testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-SL8Z-Project">
+                    <span class="test-stats">10 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-SL8Z-Project">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-SL8Z-Project">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-SL8Z-Project">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-SL8Z-Project">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-SL8Z-Project">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">10 methods, 1 failed,  9 skipped,  </span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-SL8Z-Project" class="hide-methods failed suite-SL8Z-Project"> (hide)</a> <!-- hide-methods failed suite-SL8Z-Project -->
+                      <a href="#" panel-name="suite-SL8Z-Project" class="show-methods failed suite-SL8Z-Project"> (show)</a> <!-- show-methods failed suite-SL8Z-Project -->
+                    </span>
+                    <div class="method-list-content failed suite-SL8Z-Project">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard" hash-for-method="VerifyActionButtonsSingleJobDashboard">VerifyActionButtonsSingleJobDashboard</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-SL8Z-Project -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-SL8Z-Project" class="hide-methods skipped suite-SL8Z-Project"> (hide)</a> <!-- hide-methods skipped suite-SL8Z-Project -->
+                      <a href="#" panel-name="suite-SL8Z-Project" class="show-methods skipped suite-SL8Z-Project"> (show)</a> <!-- show-methods skipped suite-SL8Z-Project -->
+                    </span>
+                    <div class="method-list-content skipped suite-SL8Z-Project">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Create_New_Search" hash-for-method="CreateNewSearch(Automated Post 8)">CreateNewSearch(Automated Post 8)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Action_Buttons" hash-for-method="VerifyActionButtons">VerifyActionButtons</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Client_Side_Validation" hash-for-method="VerifyClientSideValidation">VerifyClientSideValidation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers" hash-for-method="VerifyCorrespondingNumberSingleJobDashboard">VerifyCorrespondingNumberSingleJobDashboard</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Corresponding_Numbers" hash-for-method="VerifyCorrespondingNumbers">VerifyCorrespondingNumbers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links" hash-for-method="VerifyEngagementDashboardPageLinks">VerifyEngagementDashboardPageLinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Placement_Fee" hash-for-method="VerifyPlacementFee">VerifyPlacementFee</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Quick_Preview_Buttons" hash-for-method="VerifyQuickPreviewButtons">VerifyQuickPreviewButtons</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SL8Z-Project" title="com.SL8Z.testcases.Verify_Server_Side_Validation" hash-for-method="VerifyServerSideValidation">VerifyServerSideValidation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-SL8Z-Project -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-SL8Z-Project" class="panel SL8Z-Project">
+          <div class="suite-SL8Z-Project-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyActionButtonsSingleJobDashboard">
+                  </a> <!-- VerifyActionButtonsSingleJobDashboard -->
+                  <span class="method-name">VerifyActionButtonsSingleJobDashboard</span>
+                  <div class="stack-trace">java.lang.AssertionError: Confirm button does not working expected [true] but found [false]
+	at com.SL8Z.utility.TestUtil.VerifyActionButtonsSingleJobDashboard(TestUtil.java:1594)
+	at com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard.VerifyActionButtonsSingleJobDashboard(Verify_Action_Buttons_Single_Job_Dashboard.java:27)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-failed -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Corresponding_Numbers</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyCorrespondingNumbers">
+                  </a> <!-- VerifyCorrespondingNumbers -->
+                  <span class="method-name">VerifyCorrespondingNumbers</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Client_Side_Validation</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyClientSideValidation">
+                  </a> <!-- VerifyClientSideValidation -->
+                  <span class="method-name">VerifyClientSideValidation</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Server_Side_Validation</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyServerSideValidation">
+                  </a> <!-- VerifyServerSideValidation -->
+                  <span class="method-name">VerifyServerSideValidation</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Action_Buttons</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyActionButtons">
+                  </a> <!-- VerifyActionButtons -->
+                  <span class="method-name">VerifyActionButtons</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Create_New_Search</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="CreateNewSearch(Automated Post 8)">
+                  </a> <!-- CreateNewSearch(Automated Post 8) -->
+                  <span class="method-name">CreateNewSearch</span>
+                  <span class="parameters">(Automated Post 8)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Quick_Preview_Buttons</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyQuickPreviewButtons">
+                  </a> <!-- VerifyQuickPreviewButtons -->
+                  <span class="method-name">VerifyQuickPreviewButtons</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyCorrespondingNumberSingleJobDashboard">
+                  </a> <!-- VerifyCorrespondingNumberSingleJobDashboard -->
+                  <span class="method-name">VerifyCorrespondingNumberSingleJobDashboard</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyEngagementDashboardPageLinks">
+                  </a> <!-- VerifyEngagementDashboardPageLinks -->
+                  <span class="method-name">VerifyEngagementDashboardPageLinks</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+          <div class="suite-SL8Z-Project-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.SL8Z.testcases.Verify_Placement_Fee</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyPlacementFee">
+                  </a> <!-- VerifyPlacementFee -->
+                  <span class="method-name">VerifyPlacementFee</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SL8Z-Project-class-skipped -->
+        </div> <!-- panel SL8Z-Project -->
+        <div panel-name="test-xml-SL8Z-Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\i\workspace\SL8Z-Project-Testng\Testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;SL8Z-Project&quot;&gt;
+  &lt;test name=&quot;Create New Search&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Create_New_Search&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Create New Search --&gt;
+  &lt;test name=&quot;Verify Client Side Validation&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Client_Side_Validation&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Client Side Validation --&gt;
+  &lt;test name=&quot;Verify Server Side Validation&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Server_Side_Validation&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Server Side Validation --&gt;
+  &lt;test name=&quot;Verify Quick Preview Buttons&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Quick_Preview_Buttons&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Quick Preview Buttons --&gt;
+  &lt;test name=&quot;Verify Placement Fee&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Placement_Fee&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Placement Fee --&gt;
+  &lt;test name=&quot;Verify Engagement Dashboard Page Links&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Engagement Dashboard Page Links --&gt;
+  &lt;test name=&quot;Verify Action Buttons&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Action_Buttons&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Action Buttons --&gt;
+  &lt;test name=&quot;Verify Corresponding Numbers&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Corresponding_Numbers&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Corresponding Numbers --&gt;
+  &lt;test name=&quot;Verify Corresponding Number Single Job Dashboard&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Corresponding Number Single Job Dashboard --&gt;
+  &lt;test name=&quot;Verify Action Buttons Single Job Dashboard&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Verify Action Buttons Single Job Dashboard --&gt;
+&lt;/suite&gt; &lt;!-- SL8Z-Project --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-SL8Z-Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for SL8Z-Project</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Create New Search (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Client Side Validation (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Server Side Validation (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Quick Preview Buttons (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Placement Fee (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Engagement Dashboard Page Links (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Action Buttons (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Corresponding Numbers (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Corresponding Number Single Job Dashboard (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Verify Action Buttons Single Job Dashboard (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-SL8Z-Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for SL8Z-Project</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-SL8Z-Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for SL8Z-Project</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_SL8Z-Project');
+function tableData_SL8Z-Project() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(10);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'VerifyActionButtonsSingleJobDashboard')
+data.setCell(0, 2, 'com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard')
+data.setCell(0, 3, 154941);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'VerifyClientSideValidation')
+data.setCell(1, 2, 'com.SL8Z.testcases.Verify_Client_Side_Validation')
+data.setCell(1, 3, 1);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'VerifyServerSideValidation')
+data.setCell(2, 2, 'com.SL8Z.testcases.Verify_Server_Side_Validation')
+data.setCell(2, 3, 1);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'VerifyPlacementFee')
+data.setCell(3, 2, 'com.SL8Z.testcases.Verify_Placement_Fee')
+data.setCell(3, 3, 1);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'VerifyEngagementDashboardPageLinks')
+data.setCell(4, 2, 'com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links')
+data.setCell(4, 3, 1);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'VerifyCorrespondingNumbers')
+data.setCell(5, 2, 'com.SL8Z.testcases.Verify_Corresponding_Numbers')
+data.setCell(5, 3, 1);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'VerifyCorrespondingNumberSingleJobDashboard')
+data.setCell(6, 2, 'com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers')
+data.setCell(6, 3, 1);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'CreateNewSearch')
+data.setCell(7, 2, 'com.SL8Z.testcases.Create_New_Search')
+data.setCell(7, 3, 0);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'VerifyQuickPreviewButtons')
+data.setCell(8, 2, 'com.SL8Z.testcases.Verify_Quick_Preview_Buttons')
+data.setCell(8, 3, 0);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'VerifyActionButtons')
+data.setCell(9, 2, 'com.SL8Z.testcases.Verify_Action_Buttons')
+data.setCell(9, 3, 0);
+window.suiteTableData['SL8Z-Project']= { tableData: data, tableDiv: 'times-div-SL8Z-Project'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <div id="times-div-SL8Z-Project">
+              </div> <!-- times-div-SL8Z-Project -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-SL8Z-Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for SL8Z-Project</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">VerifyActionButtonsSingleJobDashboard</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Navigated to QA Server</span>
+                <span class="reporter-method-output">Clicked on Login Link</span>
+                <span class="reporter-method-output">Clicked on Login button</span>
+                <span class="reporter-method-output">clicked on auto post 009</span>
+                <span class="reporter-method-output">Clicked on edit button</span>
+                <span class="reporter-method-output">Verified edit button  navigates to new job posting page</span>
+                <span class="reporter-method-output">Clicked on edit button</span>
+                <span class="reporter-method-output">Verified view button  navigates to View Position page</span>
+                <span class="reporter-method-output">Clicked on OnHold button</span>
+                <span class="reporter-method-output">Verified Position is OnHold</span>
+                <span class="reporter-method-output">Clicked on Resume button</span>
+                <span class="reporter-method-output">Clicked on cancel button</span>
+                <span class="reporter-method-output">Clicked on Confirm Cancel button</span>
+                <span class="reporter-method-output">Verified auto post 009 is Cancelled</span>
+                <span class="reporter-method-output">Clicked on Active tab</span>
+                <span class="reporter-method-output">clicked on auto post 008</span>
+                <span class="reporter-method-output">Clicked on edit button</span>
+                <span class="reporter-method-output">Verified edit button  navigates to new job posting page</span>
+                <span class="reporter-method-output">Clicked on edit button</span>
+                <span class="reporter-method-output">Verified view button  navigates to View Position page</span>
+                <span class="reporter-method-output">Clicked on Engage button</span>
+                <span class="reporter-method-output">Clicked on Next Button</span>
+                <span class="reporter-method-output">Entered First Name</span>
+                <span class="reporter-method-output">Entered Last Name</span>
+                <span class="reporter-method-output">Entered Address 1</span>
+                <span class="reporter-method-output">Entered Address 2</span>
+                <span class="reporter-method-output">Entered  City</span>
+                <span class="reporter-method-output">Entered  State</span>
+                <span class="reporter-method-output">Entered  Country</span>
+                <span class="reporter-method-output">Entered  Zip Code</span>
+                <span class="reporter-method-output">Entered  Card Number</span>
+                <span class="reporter-method-output">Selected Month</span>
+                <span class="reporter-method-output">Selected Year</span>
+                <span class="reporter-method-output">Entered Security Code</span>
+                <span class="reporter-method-output">Clicked on Next Button</span>
+                <span class="reporter-method-output">Clicked on Place Order Button</span>
+                <span class="reporter-method-output">Clicked on Dashboard Link</span>
+                <span class="reporter-method-output">Verified auto post 008 is Engaged</span>
+                <span class="reporter-method-output">Clicked on auto post 008</span>
+                <span class="reporter-method-output">Clicked on edit button</span>
+                <span class="reporter-method-output">Verified edit button  navigates to new job posting page</span>
+                <span class="reporter-method-output">Clicked on edit button</span>
+                <span class="reporter-method-output">Verified view button  navigates to View Position page</span>
+                <span class="reporter-method-output">Clicked on Freeze button</span>
+                <span class="reporter-method-output">Verified Position is freeze</span>
+                <span class="reporter-method-output">Clicked on unfreeze button</span>
+                <span class="reporter-method-output">Clicked on cancel button</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-SL8Z-Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-SL8Z-Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Quick_Preview_Buttons</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">initialize</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Create_New_Search</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">clearCookies</span>
+                <span class="method-start">2716 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3362 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">CreateNewSearch(Automated Post 8)</span>
+                <span class="method-start">3396 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Client_Side_Validation</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">clearCookies</span>
+                <span class="method-start">3411 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3414 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">VerifyClientSideValidation</span>
+                <span class="method-start">3416 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Server_Side_Validation</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">clearCookies</span>
+                <span class="method-start">3437 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3453 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">VerifyServerSideValidation</span>
+                <span class="method-start">3455 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Quick_Preview_Buttons</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">clearCookies</span>
+                <span class="method-start">3460 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3471 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">VerifyQuickPreviewButtons</span>
+                <span class="method-start">3474 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Placement_Fee</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3478 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">VerifyPlacementFee</span>
+                <span class="method-start">3484 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3488 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">VerifyEngagementDashboardPageLinks</span>
+                <span class="method-start">3491 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Action_Buttons</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3495 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">VerifyActionButtons</span>
+                <span class="method-start">3498 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Corresponding_Numbers</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3504 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">VerifyCorrespondingNumbers</span>
+                <span class="method-start">3506 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3510 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">VerifyCorrespondingNumberSingleJobDashboard</span>
+                <span class="method-start">3513 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">isSkipped</span>
+                <span class="method-start">3520 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">VerifyActionButtonsSingleJobDashboard</span>
+                <span class="method-start">3525 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.SL8Z.testcases.Verify_Quick_Preview_Buttons</div> <!-- chronological-class-name -->
+              <div class="configuration-suite after">
+                <span class="method-name">closeBrowser</span>
+                <span class="method-start">158473 ms</span>
+              </div> <!-- configuration-suite after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

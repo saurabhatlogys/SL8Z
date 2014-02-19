@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestSuite" time="694.235" tests="13" errors="0" skipped="4" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_45\jre\bin"/>
+    <property name="java.vm.version" value="24.45-b08"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\i\workspace\SL8Z-Project-Testng"/>
+    <property name="java.runtime.version" value="1.7.0_45-b18"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_45\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\i\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="C:\Users\i\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5949623757850482186.tmp"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_45\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Java\jdk1.7.0_45\bin;D:\apache-maven-3.1.1\bin;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\i"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="i"/>
+    <property name="java.class.path" value="/C:/Users/i/Desktop/Eclipse/eclipse/configuration/org.eclipse.osgi/bundles/268/1/.cp/jars/plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.7.0_45\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.7.0_45"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_45\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_45\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Users\i\workspace\SL8Z-Project-Testng\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="maven.bootclasspath" value="/C:/Users/i/Desktop/Eclipse/eclipse/configuration/org.eclipse.osgi/bundles/268/1/.cp/jars/plexus-classworlds-2.4.jar"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="CreateNewSearch" classname="com.SL8Z.testcases.Create_New_Search" time="108.251"/>
+  <testcase name="CreateNewSearch" classname="com.SL8Z.testcases.Create_New_Search" time="63.85"/>
+  <testcase name="VerifyClientSideValidation" classname="com.SL8Z.testcases.Verify_Client_Side_Validation" time="84.475"/>
+  <testcase name="VerifyServerSideValidation" classname="com.SL8Z.testcases.Verify_Server_Side_Validation" time="115.802"/>
+  <testcase name="isSkipped" classname="com.SL8Z.testcases.Verify_Quick_Preview_Buttons" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="VerifyQuickPreviewButtons" classname="com.SL8Z.testcases.Verify_Quick_Preview_Buttons" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="VerifyPlacementFee" classname="com.SL8Z.testcases.Verify_Placement_Fee" time="54.917"/>
+  <testcase name="VerifyEngagementDashboardPageLinks" classname="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links" time="62.962"/>
+  <testcase name="VerifyActionButtons" classname="com.SL8Z.testcases.Verify_Action_Buttons" time="83.795"/>
+  <testcase name="VerifyCorrespondingNumbers" classname="com.SL8Z.testcases.Verify_Corresponding_Numbers" time="72.014"/>
+  <testcase name="isSkipped" classname="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="VerifyCorrespondingNumberSingleJobDashboard" classname="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="VerifyActionButtonsSingleJobDashboard" classname="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard" time="48.169"/>
+</testsuite>
