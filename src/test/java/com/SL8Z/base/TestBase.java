@@ -1,6 +1,7 @@
 package com.SL8Z.base;
 
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -9,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.*;
 import org.testng.annotations.*;
 
@@ -57,8 +59,14 @@ public class TestBase {
 			}
 			else if(config.getProperty("browserType").equalsIgnoreCase("Chrome")){
 				
+				DesiredCapabilities Ch = DesiredCapabilities.chrome();
+				Ch.setCapability("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
+				wbDv = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),Ch);
+
+/*
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				wbDv = new ChromeDriver();
+*/
 				}
 			
              driver = new EventFiringWebDriver(wbDv);
