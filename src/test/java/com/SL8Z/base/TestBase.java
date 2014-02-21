@@ -58,9 +58,8 @@ public class TestBase {
 				wbDv = new InternetExplorerDriver(ieCapabilities);
 			}
 			else if(config.getProperty("browserType").equalsIgnoreCase("Chrome")){
-				
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				DesiredCapabilities Ch = DesiredCapabilities.chrome();
-				Ch.setCapability("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				wbDv = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),Ch);
 
 /*
