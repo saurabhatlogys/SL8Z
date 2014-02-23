@@ -59,13 +59,12 @@ public class TestBase {
 			}
 			else if(config.getProperty("browserType").equalsIgnoreCase("Chrome")){
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
-				DesiredCapabilities Ch = DesiredCapabilities.chrome();
-				wbDv = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),Ch);
-
-/*
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
-				wbDv = new ChromeDriver();
-*/
+				DesiredCapabilities capabilities = new DesiredCapabilities();
+				capabilities.setBrowserName(DesiredCapabilities.chrome().getBrowserName());
+				URL url = new URL("http://localhost:4444/grid/register");
+				RemoteWebDriver wbDv = new RemoteWebDriver(url, capabilities);
+				
+				/*wbDv = new ChromeDriver();*/
 				}
 			
              driver = new EventFiringWebDriver(wbDv);
