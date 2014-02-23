@@ -47,7 +47,12 @@ public class TestBase {
 			 // checking the type of browser
 			if(config.getProperty("browserType").equalsIgnoreCase("Firefox")){
 				
-				wbDv = new FirefoxDriver();
+				DesiredCapabilities capabilities = new DesiredCapabilities();
+				capabilities.setBrowserName(DesiredCapabilities.firefox().getBrowserName());
+				URL url = new URL("http://localhost:4444/grid/register");
+				wbDv = new RemoteWebDriver(url, capabilities);
+				
+				/*wbDv = new FirefoxDriver();*/
 				
 			}else if(config.getProperty("browserType").equalsIgnoreCase("IE")){
 				
@@ -55,14 +60,13 @@ public class TestBase {
 				System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"\\IE\\IEDriverServer.exe");
 				DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
 				ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-				wbDv = new InternetExplorerDriver(ieCapabilities);
+				//wbDv = new InternetExplorerDriver(ieCapabilities);
 			}
 			else if(config.getProperty("browserType").equalsIgnoreCase("Chrome")){
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				DesiredCapabilities capabilities = new DesiredCapabilities();
 				capabilities.setBrowserName(DesiredCapabilities.chrome().getBrowserName());
-				URL url = new URL("http://localhost:4444/grid/register");
-				RemoteWebDriver wbDv = new RemoteWebDriver(url, capabilities);
+				wbDv = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 				
 				/*wbDv = new ChromeDriver();*/
 				}
