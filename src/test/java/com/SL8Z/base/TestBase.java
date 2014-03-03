@@ -61,7 +61,7 @@ public class TestBase {
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				DesiredCapabilities Ch = DesiredCapabilities.chrome();
 				//Ch.setCapability("chrome.binary", "\"C:\\Users\\i\\workspace\\SL8Z-Project-Testng\\chrome\"");
-				wbDv = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),Ch);
+				wbDv = new RemoteWebDriver(new URL("http://192.168.1.6:4444/wd/hub"),Ch);
 
 /*
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
