@@ -3,612 +3,860 @@
 <suite name="Failed suite [SL8Z-Project]">
   <test name="Create New Search(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
         <methods>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
-        <methods>
-          <include name="isSkipped"/>
           <include name="CreateNewSearch"/>
+          <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
         <methods>
           <include name="isSkipped"/>
-          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
           <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
           <include name="initialize"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
         <methods>
           <include name="isSkipped"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
     </classes>
   </test> <!-- Create New Search(failed) -->
-  <test name="Verify Client Side Validation(failed)">
-    <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="VerifyClientSideValidation"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
-        <methods>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="closeBrowser"/>
-          <include name="clearCookies"/>
-          <include name="initialize"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
-    </classes>
-  </test> <!-- Verify Client Side Validation(failed) -->
-  <test name="Verify Server Side Validation(failed)">
-    <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
-        <methods>
-          <include name="VerifyServerSideValidation"/>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="closeBrowser"/>
-          <include name="clearCookies"/>
-          <include name="initialize"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
-    </classes>
-  </test> <!-- Verify Server Side Validation(failed) -->
   <test name="Verify Quick Preview Buttons(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
-        <methods>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
         <methods>
           <include name="VerifyQuickPreviewButtons"/>
           <include name="isSkipped"/>
-          <include name="closeBrowser"/>
           <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
           <include name="initialize"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
         <methods>
           <include name="isSkipped"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
     </classes>
   </test> <!-- Verify Quick Preview Buttons(failed) -->
   <test name="Verify Placement Fee(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
-        <methods>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
         <methods>
           <include name="isSkipped"/>
-          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
           <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
           <include name="initialize"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
         <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
-        <methods>
-          <include name="isSkipped"/>
           <include name="VerifyPlacementFee"/>
+          <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
     </classes>
   </test> <!-- Verify Placement Fee(failed) -->
   <test name="Verify Engagement Dashboard Page Links(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
-        <methods>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
         <methods>
           <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="closeBrowser"/>
           <include name="clearCookies"/>
-          <include name="initialize"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
         <methods>
           <include name="isSkipped"/>
           <include name="VerifyEngagementDashboardPageLinks"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="initialize"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
     </classes>
   </test> <!-- Verify Engagement Dashboard Page Links(failed) -->
   <test name="Verify Action Buttons(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
         <methods>
           <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
-        <methods>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
-        <methods>
           <include name="VerifyActionButtons"/>
-          <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
         <methods>
           <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="closeBrowser"/>
           <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
           <include name="initialize"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
         <methods>
           <include name="isSkipped"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
     </classes>
   </test> <!-- Verify Action Buttons(failed) -->
   <test name="Verify Corresponding Numbers(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
         <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
           <include name="VerifyCorrespondingNumbers"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
+        <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
         <methods>
           <include name="clearCookies"/>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
         <methods>
           <include name="isSkipped"/>
-          <include name="closeBrowser"/>
-          <include name="clearCookies"/>
           <include name="initialize"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
         <methods>
           <include name="isSkipped"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
     </classes>
   </test> <!-- Verify Corresponding Numbers(failed) -->
   <test name="Verify Corresponding Number Single Job Dashboard(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
-        <methods>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
         <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="closeBrowser"/>
           <include name="clearCookies"/>
-          <include name="initialize"/>
+          <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
         <methods>
           <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
           <include name="VerifyCorrespondingNumberSingleJobDashboard"/>
+          <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="initialize"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
     </classes>
   </test> <!-- Verify Corresponding Number Single Job Dashboard(failed) -->
   <test name="Verify Action Buttons Single Job Dashboard(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers">
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
         <methods>
           <include name="isSkipped"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation">
-        <methods>
-          <include name="isSkipped"/>
-          <include name="clearCookies"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Client_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
-        <methods>
-          <include name="clearCookies"/>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons -->
-      <class name="com.SL8Z.testcases.Create_New_Search">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
         <methods>
           <include name="isSkipped"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Create_New_Search -->
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
         <methods>
           <include name="isSkipped"/>
           <include name="VerifyActionButtonsSingleJobDashboard"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard -->
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons">
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
         <methods>
           <include name="isSkipped"/>
-          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
           <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
           <include name="initialize"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Quick_Preview_Buttons -->
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
         <methods>
           <include name="isSkipped"/>
+          <include name="clearCookies"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Placement_Fee -->
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links">
-        <methods>
-          <include name="isSkipped"/>
-        </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links -->
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
     </classes>
   </test> <!-- Verify Action Buttons Single Job Dashboard(failed) -->
+  <test name="Verify Candidate Is Presented(failed)">
+    <classes>
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="VerifyCandidateIsPresented"/>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="initialize"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
+    </classes>
+  </test> <!-- Verify Candidate Is Presented(failed) -->
+  <test name="Verify Partner Client Side Validation(failed)">
+    <classes>
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
+        <methods>
+          <include name="VerifyClientSideValidation"/>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="initialize"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+    </classes>
+  </test> <!-- Verify Partner Client Side Validation(failed) -->
+  <test name="Verify Partner Server Side Validation(failed)">
+    <classes>
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons -->
+      <class name="com.SL8Z.testcases.Client.Create_New_Search">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Create_New_Search -->
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Client_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard -->
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard$Verify_Corresponding_Numbers -->
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation">
+        <methods>
+          <include name="clearCookies"/>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented -->
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee">
+        <methods>
+          <include name="isSkipped"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Client.Verify_Placement_Fee -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="initialize"/>
+          <include name="clearCookies"/>
+          <include name="VerifyPartnerServerSideValidation"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation -->
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation">
+        <methods>
+          <include name="isSkipped"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation -->
+    </classes>
+  </test> <!-- Verify Partner Server Side Validation(failed) -->
 </suite> <!-- Failed suite [SL8Z-Project] -->

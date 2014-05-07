@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Verify Quick Preview Buttons"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="2"
+           time="0.001">
+  <properties />
+  
+            <testcase name="isSkipped" time="0.0" classname="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
+          <skipped />
+    </testcase>
+            <testcase name="VerifyQuickPreviewButtons" time="0.0" classname="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

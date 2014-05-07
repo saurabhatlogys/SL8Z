@@ -1,92 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="Create New Search"
-           tests="2"
-           failures="2"
+           tests="3"
+           failures="0"
            errors="0"
-           skipped="0"
-           time="6.919">
+           skipped="3"
+           time="0.001">
   <properties />
-            <testcase name="CreateNewSearch" time="2.011" classname="com.SL8Z.testcases.Create_New_Search">
-                <failure type="java.lang.AssertionError"
-                  message="This script is failing"
-              >
-<![CDATA[java.lang.AssertionError: This script is failing
-  org.testng.Assert.fail(Assert.java:94)
-  com.SL8Z.utility.TestUtil.SL8Z_Homepage(TestUtil.java:45)
-  com.SL8Z.testcases.Create_New_Search.CreateNewSearch(Create_New_Search.java:28)
-  sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-  sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-  sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-  java.lang.reflect.Method.invoke(Method.java:606)
-  org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-  org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-  org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-  org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-  org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-  org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-  org.testng.TestRunner.privateRun(TestRunner.java:767)
-  org.testng.TestRunner.run(TestRunner.java:617)
-  org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-  org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-  org.testng.SuiteRunner.run(SuiteRunner.java:240)
-  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-  org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-  org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-  org.testng.TestNG.run(TestNG.java:1057)
-  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:217)
-  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:84)
-  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:92)
-  org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
-  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
-  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
-]]>
-      </failure>
-
-          </testcase>
-            <testcase name="CreateNewSearch" time="4.908" classname="com.SL8Z.testcases.Create_New_Search">
-                <failure type="java.lang.AssertionError"
-                  message="Login link is not working expected [true] but found [false]"
-              >
-<![CDATA[java.lang.AssertionError: Login link is not working expected [true] but found [false]
-  org.testng.Assert.fail(Assert.java:94)
-  org.testng.Assert.failNotEquals(Assert.java:494)
-  org.testng.Assert.assertTrue(Assert.java:42)
-  com.SL8Z.utility.TestUtil.Login(TestUtil.java:53)
-  com.SL8Z.testcases.Create_New_Search.CreateNewSearch(Create_New_Search.java:31)
-  sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-  sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-  sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-  java.lang.reflect.Method.invoke(Method.java:606)
-  org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-  org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-  org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-  org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-  org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-  org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-  org.testng.TestRunner.privateRun(TestRunner.java:767)
-  org.testng.TestRunner.run(TestRunner.java:617)
-  org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-  org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-  org.testng.SuiteRunner.run(SuiteRunner.java:240)
-  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-  org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-  org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-  org.testng.TestNG.run(TestNG.java:1057)
-  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:217)
-  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:84)
-  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:92)
-  org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
-  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
-  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
-]]>
-      </failure>
-
-          </testcase>
   
+            <testcase name="isSkipped" time="0.0" classname="com.SL8Z.testcases.Create_New_Search">
+          <skipped />
+    </testcase>
+            <testcase name="CreateNewSearch" time="0.0" classname="com.SL8Z.testcases.Create_New_Search">
+          <skipped />
+    </testcase>
+            <testcase name="CreateNewSearch" time="0.0" classname="com.SL8Z.testcases.Create_New_Search">
+          <skipped />
+    </testcase>
   
   
 </testsuite>

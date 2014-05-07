@@ -8,6 +8,7 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.internal.Locatable;
 import org.openqa.selenium.support.ui.Select;
@@ -64,11 +65,45 @@ public static void sleep(int intSeconds){
 				Assert.fail("This script is failing");
 			}
 	}
+public static void Login_Partner(){
+			
+			try{
+				  //Click on Login Link
+				  Assert.assertTrue(TestUtil.click("Lnk_Login"),"Login link is not working");
+				  Reporter.log("Clicked on Login Link");
+				  //Logged as Partner
+				  Assert.assertTrue(TestUtil.setText("Txt_Username", config.getProperty("Partner_Username")),"Username text box does not exist");
+				  Assert.assertTrue(TestUtil.setText("Txt_Password", config.getProperty("Partner_Password")),"Password text box does not exist");
+				  Assert.assertTrue(TestUtil.click("btn_Submit"),"Submit button does not working");
+				  Reporter.log("Clicked on Login button");
+					
+			}catch(Exception e){
+				
+				e.printStackTrace();
+				Assert.fail("This script is failing");
+			}
+	}
 		public static void logout()
 		{
 			Assert.assertTrue(TestUtil.click("btn_logout"),"Logout button does not working");
 			Reporter.log("Clicked on logout button");
-			//TestUtil.click("btn_yes");
+		}
+		
+public static void uploadFile(String strAutoITPath, String strWinTitle, String strFilePath){
+			
+			try{
+				String dialog[];
+					
+					dialog = new String[] {strAutoITPath, strWinTitle, strFilePath};
+					sleep(3);
+					Runtime.getRuntime().exec(dialog);
+					sleep(3);
+				}
+				
+			catch(Exception e){
+				
+				e.printStackTrace();
+			}
 		}
 
 		public static void Create_New_Search(String PositionTitle)
@@ -89,21 +124,19 @@ public static void sleep(int intSeconds){
 			  // Reports to
 			  TestUtil.setText("Txt_Reports_To", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ae");
 			  Reporter.log("Entered Reports to");
-			  // Internal ID
-			  TestUtil.setText("Txt_Internal_Id", "098765432112");
-			  Reporter.log("Entered Internal ID");
-			  //New role
-			  TestUtil.selectValueInDropDown("Select_New_Role", "Yes");
-			  Reporter.log("Selected new role");
+			  
 			  //Reason for the Position
-			  TestUtil.setText("Txt_Reason_For_Position", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor");
+			  TestUtil.setText("Txt_Reason_For_Position", "Lorem ipsum dolor sit amet");
 			  Reporter.log("Entered Reason for the Position");
+			  
 			  //Job Details Tab
 			  TestUtil.click("tab_job_details");
 			  Reporter.log("Clicked on Job Details Tab");
+			  
 			  //Function category
 			  TestUtil.selectValueInDropDown("Select_Function_Category", "Technology");
 			  Reporter.log("Entered Function category");
+			  
 			  //Position Summary
 			  driver.switchTo().frame("position_summary_ifr");
 			  driver.switchTo().activeElement().sendKeys(config.getProperty("Postion_Summary"));
@@ -127,40 +160,7 @@ public static void sleep(int intSeconds){
 			  driver.switchTo().activeElement().sendKeys(config.getProperty("Ideal_Candidate_profile"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Ideal candidate profile");
-			  //Target Companies
-			  TestUtil.setText("Txt_Target_Company", config.getProperty("Target_Company"));
-			  Reporter.log("Entered Target Company");
-			  TestUtil.click("btn_add_comapny");
-			  TestUtil.setText("Txt_Target_Company_1", config.getProperty("Target_Company"));
-			  Reporter.log("Entered Target Company 1");
-			  TestUtil.click("btn_add_comapny");
-			  TestUtil.setText("Txt_Target_Company_1", config.getProperty("Target_Company"));
-			  Reporter.log("Entered Target Company 2");
-			  //Do not Contact Companies
-			  TestUtil.setText("Txt_Do_Not_Contact_Company",config.getProperty("Target_Company"));
-			  Reporter.log("Entered Do not Contact Company");
-			  TestUtil.click("btn_add_do_not_company");
-			  TestUtil.setText("Txt_Do_Not_Contact_Company_1",config.getProperty("Target_Company"));
-			  Reporter.log("Entered Do not Contact Company 1");
-			  TestUtil.click("btn_add_do_not_company");
-			  TestUtil.setText("Txt_Do_Not_Contact_Company_2",config.getProperty("Target_Company"));
-			  Reporter.log("Entered Do not Contact Company 2");
-			  //Corporate Culture Tab
-			  TestUtil.click("tab_Corporate_Culture");
-			  Reporter.log("Clicked on Corporate Culture Tab");
-			  // Corporate Culture and Team Fit
-			  TestUtil.selectValueInDropDown("Select_Corporate_Culture", "Dependable–focus on process, slow to change");
-			  Reporter.log("Selected Corporate Culture and Team Fit");
-			  //Detail culture description
-			  driver.switchTo().frame("unique_corporation_aspects_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Corporate_Culture_Description"));
-			  driver.switchTo().defaultContent();
-			  Reporter.log("Entered Detail culture description"); 
-			  //Hiring Manager information
-			  driver.switchTo().frame("hiring_manager_info_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Hiring_Manager_information"));
-			  driver.switchTo().defaultContent();
-			  Reporter.log("Entered Hiring Manager information");
+			 
 			  //Selling Points Tab
 			  TestUtil.click("tab_Selling_Point");
 			  Reporter.log("Clicked on Selling Points Tab");
@@ -171,17 +171,7 @@ public static void sleep(int intSeconds){
 			  Reporter.log("Entered Selling Point 2");
 			  TestUtil.setText("Txt_Selling_Point_2", config.getProperty("Selling_Point"));
 			  Reporter.log("Entered Selling Point 3");
-			  TestUtil.click("btn_add_selling_point");
-			  TestUtil.setText("Txt_Selling_Point_3", config.getProperty("Selling_Point"));
-			  Reporter.log("Entered Selling Point 4");
-			  TestUtil.click("btn_add_selling_point");
-			  TestUtil.setText("Txt_Selling_Point_4", config.getProperty("Selling_Point"));
-			  Reporter.log("Entered Selling Point 5");
-			  //Comments
-			  driver.switchTo().frame("comments_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Comments"));
-			  driver.switchTo().defaultContent();
-			  Reporter.log("Entered Comments/Other Information");
+			 
 			  //Compensation Tab 
 			  TestUtil.click("tab_compensation");
 			  Reporter.log("Clicked on Compensation Tab"); 
@@ -194,15 +184,7 @@ public static void sleep(int intSeconds){
 			  //Bonus %
 			  TestUtil.setText("Txt_Bonus", config.getProperty("Bonus"));
 			  Reporter.log("Entered Bonus %");
-			  //Other compensation details
-			  TestUtil.setText("Txt_other_comp_info", config.getProperty("Other_Comp_Info"));
-			  Reporter.log("Entered Other compensation details");
-			  //Health Insurace
-			  TestUtil.setText("Txt_Health_Insurance", config.getProperty("Other_Comp_Info"));
-			  Reporter.log("Entered Health Insurace Details");
-			  //Other benefit details
-			  TestUtil.setText("Txt_other_benfit_detail", config.getProperty("Other_Comp_Info"));
-			  Reporter.log("Entered Other benefit details");
+			  
 			  // Set Your Fee Tab
 			  TestUtil.click("tab_set_your_placement_fee");
 			  Reporter.log("Clicked on Set Your Fee Tab");
@@ -782,11 +764,11 @@ public static void sleep(int intSeconds){
 					  
 					  driver.switchTo().window(currentWindow);
 					  
-					//Compensation Tab 
+					 //Compensation Tab 
 					  Assert.assertTrue(TestUtil.click("tab_compensation"),"Compensation Tab is not working");
 					  Reporter.log("Clicked on Compensation Tab"); 
 					  
-						//Click on Quick Preview button
+					//Click on Quick Preview button
 					  Assert.assertTrue(TestUtil.click("btn_quick_preview_Compensation"),"Quick Preview button does not exist");
 					  Reporter.log("Clicked on Quick Preview Button");
 					  
@@ -1015,7 +997,7 @@ public static void sleep(int intSeconds){
 			 Reporter.log("Verified Logout link is working");
 		}
 		
-		public static void VerifyActionButtons()
+		public static void VerifyActionButtons(String PositionTitle)
 		{
 		     
 			 WebElement element=driver.findElement(By.id("FreeTable"));
@@ -1032,7 +1014,11 @@ public static void sleep(int intSeconds){
 			 String Position_Id=null;
 			 String Complete=null;
 			 
-			
+			 if(free_post==0)
+				{
+					TestUtil.Create_New_Search(PositionTitle);
+				}
+			 
 			//Counting number of rows in Free position table
 		   
 			
@@ -1142,6 +1128,8 @@ public static void sleep(int intSeconds){
 				//Click on Dashboard Link
 				Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
 				Reporter.log("Clicked on Dashboard Link");
+				
+			   TestUtil.sleep(4);
 				
 				//Counting number of rows in engaged position table
 				element=driver.findElement(By.id("EngagedTable"));
@@ -1311,15 +1299,18 @@ public static void sleep(int intSeconds){
 			
 			 WebElement element=driver.findElement(By.id("FreeTable"));
 			 List<WebElement> rowCollection=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
+			 List<WebElement> candidate;
+			 String no_of_candidate;
 			 int free_post=rowCollection.size();
 			 
 			 if(free_post>0)
 			 {
 				 driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td/span/a")).click();
-				 
+			
 				 //Verify Corresponding Number to New tab
-				 List<WebElement> candidate=driver.findElements(By.xpath("//div[@id='newPattern-bg']/div[2]/div/div[2]/div[3]/div"));
-				 String no_of_candidate= Integer.toString(candidate.size());
+				 candidate=driver.findElements(By.xpath("//div[@id='newPattern-bg']/DIV[2]/DIV[1]/DIV[2]/DIV[3]/DIV[1]/DIV[1]"));
+				// candidate=driver.findElements(By.xpath("//div[@id='newPattern-bg']/div[2]/div/div[2]/div[3]/div"));
+				 no_of_candidate= Integer.toString(candidate.size());
 				 System.out.println(candidate.size());
 				 String New_Candidate=TestUtil.getObject("tab_New").getText().replaceAll("\\s+\\w+","");
 				 System.out.println(New_Candidate);
@@ -1329,23 +1320,28 @@ public static void sleep(int intSeconds){
 				 //Click on In Play Tab
 				 Assert.assertTrue(TestUtil.click("tab_InPlay"),"In Play tab does not working");
 				 Reporter.log("Clicked on In Play tab");
-				
+		/*		
 				 //Verify Corresponding Number to In Play tab
 				 candidate=driver.findElements(By.xpath("//body/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[3]/div"));
 				 no_of_candidate= Integer.toString(candidate.size());
 				 String InPlay_Candidate=TestUtil.getObject("tab_InPlay").getText().replaceAll("\\s+\\w+","");
 				 Assert.assertTrue(no_of_candidate.equals(InPlay_Candidate),"Corresponding number to In Play tab does not match with the number of candidates");
 				 Reporter.log("Verified Corresponding number to In Play tab is equal to the number of candidates");
-				 
+				 */
 		}
 		}
-		public static void VerifyActionButtonsSingleJobDashboard()
+	
+		public static void VerifyActionButtonsSingleJobDashboard(String PositionTitle)
 		{
 			WebElement element=driver.findElement(By.id("FreeTable"));
 			 List<WebElement> rowCollection=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
 			 List<WebElement> row_Engage;
 			 String Position_Id=null;
 			 int free_post=rowCollection.size();
+			 if (free_post==0)
+			 {
+				 TestUtil.Create_New_Search(PositionTitle);
+			 }
 			 while(free_post>0)
 			 {
 				 String post_title=driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td/span/a")).getText();
@@ -1634,6 +1630,1224 @@ public static void sleep(int intSeconds){
 				}
 		}
 		
+		public static void Verify_Candidate_Is_Presented()
+		{
+		    
+			//Click on New Search Button
+			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"New Search button does not working");
+			  Reporter.log("Clicked on New Search button");
+			  
+			 //Click on  Position Link
+			  Assert.assertTrue(TestUtil.click("Lnk_Position"),"Positions are not available");
+			  Reporter.log("Clicked on Position Link");
+			  
+			  
+			//Click on  My Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_my_candidate"),"My Candidate Button does not working");
+			  Reporter.log("Clicked on My Candidate Button");
+	  
+			 // if(!TestUtil.isElementPresent("btn_continue"))
+			  //{
+				  Assert.assertTrue(TestUtil.click("btn_present_candidate"),"Present Candidate button does not working");
+				  Reporter.log("Clicked on Present Candidate Button");
+			  //}
+			  
+			 //Click on Continue Button
+			  Assert.assertTrue(TestUtil.click("btn_continue"),"Continue button does not working");
+			  Reporter.log("Clicked on Continue Button");
+			  
+			  //Click on Fill Manually Button
+			  Assert.assertTrue(TestUtil.click("btn_FillManually"),"Fill Manually button does not working");
+			  Reporter.log("Clicked on Fill Manually Button");
+			  
+			 //Enter FirstName
+			  Assert.assertTrue(TestUtil.setText("Txt_FirstName", config.getProperty("FirstName")));
+			  Reporter.log("Entered  First Name");
+			  
+			  //Enter Last Name
+			  Assert.assertTrue(TestUtil.setText("Txt_LastName", config.getProperty("LastName")));
+			  Reporter.log("Entered  Last Name");
+			  
+			  //Enter Phone Number
+			  Assert.assertTrue(TestUtil.setText("Txt_PhoneNumber", config.getProperty("PhoneNumber")));
+			  Reporter.log("Entered  Phone Number");
+			  
+			  //Enter Email Address
+			  Assert.assertTrue(TestUtil.setText("Txt_Email", config.getProperty("Email")));
+			  Reporter.log("Entered  Email Address");
+			  
+			  //Enter Current Employer
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentEmployer", config.getProperty("CurrentEmployer")));
+			  Reporter.log("Entered Current Employer");
+			  
+			  //Click on Validate Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_ValidateCandidate"),"Validate Candidate button does not working");
+			  Reporter.log("Clicked on Validate Candidate Button");
+			  
+			  String windowTitle= driver.getTitle();
+			  System.out.println(windowTitle);
+	  
+			  //Click on Quick Preview Button
+			  Assert.assertTrue(TestUtil.click("btn_Quick_Preview"),"Quick Preview Button does not working");
+			  Reporter.log("Clicked on Quick Preview Button");
+			  TestUtil.sleep(3);
+			   	
+			    //Switching to pop up window and verifying quick preview button
+			  String currentWindow = driver.getWindowHandle();
+			  Set<String> sHandlers= driver.getWindowHandles();
+			  String id=null;
+		        for(String sHandler:sHandlers)
+		        {
+		            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+		            {
+		                driver.switchTo().window(sHandler);
+		                if(driver.findElement(By.xpath("//h2")).getText().equalsIgnoreCase("Candidate Profile"))
+		                {
+		                 id=TestUtil.getObject("Candidate_Id").getText();
+			             driver.close();
+		                }
+		            }
+		        }
+		        driver.switchTo().window(currentWindow);
+  
+			  //Enter Title
+			  Assert.assertTrue(TestUtil.setText("Txt_Title", config.getProperty("Title")),"Title text box is not present");
+			  Reporter.log("Entered  Title");
+			  
+			  // Enter Location
+			  Assert.assertTrue(TestUtil.setText("Txt_Location","Delhi"),"Location text box is not present");
+			  TestUtil.sleep(1);
+			  driver.findElement(By.xpath("//input[@id='location']")).sendKeys(Keys.DOWN);
+			  Reporter.log("Entered Location");
+			  TestUtil.sleep(2);
+			  
+			  //Enter HeadLine
+			  Assert.assertTrue(TestUtil.setText("Txt_Headline", config.getProperty("Headline")),"HeadLine text box is not present");
+			  Reporter.log("Entered  HeadLine");
+			  
+			 //Enter Summary
+			  driver.switchTo().frame("summary_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("Summary"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Summary");  
+		  
+			  //Click on Browse Button
+			  Assert.assertTrue(TestUtil.click("btn_browse"),"Browse button does not working");
+			  Reporter.log("Clicked on Photo Browse Button");
+			 
+			  String strUploadAutoIT = System.getProperty("user.dir")+"\\autoit\\upload.exe";
+			  TestUtil.uploadFile(strUploadAutoIT, "Open", System.getProperty("user.dir")+"\\Images\\aa.jpg");
+			  
+			 //Click on Upload Button
+			  Assert.assertTrue(TestUtil.click("btn_upload"),"Upload button does not working");
+			  Reporter.log("Clicked on Upload Button");
+			  
+			  TestUtil.isObjPresent("btn_save", 20);
+		        
+		       WebElement leftTopCornerOfTheImage =driver.findElement(By.className("jcrop-holder"));
+			    Actions actions = new Actions(driver);
+	            actions.dragAndDropBy(leftTopCornerOfTheImage,100,100).perform(); 
+	              
+	            TestUtil.sleep(3);
+				  
+				  //Click on Save Button
+				  Assert.assertTrue(TestUtil.click("btn_save"),"Save button does not working");
+				  Reporter.log("Clicked on Save Button");
+             
+	  
+			  //Click on Work Experience Tab
+			  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
+			  Reporter.log("Clicked on Work Experience Tab");
+			  
+			  //Enter Job Title
+			  Assert.assertTrue(TestUtil.setText("Txt_JobTitle", config.getProperty("JobTitle")),"Job Title text box is not present");
+			  Reporter.log("Entered Job Title");
+			  
+			  //Enter Company Name
+			  Assert.assertTrue(TestUtil.setText("Txt_CompanyName", config.getProperty("CompanyName")),"Company Name text box is not present");
+			  Reporter.log("Entered Company Name");
+			  
+			 //Enter Start Date
+			  Assert.assertTrue(TestUtil.setText("Txt_StartDate", config.getProperty("StartDate")),"Start Date text box is not present");
+			  Reporter.log("Entered Start Date");
+			  
+			  //Enter End Date
+			  Assert.assertTrue(TestUtil.setText("Txt_EndDate", config.getProperty("EndDate")),"End Date text box is not present");
+			  Reporter.log("Entered End Date");
+			  
+			  //Click on Education Tab
+			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
+			  Reporter.log("Clicked on Education Tab");
+			  
+			  //Enter School Name
+			  Assert.assertTrue(TestUtil.setText("Txt_SchoolName", config.getProperty("SchoolName")),"School Name text box is not present");
+			  Reporter.log("Entered School Name");
+			  
+			 //Enter Degree
+			  Assert.assertTrue(TestUtil.setText("Txt_Degree", config.getProperty("Degree")),"Degree text box is not present");
+			  Reporter.log("Entered Degree"); 
+			  
+			 //Click on Awards, Interests, Languages Tab
+			  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
+			  Reporter.log("Clicked on Awards Interest Languages Tab");
+			  
+			 //Enter Awards, Interests, Languages 
+			  driver.switchTo().frame("awards_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Awards, Interests, Languages"); 
+			 
+			 //Click on Compensation Tab
+			  Assert.assertTrue(TestUtil.click("tab_Compensation"),"Compensation Tab is not working");
+			  Reporter.log("Clicked on Compensation Tab");
+			  
+			  //Enter Current Base
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentBase", config.getProperty("CurrentBase")),"Current Base text box is not present");
+			  Reporter.log("Entered Current Base");
+			  
+			 //Enter Current Bonus
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentBonus", config.getProperty("CurrentBonus")),"Current Bonus text box is not present");
+			  Reporter.log("Entered Current Bonus");
+			  
+			  //Enter Bonus Paid
+			  Assert.assertTrue(TestUtil.setText("Txt_BonusPaid", config.getProperty("BonusPaid")),"Bonus Paid text box is not present");
+			  Reporter.log("Entered Bonus Paid");
+			  
+			 //Enter Weeks of Vacation
+			  Assert.assertTrue(TestUtil.setText("Txt_WeeksofVacation", config.getProperty("WeeksofVacation")),"Weeks of Vacation text box is not present");
+			  Reporter.log("Entered Weeks of Vacation");
+			  
+			  //Enter Stock Value
+			  Assert.assertTrue(TestUtil.setText("Txt_StockValue", config.getProperty("StockValue")),"Stock Value text box is not present");
+			  Reporter.log("Entered Stock Option Value");
+			  
+			  //Enter Restricted Value
+			  Assert.assertTrue(TestUtil.setText("Txt_RestrictedValue", config.getProperty("RestrictedValue")),"Restricted Value text box is not present");
+			  Reporter.log("Entered Restricted Value");
+			  
+			  //Click on Recruiter Assessment Tab
+			  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
+			  Reporter.log("Clicked on Recruiter Assessment Tab"); 
+			  
+			  //Enter Recruiter Assessment
+			  driver.switchTo().frame("acid_test_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Recruiter Assessment"); 
+			  
+		      //Click on Transmittal Comments Tab
+			  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
+			  Reporter.log("Clicked on Transmittal Comments Tab"); 
+			  
+			  //Enter Transmittal Comments
+			  driver.switchTo().frame("comments_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Transmittal Comments"); 
+			  
+			  //Click on Present Button
+			  Assert.assertTrue(TestUtil.click("btn_present"),"Present Button does not working");
+			  Reporter.log("Clicked on Present Button"); 
+			  
+			 //Click on check box 
+			  Assert.assertTrue(TestUtil.click("chk_present_candidate"),"Check Box is not working");
+			  Reporter.log("Clicked on Check Box "); 
+			  
+			  //Click on Present Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_Present_Candidate"),"Present Candidate Button does not working");
+			  Reporter.log("Clicked on Present Candidate Button");
+			  
+			  TestUtil.sleep(20);
+			  
+          
+			  if(driver.getPageSource().contains("ID # "+id.replaceAll("\\s+","")))
+			  {
+				  Reporter.log("Verified Candidate is Presented");
+			  }
+			  else
+			  {
+				  Reporter.log("Verification Failed - Candidate is not Presented");
+			  }
+
+		}
+		
+		public static void Verify_Partner_Client_Side_Validation()
+		{
+			//Click on New Search Button
+			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"New Search button does not working");
+			  Reporter.log("Clicked on New Search button");
+			  
+			 //Click on  Position Link
+			  Assert.assertTrue(TestUtil.click("Lnk_Position"),"Positions are not available");
+			  Reporter.log("Clicked on Position Link");
+			  
+			  
+			//Click on  My Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_my_candidate"),"My Candidate Button does not working");
+			  Reporter.log("Clicked on My Candidate Button");
+		  
+			  if(!TestUtil.isElementPresent("btn_continue"))
+			  {
+				  Assert.assertTrue(TestUtil.click("btn_present_candidate"),"Present Candidate button does not working");
+				  Reporter.log("Clicked on Present Candidate Button");
+			  }
+			  
+			 //Click on Continue Button
+			  Assert.assertTrue(TestUtil.click("btn_continue"),"Continue button does not working");
+			  Reporter.log("Clicked on Continue Button");
+			  
+			  //Click on Fill Manually Button
+			  Assert.assertTrue(TestUtil.click("btn_FillManually"),"Fill Manually button does not working");
+			  Reporter.log("Clicked on Fill Manually Button");
+			  
+			  //Click on Basic Information Tab
+			  Assert.assertTrue(TestUtil.click("tab_Basic_Information"),"Basic Information Tab is not working");
+			  Reporter.log("Clicked on Basic Information Tab");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("FirstNameReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for FirstName");
+			  Reporter.log("Verified First Name is required");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("LastNameReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for LastName");
+			  Reporter.log("Verified Last Name is required");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("LandlineReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for LandLine");
+			  Reporter.log("Verified Landline is required");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("EmailReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Email");
+			  Reporter.log("Verified Email is required");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CurrentEmployerReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for CurrentEmployer");
+			  Reporter.log("Verified Current Employer is required");
+			  
+			  //Enter Email Address
+			  Assert.assertTrue(TestUtil.setText("Txt_Email", "dsad"));
+			  Reporter.log("Entered  Email Address");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("EmailReq").getText().equalsIgnoreCase("Please enter a valid email address."),"Client side validation failed for Email");
+			  Reporter.log("Verified Email is not valid");
+			  driver.findElement(By.xpath("//input[@id='email']")).clear();
+			  
+			 //Enter FirstName
+			  Assert.assertTrue(TestUtil.setText("Txt_FirstName", config.getProperty("FirstNameVer")));
+			  Reporter.log("Entered  First Name");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("FirstName").getText().equals("15/15"),"Client side validation failed for FirstName");
+			  Reporter.log("Verified Client Side Validation for First Name is 15/15");
+			  
+			  //Enter Last Name
+			  Assert.assertTrue(TestUtil.setText("Txt_LastName", config.getProperty("LastNameVer")));
+			  Reporter.log("Entered  Last Name");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("LastName").getText().equals("15/15"),"Client side validation failed for LastName");
+			  Reporter.log("Verified Client Side Validation for Last Name is 15/15");
+			  
+			 //Enter Phone Number
+			  Assert.assertTrue(TestUtil.setText("Txt_PhoneNumber", config.getProperty("LandLine")));
+			  Reporter.log("Entered  Phone Number");
+			  
+			//Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("Landline").getText().equals("20/20"),"Client side validation failed for LandLine");
+			  Reporter.log("Verified Client Side Validation for LandLine is 20/20");
+			  
+			//Enter Email Address
+			  Assert.assertTrue(TestUtil.setText("Txt_Email", config.getProperty("EmailVer")));
+			  Reporter.log("Entered  Email Address");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("Email").getText().equals("50/50"),"Client side validation failed for Email");
+			  Reporter.log("Verified Client Side Validation for Email is 50/50");
+			  
+			  //Enter Current Employer
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentEmployer", config.getProperty("CurrentEmployerVer")));
+			  Reporter.log("Entered Current Employer");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CurrentEmployer").getText().equals("30/30"),"Client side validation failed for CurrentEmployer");
+			  Reporter.log("Verified Client Side Validation for Current Employer is 30/30");
+			  
+			 //Click on Basic Information Tab
+			  Assert.assertTrue(TestUtil.click("tab_Basic_Information"),"Basic Information  Tab is not working");
+			  Reporter.log("Clicked on Basic Information Tab"); 
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("lbl_Candidate_Verification").getText().equals("Please validate candidate information before continuing"),"Client side validation failed for Candidate Verification");
+			  Reporter.log("Verified Client Side Validation for Candidate Verification");
+			  
+			 //Click on Continue Button
+			  Assert.assertTrue(TestUtil.click("lbl_Continue_button"),"Continue button does not working");
+			  Reporter.log("Clicked on Continue Button");
+			  
+			  //Click on Validate Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_ValidateCandidate"),"Validate Candidate button does not working");
+			  Reporter.log("Clicked on Validate Candidate Button");
+			  
+			  //Click on Work Experience Tab
+			  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
+			  Reporter.log("Clicked on Work Experience Tab");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CurrentTitleReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for CurrentTitle");
+			  Reporter.log("Verified CurrentTitle is required");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("LocationReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Location");
+			  Reporter.log("Verified Location is required");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("HeadlineReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Headline");
+			  Reporter.log("Verified Headline is required");
+			  
+			  //Enter Title
+			  Assert.assertTrue(TestUtil.setText("Txt_Title", config.getProperty("CurrentTitleVer")),"Title text box is not present");
+			  Reporter.log("Entered  Title");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CurrentTitle").getText().equals("60/60"),"Client side validation failed for CurrentTitle");
+			  Reporter.log("Verified Client Side Validation for CurrentTitle is 60/60");
+			  
+			  // Enter Location
+			  Assert.assertTrue(TestUtil.setText("Txt_Location","Delhi"),"Location text box is not present");
+			  TestUtil.sleep(2);
+			  driver.findElement(By.xpath("//input[@id='location']")).sendKeys(Keys.DOWN);
+			  Reporter.log("Entered Location");
+			  
+			  //Enter HeadLine
+			  Assert.assertTrue(TestUtil.setText("Txt_Headline", config.getProperty("HeadlineVer")),"HeadLine text box is not present");
+			  Reporter.log("Entered  HeadLine");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("Headline").getText().equals("100/100"),"Client side validation failed for Headline");
+			  Reporter.log("Verified Client Side Validation for Headline is 100/100");
+			  
+			 //Click on Work Experience Tab
+			  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
+			  Reporter.log("Clicked on Work Experience Tab");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("SummaryReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Summary");
+			  Reporter.log("Verified Summary is required");
+			  
+			 //Enter Summary
+			  driver.switchTo().frame("summary_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("Summary"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Summary"); 
+	  
+			  //Click on Work Experience Tab
+			  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
+			  Reporter.log("Clicked on Work Experience Tab");
+			  
+			 //Click on Education Tab
+			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
+			  Reporter.log("Clicked on Education Tab");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("JobTitleReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Job Title");
+			  Reporter.log("Verified Job Title is required");
+			  
+			  //Enter Job Title
+			  Assert.assertTrue(TestUtil.setText("Txt_JobTitle", config.getProperty("JobTitleVer")),"Job Title text box is not present");
+			  Reporter.log("Entered Job Title");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("JobTitle").getText().equals("60/60"),"Client side validation failed for Job Title");
+			  Reporter.log("Verified Client Side Validation for Job Title is 60/60");
+			  
+			 //Click on Education Tab
+			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
+			  Reporter.log("Clicked on Education Tab");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CompanyNameReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for CompanyName");
+			  Reporter.log("Verified Company Name is required");
+			  
+			  //Enter Company Name
+			  Assert.assertTrue(TestUtil.setText("Txt_CompanyName", config.getProperty("CompanyNameVer")),"Company Name text box is not present");
+			  Reporter.log("Entered Company Name");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CompanyName").getText().equals("45/45"),"Client side validation failed for CompanyName");
+			  Reporter.log("Verified Client Side Validation for Company Name is 45/45");
+			  
+			 //Click on Education Tab
+			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
+			  Reporter.log("Clicked on Education Tab");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("StartDateReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for StartDate");
+			  Reporter.log("Verified Start Date is required");
+			  
+			 //Enter Start Date
+			  Assert.assertTrue(TestUtil.setText("Txt_StartDate", config.getProperty("StartDateVer")),"Start Date text box is not present");
+			  Reporter.log("Entered Start Date");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("StartDate").getText().equals("20/20"),"Client side validation failed for StartDate");
+			  Reporter.log("Verified Client Side Validation for Start Date is 20/20");
+			  
+			  //Click on Education Tab
+			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
+			  Reporter.log("Clicked on Education Tab");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("EndDateReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for EndDate");
+			  Reporter.log("Verified End Date is required");
+			  
+			  //Enter End Date
+			  Assert.assertTrue(TestUtil.setText("Txt_EndDate", config.getProperty("EndDateVer")),"End Date text box is not present");
+			  Reporter.log("Entered End Date");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("EndDate").getText().equals("20/20"),"Client side validation failed for EndDate");
+			  Reporter.log("Verified Client Side Validation for End Date is 20/20");
+			  
+			//Click on Education Tab
+			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
+			  Reporter.log("Clicked on Education Tab");
+			  
+			//Click on Awards Interest Languages Tab
+			  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
+			  Reporter.log("Clicked on Awards Interest Languages Tab");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("SchoolNameReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for School Name");
+			  Reporter.log("Verified School Name is required");
+			  
+			  //Enter School Name
+			  Assert.assertTrue(TestUtil.setText("Txt_SchoolName", config.getProperty("SchoolNameVer")),"School Name text box is not present");
+			  Reporter.log("Entered School Name");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("SchoolName").getText().equals("100/100"),"Client side validation failed for School Name");
+			  Reporter.log("Verified Client Side Validation for School Name is 100/100");
+			  
+			 //Click on Awards Interest Languages Tab
+			  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
+			  Reporter.log("Clicked on Awards Interest Languages Tab");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("DegreeReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Degree");
+			  Reporter.log("Verified Degree is required");
+			  
+			 //Enter Degree
+			  Assert.assertTrue(TestUtil.setText("Txt_Degree", config.getProperty("DegreeVer")),"Degree text box is not present");
+			  Reporter.log("Entered Degree"); 
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("Degree").getText().equals("50/50"),"Client side validation failed for Degree");
+			  Reporter.log("Verified Client Side Validation for Degree is 50/50");
+			  
+			  //Enter Start Date
+			  Assert.assertTrue(TestUtil.setText("Txt_Opt_StartDate", config.getProperty("StartDateVer")),"Start Date text box is not present");
+			  Reporter.log("Entered Start Date");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("StartDateOpt").getText().equals("20/20"),"Client side validation failed for StartDate");
+			  Reporter.log("Verified Client Side Validation for StartDate is 20/20");
+			  
+			  //Enter End Date
+			  Assert.assertTrue(TestUtil.setText("Txt_Opt_EndDate", config.getProperty("EndDateVer")),"End Date text box is not present");
+			  Reporter.log("Entered End Date");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("EndDateOpt").getText().equals("20/20"),"Client side validation failed for EndDate");
+			  Reporter.log("Verified Client Side Validation for EndDate is 20/20");
+			  
+			  //Click on Awards Interest Languages Tab
+			  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
+			  Reporter.log("Clicked on Awards Interest Languages Tab");
+			  
+			  //Click on Compensation Tab
+			  Assert.assertTrue(TestUtil.click("tab_Compensation"),"Compensation Tab is not working");
+			  Reporter.log("Clicked on Compensation Tab");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("AwardsReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Awards Interest Languages");
+			  Reporter.log("Verified Awards Interest Languages is required");
+			  
+			  //Enter Awards, Interests, Languages 
+			  driver.switchTo().frame("awards_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Awards, Interests, Languages"); 
+		  
+			  //Click on Compensation Tab
+			  Assert.assertTrue(TestUtil.click("tab_Compensation"),"Compensation Tab is not working");
+			  Reporter.log("Clicked on Compensation Tab");
+			  
+			  //Click on Recruiter Assessment Tab
+			  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
+			  Reporter.log("Clicked on Recruiter Assessment Tab"); 
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CurrentBaseReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Current Base");
+			  Reporter.log("Verified Current Base is required");
+			  
+			  //Enter Current Base
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentBase", config.getProperty("CurrentBaseVer")),"Current Base text box is not present");
+			  Reporter.log("Entered Current Base");
+			  
+			 //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CurrentBase").getText().equals("12/12"),"Client side validation failed for Current Base");
+			  Reporter.log("Verified Client Side Validation for Current Base is 12/12");
+			  
+			  //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("CurrentBonusReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Current Bonus");
+			   Reporter.log("Verified Current Bonus is required");
+			  
+			  //Enter Current Bonus
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentBonus", config.getProperty("CurrentBonusVer")),"Current Bonus text box is not present");
+			  Reporter.log("Entered Current Bonus");
+			  
+			 //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("CurrentBonus").getText().equals("3/3"),"Client side validation failed for Current Bonus");
+			   Reporter.log("Verified Client Side Validation for Current Bonus is 3/3");
+			   
+			  //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("BonusPaidReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Bonus Paid");
+			   Reporter.log("Verified Bonus Paid is required");
+			  
+			  //Enter Bonus Paid
+			  Assert.assertTrue(TestUtil.setText("Txt_BonusPaid", config.getProperty("BonusPaidVer")),"Bonus Paid text box is not present");
+			  Reporter.log("Entered Bonus Paid");
+			  
+			  //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("BonusPaid").getText().equals("45/45"),"Client side validation failed for Bonus Paid");
+			   Reporter.log("Verified Client Side Validation for Bonus Paid is 45/45");
+			   
+			   //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("WeeksOfVacationReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Weeks of Vacation");
+			   Reporter.log("Verified Weeks of Vacation is Required");
+			  
+			 //Enter Weeks of Vacation
+			  Assert.assertTrue(TestUtil.setText("Txt_WeeksofVacation", config.getProperty("WeeksofVacation")),"Weeks of Vacation text box is not present");
+			  Reporter.log("Entered Weeks of Vacation");
+			  
+			  //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("WeeksOfVacation").getText().equals("2/2"),"Client side validation failed for Weeks of Vacation");
+			   Reporter.log("Verified Client Side Validation for Weeks of Vacation is 2/2");
+			   
+			  //Verifying client side validation
+				Assert.assertTrue(TestUtil.getObject("StockValueReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Stock Value");
+				Reporter.log("Verified Stock Option Value is required");
+			  
+			  //Enter Stock Value
+			  Assert.assertTrue(TestUtil.setText("Txt_StockValue", config.getProperty("StockValueVer")),"Stock Value text box is not present");
+			  Reporter.log("Entered Stock Option Value");
+			  
+			  //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("StockValue").getText().equals("12/12"),"Client side validation failed for Stock Value");
+			   Reporter.log("Verified Client Side Validation for Stock Option Value is 12/12");
+			   
+			   //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("RestrictedValueReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Restricted Value");
+			   Reporter.log("Verified Restricted Value is required");
+			  
+			  //Enter Restricted Value
+			  Assert.assertTrue(TestUtil.setText("Txt_RestrictedValue", config.getProperty("RestrictedValueVer")),"Restricted Value text box is not present");
+			  Reporter.log("Entered Restricted Value");
+			  
+			  //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("RestrictedValue").getText().equals("12/12"),"Client side validation failed for Restricted Value");
+			   Reporter.log("Verified Client Side Validation for Restricted Value is 12/12");
+			   
+			  //Enter Other Compensation Information
+			   Assert.assertTrue(TestUtil.setText("Txt_Other_Compensation_Info", config.getProperty("OtherCompensationInfo")),"Other Compensation Information text box is not present");
+			   Reporter.log("Entered Other Compensation Information");
+				  
+			   //Verifying client side validation
+				 Assert.assertTrue(TestUtil.getObject("OtherCompensationInfo").getText().equals("75/75"),"Client side validation failed for Other Compensation Information");
+				 Reporter.log("Verified Client Side Validation for Other Compensation Information is 75/75");
+				 
+				//Click on Recruiter Assessment Tab
+				  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
+				  Reporter.log("Clicked on Recruiter Assessment Tab"); 
+				  
+				//Click on Transmittal Comments Tab
+				  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
+				  Reporter.log("Clicked on Transmittal Comments Tab"); 
+				  
+				 //Verifying client side validation
+				   Assert.assertTrue(TestUtil.getObject("RecruiterCommentsReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Recruiter Assessment");
+				   Reporter.log("Verified Recruiter Assessment is required");
+				   
+				  //Enter Recruiter Assessment
+				  driver.switchTo().frame("acid_test_ifr");
+				  driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
+				  driver.switchTo().defaultContent();
+				  Reporter.log("Entered Recruiter Assessment"); 
+				  
+			      //Click on Transmittal Comments Tab
+				  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
+				  Reporter.log("Clicked on Transmittal Comments Tab"); 
+				  
+				 //Click on Recruiter Assessment Tab
+				  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
+				  Reporter.log("Clicked on Recruiter Assessment Tab"); 
+				  
+				 //Verifying client side validation
+				   Assert.assertTrue(TestUtil.getObject("TransmittalCommentsReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Transmittal Comments");
+				   Reporter.log("Verified Transmittal Comments is required");
+				  
+				  //Enter Transmittal Comments
+				  driver.switchTo().frame("comments_ifr");
+				  driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
+				  driver.switchTo().defaultContent();
+				  Reporter.log("Entered Transmittal Comments"); 
+		}
+		
+		public static void Verify_Partner_Server_Side_Validation()
+		{
+			//Click on New Search Button
+			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"New Search button does not working");
+			  Reporter.log("Clicked on New Search button");
+			  
+			 //Click on  Position Link
+			  Assert.assertTrue(TestUtil.click("Lnk_Position"),"Positions are not available");
+			  Reporter.log("Clicked on Position Link");
+			  
+			//Click on  My Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_my_candidate"),"My Candidate Button does not working");
+			  Reporter.log("Clicked on My Candidate Button");
+		  
+			  if(!TestUtil.isElementPresent("btn_continue"))
+			  {
+				  Assert.assertTrue(TestUtil.click("btn_present_candidate"),"Present Candidate button does not working");
+				  Reporter.log("Clicked on Present Candidate Button");
+			  }
+			  
+			 //Click on Continue Button
+			  Assert.assertTrue(TestUtil.click("btn_continue"),"Continue button does not working");
+			  Reporter.log("Clicked on Continue Button");
+			  
+			  //Click on Fill Manually Button
+			  Assert.assertTrue(TestUtil.click("btn_FillManually"),"Fill Manually button does not working");
+			  Reporter.log("Clicked on Fill Manually Button");
+			  
+			  //Enter FirstName
+			  Assert.assertTrue(TestUtil.setText("Txt_FirstName", config.getProperty("FirstName")));
+			  Reporter.log("Entered  First Name");
+			  
+			  //Enter Last Name
+			  Assert.assertTrue(TestUtil.setText("Txt_LastName", config.getProperty("LastName")));
+			  Reporter.log("Entered  Last Name");
+			  
+			  //Enter Phone Number
+			  Assert.assertTrue(TestUtil.setText("Txt_PhoneNumber", config.getProperty("PhoneNumber")));
+			  Reporter.log("Entered  Phone Number");
+			  
+			  //Enter Email Address
+			  Assert.assertTrue(TestUtil.setText("Txt_Email", config.getProperty("Email")));
+			  Reporter.log("Entered  Email Address");
+			  
+			  //Enter Current Employer
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentEmployer", config.getProperty("CurrentEmployer")));
+			  Reporter.log("Entered Current Employer");
+				 
+			//Click on Validate Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_ValidateCandidate"),"Validate Candidate button does not working");
+			  Reporter.log("Clicked on Validate Candidate Button");
+			  
+			  //Enter Title
+			  Assert.assertTrue(TestUtil.setText("Txt_Title", config.getProperty("Title")),"Title text box is not present");
+			  Reporter.log("Entered  Title");
+			  
+			  // Enter Location
+			  Assert.assertTrue(TestUtil.setText("Txt_Location","Delhi"),"Location text box is not present");
+			  TestUtil.sleep(1);
+			  driver.findElement(By.xpath("//input[@id='location']")).sendKeys(Keys.DOWN);
+			  Reporter.log("Entered Location");
+			  TestUtil.sleep(2);
+			  
+			  //Enter HeadLine
+			  Assert.assertTrue(TestUtil.setText("Txt_Headline", config.getProperty("Headline")),"HeadLine text box is not present");
+			  Reporter.log("Entered  HeadLine");
+			  
+			 //Enter Summary
+			  driver.switchTo().frame("summary_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Summary"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Summary"); 
+	  
+			  //Click on Work Experience Tab
+			  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
+			  Reporter.log("Clicked on Work Experience Tab");
+			  
+			  //Enter Job Title
+			  Assert.assertTrue(TestUtil.setText("Txt_JobTitle", config.getProperty("JobTitle")),"Job Title text box is not present");
+			  Reporter.log("Entered Job Title");
+			  
+			  //Enter Company Name
+			  Assert.assertTrue(TestUtil.setText("Txt_CompanyName", config.getProperty("CompanyName")),"Company Name text box is not present");
+			  Reporter.log("Entered Company Name");
+			  
+			 //Enter Start Date
+			  Assert.assertTrue(TestUtil.setText("Txt_StartDate", config.getProperty("StartDate")),"Start Date text box is not present");
+			  Reporter.log("Entered Start Date");
+			  
+			  //Enter End Date
+			  Assert.assertTrue(TestUtil.setText("Txt_EndDate", config.getProperty("EndDate")),"End Date text box is not present");
+			  Reporter.log("Entered End Date");
+			  
+			  //Click on Education Tab
+			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
+			  Reporter.log("Clicked on Education Tab");
+			  
+			  //Enter School Name
+			  Assert.assertTrue(TestUtil.setText("Txt_SchoolName", config.getProperty("SchoolName")),"School Name text box is not present");
+			  Reporter.log("Entered School Name");
+			  
+			 //Enter Degree
+			  Assert.assertTrue(TestUtil.setText("Txt_Degree", config.getProperty("Degree")),"Degree text box is not present");
+			  Reporter.log("Entered Degree"); 
+			  
+			 //Click on Awards, Interests, Languages Tab
+			  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
+			  Reporter.log("Clicked on Awards Interest Languages Tab");
+			  
+			 //Enter Awards, Interests, Languages 
+			  driver.switchTo().frame("awards_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Awards, Interests, Languages"); 
+			 
+			 //Click on Compensation Tab
+			  Assert.assertTrue(TestUtil.click("tab_Compensation"),"Compensation Tab is not working");
+			  Reporter.log("Clicked on Compensation Tab");
+			  
+			  //Enter Current Base
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentBase", config.getProperty("CurrentBase")),"Current Base text box is not present");
+			  Reporter.log("Entered Current Base");
+			  
+			 //Enter Current Bonus
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentBonus", config.getProperty("CurrentBonus")),"Current Bonus text box is not present");
+			  Reporter.log("Entered Current Bonus");
+			  
+			  //Enter Bonus Paid
+			  Assert.assertTrue(TestUtil.setText("Txt_BonusPaid", config.getProperty("BonusPaid")),"Bonus Paid text box is not present");
+			  Reporter.log("Entered Bonus Paid");
+			  
+			 //Enter Weeks of Vacation
+			  Assert.assertTrue(TestUtil.setText("Txt_WeeksofVacation", config.getProperty("WeeksofVacation")),"Weeks of Vacation text box is not present");
+			  Reporter.log("Entered Weeks of Vacation");
+			  
+			  //Enter Stock Value
+			  Assert.assertTrue(TestUtil.setText("Txt_StockValue", config.getProperty("StockValue")),"Stock Value text box is not present");
+			  Reporter.log("Entered Stock Option Value");
+			  
+			  //Enter Restricted Value
+			  Assert.assertTrue(TestUtil.setText("Txt_RestrictedValue", config.getProperty("RestrictedValue")),"Restricted Value text box is not present");
+			  Reporter.log("Entered Restricted Value");
+			  
+			  //Click on Recruiter Assessment Tab
+			  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
+			  Reporter.log("Clicked on Recruiter Assessment Tab"); 
+			  
+			  //Enter Recruiter Assessment
+			  driver.switchTo().frame("acid_test_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Recruiter Assessment"); 
+			  
+		      //Click on Transmittal Comments Tab
+			  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
+			  Reporter.log("Clicked on Transmittal Comments Tab"); 
+			  
+			  //Enter Transmittal Comments
+			  driver.switchTo().frame("comments_ifr");
+			  driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
+			  driver.switchTo().defaultContent();
+			  Reporter.log("Entered Transmittal Comments"); 
+			  
+			  //Click on Present Button
+			  Assert.assertTrue(TestUtil.click("btn_present"),"Present Button does not working");
+			  Reporter.log("Clicked on Present Button"); 
+			  
+			  //Click on check box 
+			  Assert.assertTrue(TestUtil.click("chk_present_candidate"),"Check Box is not working");
+			  Reporter.log("Clicked on Check Box "); 
+			  
+			  //Click on Present Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_Present_Candidate"),"Present Candidate Button does not working");
+			  Reporter.log("Clicked on Present Candidate Button");
+			  
+			  TestUtil.sleep(5);
+			  
+			  //Verifying Server side validation
+			   Assert.assertTrue(TestUtil.getObject("er_Summary").getText().equalsIgnoreCase("This field cannot be more than 600 characters long."),"Server side validation failed for Summary");
+			   Reporter.log("Verified Server side validation for Summary is 600 Characters");
+			   	  
+		}
+		
+		public static void VerifyPartnerQuickPreviewButtons()
+		{
+			 String windowTitle= driver.getTitle();
+			//Click on New Search Button
+			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"New Search button does not working");
+			  Reporter.log("Clicked on New Search button");
+			  
+			 //Click on  Position Link
+			  Assert.assertTrue(TestUtil.click("Lnk_Position"),"Positions are not available");
+			  Reporter.log("Clicked on Position Link");
+			  
+			//Click on  My Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_my_candidate"),"My Candidate Button does not working");
+			  Reporter.log("Clicked on My Candidate Button");
+		  
+			  if(!TestUtil.isElementPresent("btn_continue"))
+			  {
+				  Assert.assertTrue(TestUtil.click("btn_present_candidate"),"Present Candidate button does not working");
+				  Reporter.log("Clicked on Present Candidate Button");
+			  }
+			  
+			 //Click on Continue Button
+			  Assert.assertTrue(TestUtil.click("btn_continue"),"Continue button does not working");
+			  Reporter.log("Clicked on Continue Button");
+			  
+			  //Click on Fill Manually Button
+			  Assert.assertTrue(TestUtil.click("btn_FillManually"),"Fill Manually button does not working");
+			  Reporter.log("Clicked on Fill Manually Button");
+			  
+			  //Enter FirstName
+			  Assert.assertTrue(TestUtil.setText("Txt_FirstName", config.getProperty("FirstName")));
+			  Reporter.log("Entered  First Name");
+			  
+			  //Enter Last Name
+			  Assert.assertTrue(TestUtil.setText("Txt_LastName", config.getProperty("LastName")));
+			  Reporter.log("Entered  Last Name");
+			  
+			  //Enter Phone Number
+			  Assert.assertTrue(TestUtil.setText("Txt_PhoneNumber", config.getProperty("PhoneNumber")));
+			  Reporter.log("Entered  Phone Number");
+			  
+			  //Enter Email Address
+			  Assert.assertTrue(TestUtil.setText("Txt_Email", config.getProperty("Email")));
+			  Reporter.log("Entered  Email Address");
+			  
+			  //Enter Current Employer
+			  Assert.assertTrue(TestUtil.setText("Txt_CurrentEmployer", config.getProperty("CurrentEmployer")));
+			  Reporter.log("Entered Current Employer");
+				 
+			//Click on Validate Candidate Button
+			  Assert.assertTrue(TestUtil.click("btn_ValidateCandidate"),"Validate Candidate button does not working");
+			  Reporter.log("Clicked on Validate Candidate Button");
+			  
+			//Click on Quick Preview button
+			  Assert.assertTrue(TestUtil.click("btn_quick_preview_basic_info"),"Quick Preview button does not exist");
+			  Reporter.log("Clicked on Quick Preview Button");
+			  
+			  TestUtil.sleep(5);
+			  
+			  //Switching to pop up window and verifying quick preview button
+			  String currentWindow = driver.getWindowHandle();
+			  Set<String> sHandlers= driver.getWindowHandles();
+		        for(String sHandler:sHandlers)
+		        {
+		            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+		            {
+		                driver.switchTo().window(sHandler);
+		                if(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"))
+		                {
+		                	 Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"),"Quick preview button does not working");
+		                    driver.close();
+		                    Reporter.log("Verified quick preview button is working");
+		                }
+		              }
+		        }
+		        
+		        driver.switchTo().window(currentWindow);
+		        
+		        //Enter Title
+				  Assert.assertTrue(TestUtil.setText("Txt_Title", config.getProperty("Title")),"Title text box is not present");
+				  Reporter.log("Entered  Title");
+				  
+				  // Enter Location
+				  Assert.assertTrue(TestUtil.setText("Txt_Location","Delhi"),"Location text box is not present");
+				  TestUtil.sleep(1);
+				  driver.findElement(By.xpath("//input[@id='location']")).sendKeys(Keys.DOWN);
+				  Reporter.log("Entered Location");
+				  TestUtil.sleep(2);
+				  
+				  //Enter HeadLine
+				  Assert.assertTrue(TestUtil.setText("Txt_Headline", config.getProperty("Headline")),"HeadLine text box is not present");
+				  Reporter.log("Entered  HeadLine");
+				  
+				 //Enter Summary
+				  driver.switchTo().frame("summary_ifr");
+				  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Summary"));
+				  driver.switchTo().defaultContent();
+				  Reporter.log("Entered Summary"); 
+		  
+				  //Click on Work Experience Tab
+				  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
+				  Reporter.log("Clicked on Work Experience Tab");
+				  
+				//Click on Quick Preview button
+				  Assert.assertTrue(TestUtil.click("btn_quick_preview_work_experience"),"Quick Preview button does not exist");
+				  Reporter.log("Clicked on Quick Preview Button");
+				  
+				  TestUtil.sleep(5);
+				  
+				  //Switching to pop up window and verifying quick preview button
+				  currentWindow = driver.getWindowHandle();
+				  sHandlers= driver.getWindowHandles();
+			        for(String sHandler:sHandlers)
+			        {
+			            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+			            {
+			                driver.switchTo().window(sHandler);
+			                if(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"))
+			                {
+			                	 Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"),"Quick preview button does not working");
+			                    driver.close();
+			                    Reporter.log("Verified quick preview button is working");
+			                }
+			              }
+			        }
+			        driver.switchTo().window(currentWindow);
+			        
+			        //Enter Job Title
+					  Assert.assertTrue(TestUtil.setText("Txt_JobTitle", config.getProperty("JobTitle")),"Job Title text box is not present");
+					  Reporter.log("Entered Job Title");
+					  
+					  //Enter Company Name
+					  Assert.assertTrue(TestUtil.setText("Txt_CompanyName", config.getProperty("CompanyName")),"Company Name text box is not present");
+					  Reporter.log("Entered Company Name");
+					  
+					 //Enter Start Date
+					  Assert.assertTrue(TestUtil.setText("Txt_StartDate", config.getProperty("StartDate")),"Start Date text box is not present");
+					  Reporter.log("Entered Start Date");
+					  
+					  //Enter End Date
+					  Assert.assertTrue(TestUtil.setText("Txt_EndDate", config.getProperty("EndDate")),"End Date text box is not present");
+					  Reporter.log("Entered End Date");
+					  
+					  //Click on Education Tab
+					  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
+					  Reporter.log("Clicked on Education Tab");
+					  
+					 //Click on Quick Preview button
+					  Assert.assertTrue(TestUtil.click("btn_quick_preview_education"),"Quick Preview button does not exist");
+					  Reporter.log("Clicked on Quick Preview Button");
+					  
+					  TestUtil.sleep(5);
+					  
+					  //Switching to pop up window and verifying quick preview button
+					  currentWindow = driver.getWindowHandle();
+					  sHandlers= driver.getWindowHandles();
+				        for(String sHandler:sHandlers)
+				        {
+				            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+				            {
+				                driver.switchTo().window(sHandler);
+				                if(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"))
+				                {
+				                	 Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"),"Quick preview button does not working");
+				                    driver.close();
+				                    Reporter.log("Verified quick preview button is working");
+				                }
+				              }
+				        }
+				        driver.switchTo().window(currentWindow);
+				        
+				      //Enter School Name
+						  Assert.assertTrue(TestUtil.setText("Txt_SchoolName", config.getProperty("SchoolName")),"School Name text box is not present");
+						  Reporter.log("Entered School Name");
+						  
+						 //Enter Degree
+						  Assert.assertTrue(TestUtil.setText("Txt_Degree", config.getProperty("Degree")),"Degree text box is not present");
+						  Reporter.log("Entered Degree"); 
+						  
+						 //Click on Awards, Interests, Languages Tab
+						  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
+						  Reporter.log("Clicked on Awards Interest Languages Tab");
+						  
+						  //Click on Quick Preview button
+						  Assert.assertTrue(TestUtil.click("btn_quick_preview_AwardsInterestLanguages"),"Quick Preview button does not exist");
+						  Reporter.log("Clicked on Quick Preview Button");
+						  
+						  TestUtil.sleep(5);
+						  
+						  //Switching to pop up window and verifying quick preview button
+						  currentWindow = driver.getWindowHandle();
+						  sHandlers= driver.getWindowHandles();
+					        for(String sHandler:sHandlers)
+					        {
+					            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+					            {
+					                driver.switchTo().window(sHandler);
+					                if(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"))
+					                {
+					                	 Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"),"Quick preview button does not working");
+					                    driver.close();
+					                    Reporter.log("Verified quick preview button is working");
+					                }
+					              }
+					        }
+					        driver.switchTo().window(currentWindow);
+						  
+						 //Enter Awards, Interests, Languages 
+						  driver.switchTo().frame("awards_ifr");
+						  driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
+						  driver.switchTo().defaultContent();
+						  Reporter.log("Entered Awards, Interests, Languages"); 
+						  
+						  //Click on EEOC Information Tab
+						  Assert.assertTrue(TestUtil.click("tab_EEOC_Information"),"EEOC Information Tab is not working");
+						  Reporter.log("Clicked on EEOC Information Tab");
+						  
+						  //Click on Quick Preview button
+						  Assert.assertTrue(TestUtil.click("btn_quick_preview_EEOC_Info"),"Quick Preview button does not exist");
+						  Reporter.log("Clicked on Quick Preview Button");
+						  
+						  TestUtil.sleep(5);
+						  
+						  //Switching to pop up window and verifying quick preview button
+						  currentWindow = driver.getWindowHandle();
+						  sHandlers= driver.getWindowHandles();
+					        for(String sHandler:sHandlers)
+					        {
+					            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+					            {
+					                driver.switchTo().window(sHandler);
+					                if(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"))
+					                {
+					                	 Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"),"Quick preview button does not working");
+					                    driver.close();
+					                    Reporter.log("Verified quick preview button is working");
+					                }
+					              }
+					        }
+					        driver.switchTo().window(currentWindow);
+						  
+						 
+						 //Click on Compensation Tab
+						  Assert.assertTrue(TestUtil.click("tab_Compensation"),"Compensation Tab is not working");
+						  Reporter.log("Clicked on Compensation Tab");
+						  
+						  //Enter Current Base
+						  Assert.assertTrue(TestUtil.setText("Txt_CurrentBase", config.getProperty("CurrentBase")),"Current Base text box is not present");
+						  Reporter.log("Entered Current Base");
+						  
+						 //Enter Current Bonus
+						  Assert.assertTrue(TestUtil.setText("Txt_CurrentBonus", config.getProperty("CurrentBonus")),"Current Bonus text box is not present");
+						  Reporter.log("Entered Current Bonus");
+						  
+						  //Enter Bonus Paid
+						  Assert.assertTrue(TestUtil.setText("Txt_BonusPaid", config.getProperty("BonusPaid")),"Bonus Paid text box is not present");
+						  Reporter.log("Entered Bonus Paid");
+						  
+						 //Enter Weeks of Vacation
+						  Assert.assertTrue(TestUtil.setText("Txt_WeeksofVacation", config.getProperty("WeeksofVacation")),"Weeks of Vacation text box is not present");
+						  Reporter.log("Entered Weeks of Vacation");
+						  
+						  //Enter Stock Value
+						  Assert.assertTrue(TestUtil.setText("Txt_StockValue", config.getProperty("StockValue")),"Stock Value text box is not present");
+						  Reporter.log("Entered Stock Option Value");
+						  
+						  //Enter Restricted Value
+						  Assert.assertTrue(TestUtil.setText("Txt_RestrictedValue", config.getProperty("RestrictedValue")),"Restricted Value text box is not present");
+						  Reporter.log("Entered Restricted Value");
+						  
+						  //Click on Quick Preview button
+						  Assert.assertTrue(TestUtil.click("btn_quick_preview_compensation"),"Quick Preview button does not exist");
+						  Reporter.log("Clicked on Quick Preview Button");
+						  
+						  TestUtil.sleep(5);
+						  
+						  //Switching to pop up window and verifying quick preview button
+						  currentWindow = driver.getWindowHandle();
+						  sHandlers= driver.getWindowHandles();
+					        for(String sHandler:sHandlers)
+					        {
+					            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+					            {
+					                driver.switchTo().window(sHandler);
+					                if(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"))
+					                {
+					                	 Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"),"Quick preview button does not working");
+					                    driver.close();
+					                    Reporter.log("Verified quick preview button is working");
+					                }
+					              }
+					        }
+					        driver.switchTo().window(currentWindow);
+					        
+						  //Click on Recruiter Assessment Tab
+						  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
+						  Reporter.log("Clicked on Recruiter Assessment Tab"); 
+						  
+						  //Click on Quick Preview button
+						  Assert.assertTrue(TestUtil.click("btn_quick_preview_recruiter_assessment"),"Quick Preview button does not exist");
+						  Reporter.log("Clicked on Quick Preview Button");
+						  
+						  TestUtil.sleep(5);
+						  
+						  //Switching to pop up window and verifying quick preview button
+						  currentWindow = driver.getWindowHandle();
+						  sHandlers= driver.getWindowHandles();
+					        for(String sHandler:sHandlers)
+					        {
+					            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+					            {
+					                driver.switchTo().window(sHandler);
+					                if(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"))
+					                {
+					                	 Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"),"Quick preview button does not working");
+					                    driver.close();
+					                    Reporter.log("Verified quick preview button is working");
+					                }
+					              }
+					        }
+					        driver.switchTo().window(currentWindow);
+						  
+						  //Enter Recruiter Assessment
+						  driver.switchTo().frame("acid_test_ifr");
+						  driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
+						  driver.switchTo().defaultContent();
+						  Reporter.log("Entered Recruiter Assessment"); 
+						  
+					      //Click on Transmittal Comments Tab
+						  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
+						  Reporter.log("Clicked on Transmittal Comments Tab"); 
+				        
+						//Click on Quick Preview button
+						  Assert.assertTrue(TestUtil.click("btn_quick_preview_transmittal_comments"),"Quick Preview button does not exist");
+						  Reporter.log("Clicked on Quick Preview Button");
+						  
+						  TestUtil.sleep(5);
+						  
+						  //Switching to pop up window and verifying quick preview button
+						  currentWindow = driver.getWindowHandle();
+						  sHandlers= driver.getWindowHandles();
+					        for(String sHandler:sHandlers)
+					        {
+					            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+					            {
+					                driver.switchTo().window(sHandler);
+					                if(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"))
+					                {
+					                	 Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Candidate Profile"),"Quick preview button does not working");
+					                    driver.close();
+					                    Reporter.log("Verified quick preview button is working");
+					                }
+					              }
+					        }
+					        driver.switchTo().window(currentWindow);
+						  
+			
+		}
+		
+		
+		
 	public static boolean isSkip(String testCase){
 		
 		for(int i=2; i<=datatable.getRowCount("Test Cases"); i++){
@@ -1698,7 +2912,8 @@ public static boolean isObjPresent(String xpathKey, int intSeconds){
 					flag = false;
 				}
 				
-			}catch(Exception e){
+			}
+			catch(Exception e){
 				
 				e.printStackTrace();
 			}

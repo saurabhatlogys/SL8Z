@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Verify Corresponding Numbers"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="2"
+           time="0.000">
+  <properties />
+  
+            <testcase name="isSkipped" time="0.0" classname="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+          <skipped />
+    </testcase>
+            <testcase name="VerifyCorrespondingNumbers" time="0.0" classname="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

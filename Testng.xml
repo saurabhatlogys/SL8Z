@@ -1,62 +1,86 @@
-<suite name="SL8Z-Project">
+<suite name="SL8Z-Project-Testng">
   
   <test name="Create New Search">
     <classes>
-      <class name="com.SL8Z.testcases.Create_New_Search"></class>
+      <class name="com.SL8Z.testcases.Client.Create_New_Search"></class>
     </classes>
   </test>  
   
   <test name="Verify Client Side Validation">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Client_Side_Validation"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Client_Side_Validation"></class>
     </classes>
   </test> 
   
   <test name="Verify Server Side Validation">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Server_Side_Validation"></class>
     </classes>
   </test> 
   
   <test name="Verify Quick Preview Buttons">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Quick_Preview_Buttons"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Quick_Preview_Buttons"></class>
     </classes>
   </test> 
   
   <test name="Verify Placement Fee">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Placement_Fee"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Placement_Fee"></class>
     </classes>
   </test> 
   
   <test name="Verify Engagement Dashboard Page Links">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Engagement_Dashboard_Page_Links"></class>
     </classes>
   </test> 
   
   <test name="Verify Action Buttons">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons"></class>
     </classes>
   </test> 
   
   <test name="Verify Corresponding Numbers">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers"></class>
     </classes>
   </test> 
  
   <test name="Verify Corresponding Number Single Job Dashboard">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Corresponding_Number_Single_Job_Dashboard"></class>
     </classes>
   </test> 
   
   <test name="Verify Action Buttons Single Job Dashboard">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard"></class>
+      <class name="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard"></class>
+    </classes>
+  </test> 
+  
+  <test name="Verify Candidate Is Presented">
+    <classes>
+      <class name="com.SL8Z.testcases.Partner.Verify_Candidate_Is_Presented"></class>
+    </classes>
+  </test> 
+  
+  <test name="Verify Partner Client Side Validation">
+    <classes>
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Client_Side_Validation"></class>
+    </classes>
+  </test> 
+  
+  <test name="Verify Partner Server Side Validation">
+    <classes>
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation"></class>
+    </classes>
+  </test> 
+  
+  <test name="Verify Partner Quick Preview Buttons">
+    <classes>
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Quick_Preview_Buttons"></class>
     </classes>
   </test> 
   
