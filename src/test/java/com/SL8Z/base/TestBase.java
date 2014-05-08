@@ -58,14 +58,14 @@ public class TestBase {
 				wbDv = new InternetExplorerDriver(ieCapabilities);
 			}
 			else if(config.getProperty("browserType").equalsIgnoreCase("Chrome")){
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
+				/*System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				DesiredCapabilities Ch = DesiredCapabilities.chrome();
 				//Ch.setCapability("chrome.binary", "\"C:\\Users\\i\\workspace\\SL8Z-Project-Testng\\chrome\"");
-				wbDv = new RemoteWebDriver(new URL("http://107.22.190.41:4444/wd/hub"),Ch);
-/*
+				wbDv = new RemoteWebDriver(new URL("http://107.22.190.41:4444/wd/hub"),Ch);*/
+
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				wbDv = new ChromeDriver();
-*/
+
 				}
 			
              driver = new EventFiringWebDriver(wbDv);
