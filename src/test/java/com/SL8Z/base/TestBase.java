@@ -14,7 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.*;
 import org.testng.annotations.*;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import com.gargoylesoftware.htmlunit.BrowserVersion;
+
 
 import com.SL8Z.utility.Xls_Reader;
 
@@ -68,7 +68,7 @@ public class TestBase {
 				/*System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				wbDv = new ChromeDriver();*/
 				
-				wbDv=new HtmlUnitDriver(BrowserVersion.CHROME);
+				wbDv=new HtmlUnitDriver();
 
 				}
 			
