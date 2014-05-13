@@ -8,15 +8,17 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.*;
 import org.testng.annotations.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
 
 import com.SL8Z.utility.Xls_Reader;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.sun.jna.platform.win32.Wdm;
 
 
 public class TestBase {
@@ -25,9 +27,10 @@ public class TestBase {
 	public static Properties config = null;
 	public static Properties OR = null;
 	public static WebDriver wbDv = null;
-	public static EventFiringWebDriver driver = null;
+    public static EventFiringWebDriver driver = null;
 	public static Xls_Reader datatable = null;
 	public static boolean loggedIn = false;
+	
 	
 	
 	@BeforeSuite
@@ -36,15 +39,15 @@ public class TestBase {
 		// loading all the configuration values
 		try{
 			config = new Properties();
-			FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//config//config.properties");
+			FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\config\\config.properties");
 			config.load(fp);
 			
 			// loading Objects Repositories
 			OR = new Properties();
-			fp = new FileInputStream(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//config//OR.properties");
+			fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\config\\OR.properties");
 			OR.load(fp);
 			
-			datatable = new Xls_Reader(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//xls//Controller.xlsx");
+			datatable = new Xls_Reader(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\xls\\Controller.xlsx");
 			
 			 // checking the type of browser
 			if(config.getProperty("browserType").equalsIgnoreCase("Firefox")){
@@ -63,16 +66,24 @@ public class TestBase {
 				/*System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				DesiredCapabilities Ch = DesiredCapabilities.chrome();
 				//Ch.setCapability("chrome.binary", "\"C:\\Users\\i\\workspace\\SL8Z-Project-Testng\\chrome\"");
-				wbDv = new RemoteWebDriver(new URL("http://107.22.190.41:4444/wd/hub"),Ch);*/
+				wbDv = new RemoteWebDriver(new URL("http://107.22.190.41:4444/wd/hub"),Ch);
 
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				wbDv = new ChromeDriver();
+				wbDv=new HtmlUnitDriver(BrowserVersion.CHROME);*/
 				
-				//wbDv=new HtmlUnitDriver();
-
+				// Choose the browser, version, and platform to test
+		        DesiredCapabilities capabilities = new DesiredCapabilities();
+		        capabilities.setBrowserName("chrome");
+		        capabilities.setCapability("version", "34");
+		        capabilities.setCapability("platform", Platform.WINDOWS);
+		        
+		        // Create the connection to Sauce Labs to run the tests
+		        wbDv = new RemoteWebDriver( new URL("http://saurabh1989:5f55923f-bb32-47dd-9e00-68d930372e09@ondemand.saucelabs.com:80/wd/hub"),capabilities);
 				}
 			
              driver = new EventFiringWebDriver(wbDv);
+            
 			
 			// putting an implicit wait after every Action or Event
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
