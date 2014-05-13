@@ -39,15 +39,15 @@ public class TestBase {
 		// loading all the configuration values
 		try{
 			config = new Properties();
-			FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\config\\config.properties");
+			FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//config//config.properties");
 			config.load(fp);
 			
 			// loading Objects Repositories
 			OR = new Properties();
-			fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\config\\OR.properties");
+			fp = new FileInputStream(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//config//OR.properties");
 			OR.load(fp);
 			
-			datatable = new Xls_Reader(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\xls\\Controller.xlsx");
+			datatable = new Xls_Reader(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//xls//Controller.xlsx");
 			
 			 // checking the type of browser
 			if(config.getProperty("browserType").equalsIgnoreCase("Firefox")){
