@@ -65,13 +65,13 @@ public class TestBase {
 			else if(config.getProperty("browserType").equalsIgnoreCase("Chrome")){
 				/*System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				DesiredCapabilities Ch = DesiredCapabilities.chrome();
-				//Ch.setCapability("chrome.binary", "\"C:\\Users\\i\\workspace\\SL8Z-Project-Testng\\chrome\"");
-				wbDv = new RemoteWebDriver(new URL("http://107.22.190.41:4444/wd/hub"),Ch);
+				Ch.setCapability("chrome.binary", "\"C:\\Users\\i\\workspace\\SL8Z-Project-Testng\\chrome\"");
+				wbDv = new RemoteWebDriver(new URL("http://107.22.190.41:4444/wd/hub"),Ch);*/
 
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				wbDv = new ChromeDriver();
-				wbDv=new HtmlUnitDriver(BrowserVersion.CHROME);*/
-				
+				//wbDv=new HtmlUnitDriver(BrowserVersion.CHROME);
+		/*		
 				// Choose the browser, version, and platform to test
 		        DesiredCapabilities capabilities = new DesiredCapabilities();
 		        capabilities.setBrowserName("chrome");
@@ -80,6 +80,7 @@ public class TestBase {
 		        
 		        // Create the connection to Sauce Labs to run the tests
 		        wbDv = new RemoteWebDriver( new URL("http://saurabh1989:5f55923f-bb32-47dd-9e00-68d930372e09@ondemand.saucelabs.com:80/wd/hub"),capabilities);
+                 */
 				}
 			
              driver = new EventFiringWebDriver(wbDv);
