@@ -39,15 +39,15 @@ public class TestBase {
 		// loading all the configuration values
 		try{
 			config = new Properties();
-			FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\config\\config.properties");
+			FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//config//config.properties");
 			config.load(fp);
 			
 			// loading Objects Repositories
 			OR = new Properties();
-			fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\config\\OR.properties");
+			fp = new FileInputStream(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//config//OR.properties");
 			OR.load(fp);
 			
-			datatable = new Xls_Reader(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\xls\\Controller.xlsx");
+			datatable = new Xls_Reader(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//xls//Controller.xlsx");
 			
 			 // checking the type of browser
 			if(config.getProperty("browserType").equalsIgnoreCase("Firefox")){
@@ -57,18 +57,18 @@ public class TestBase {
 			}else if(config.getProperty("browserType").equalsIgnoreCase("IE")){
 				
 				//wbDv = new InternetExplorerDriver();
-				System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"\\IE\\IEDriverServer.exe");
+				System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"//IE//IEDriverServer.exe");
 				DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
 				ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 				wbDv = new InternetExplorerDriver(ieCapabilities);
 			}
 			else if(config.getProperty("browserType").equalsIgnoreCase("Chrome")){
-				/*System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
+				/*System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//chrome//chromedriver.exe");
 				DesiredCapabilities Ch = DesiredCapabilities.chrome();
 				//Ch.setCapability("chrome.binary", "\"C:\\Users\\i\\workspace\\SL8Z-Project-Testng\\chrome\"");
 				wbDv = new RemoteWebDriver(new URL("http://107.22.190.41:4444/wd/hub"),Ch);*/
 
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//chrome//chromedriver.exe");
 				wbDv = new ChromeDriver();
 				//wbDv=new HtmlUnitDriver(BrowserVersion.CHROME);
 	/*			
