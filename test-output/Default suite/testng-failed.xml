@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.SL8Z.testcases.Verify_Server_Side_Validation">
+      <class name="com.SL8Z.testcases.Partner.Verify_Partner_Side_Engagement_Dashboard_Page_Links">
         <methods>
-          <include name="VerifyServerSideValidation"/>
           <include name="isSkipped"/>
+          <include name="VerifyPartnerSideEngagementDashboardPageLinks"/>
         </methods>
-      </class> <!-- com.SL8Z.testcases.Verify_Server_Side_Validation -->
+      </class> <!-- com.SL8Z.testcases.Partner.Verify_Partner_Side_Engagement_Dashboard_Page_Links -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

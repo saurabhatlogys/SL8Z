@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="111.935" tests="28" errors="0" skipped="27" failures="0">
+<testsuite name="TestSuite" time="170.268" tests="32" errors="0" skipped="31" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_51\jre\bin"/>
@@ -25,9 +25,9 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\Users\i\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf61867094342610872.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\i\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5863948638564744800.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Rdesktop\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Java\jdk1.7.0_51\bin;D:\apache-maven-3.1.1\bin;D:\apache-jmeter-2.11\bin;;."/>
+    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Java\jdk1.7.0_51\bin;D:\apache-maven-3.1.1\bin;D:\apache-jmeter-2.11\bin;C:\Program Files (x86)\Git\bin;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="51.0"/>
     <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
@@ -42,7 +42,7 @@
     <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="32"/>
     <property name="java.home" value="C:\Program Files (x86)\Java\jdk1.7.0_51\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -62,7 +62,7 @@
   </properties>
   <testcase name="isSkipped" classname="com.SL8Z.testcases.Client.Create_New_Search" time="0">
     <skipped/>
-    <system-err><![CDATA[Starting ChromeDriver (v2.8.241075) on port 32384
+    <system-err><![CDATA[Starting ChromeDriver (v2.8.241075) on port 24800
 ]]></system-err>
   </testcase>
   <testcase name="CreateNewSearch" classname="com.SL8Z.testcases.Client.Create_New_Search" time="0">
@@ -107,6 +107,9 @@
   <testcase name="VerifyActionButtons" classname="com.SL8Z.testcases.Client.Verify_Action_Buttons" time="0">
     <skipped/>
   </testcase>
+  <testcase name="VerifyActionButtons" classname="com.SL8Z.testcases.Client.Verify_Action_Buttons" time="0">
+    <skipped/>
+  </testcase>
   <testcase name="isSkipped" classname="com.SL8Z.testcases.Client.Verify_Corresponding_Numbers" time="0">
     <skipped/>
   </testcase>
@@ -120,6 +123,9 @@
     <skipped/>
   </testcase>
   <testcase name="isSkipped" classname="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="VerifyActionButtonsSingleJobDashboard" classname="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard" time="0">
     <skipped/>
   </testcase>
   <testcase name="VerifyActionButtonsSingleJobDashboard" classname="com.SL8Z.testcases.Client.Verify_Action_Buttons_Single_Job_Dashboard" time="0">
@@ -143,5 +149,11 @@
   <testcase name="VerifyPartnerServerSideValidation" classname="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation" time="0">
     <skipped/>
   </testcase>
-  <testcase name="VerifyPartnerQuickPreviewButtons" classname="com.SL8Z.testcases.Partner.Verify_Partner_Quick_Preview_Buttons" time="111.935"/>
+  <testcase name="VerifyPartnerQuickPreviewButtons" classname="com.SL8Z.testcases.Partner.Verify_Partner_Quick_Preview_Buttons" time="170.268"/>
+  <testcase name="isSkipped" classname="com.SL8Z.testcases.Partner.Verify_Partner_Side_Engagement_Dashboard_Page_Links" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="VerifyPartnerSideEngagementDashboardPageLinks" classname="com.SL8Z.testcases.Partner.Verify_Partner_Side_Engagement_Dashboard_Page_Links" time="0">
+    <skipped/>
+  </testcase>
 </testsuite>

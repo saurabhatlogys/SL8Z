@@ -39,15 +39,15 @@ public class TestBase {
 		// loading all the configuration values
 		try{
 			config = new Properties();
-			FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//config//config.properties");
+			FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\config\\config.properties");
 			config.load(fp);
 			
 			// loading Objects Repositories
 			OR = new Properties();
-			fp = new FileInputStream(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//config//OR.properties");
+			fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\config\\OR.properties");
 			OR.load(fp);
 			
-			datatable = new Xls_Reader(System.getProperty("user.dir")+"//src//test//java//com//SL8Z//xls//Controller.xlsx");
+			datatable = new Xls_Reader(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\xls\\Controller.xlsx");
 			
 			 // checking the type of browser
 			if(config.getProperty("browserType").equalsIgnoreCase("Firefox")){
@@ -65,13 +65,13 @@ public class TestBase {
 			else if(config.getProperty("browserType").equalsIgnoreCase("Chrome")){
 				/*System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				DesiredCapabilities Ch = DesiredCapabilities.chrome();
-				Ch.setCapability("chrome.binary", "\"C:\\Users\\i\\workspace\\SL8Z-Project-Testng\\chrome\"");
+				//Ch.setCapability("chrome.binary", "\"C:\\Users\\i\\workspace\\SL8Z-Project-Testng\\chrome\"");
 				wbDv = new RemoteWebDriver(new URL("http://107.22.190.41:4444/wd/hub"),Ch);*/
 
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//chrome//chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
 				wbDv = new ChromeDriver();
 				//wbDv=new HtmlUnitDriver(BrowserVersion.CHROME);
-		/*		
+	/*			
 				// Choose the browser, version, and platform to test
 		        DesiredCapabilities capabilities = new DesiredCapabilities();
 		        capabilities.setBrowserName("chrome");
@@ -80,7 +80,7 @@ public class TestBase {
 		        
 		        // Create the connection to Sauce Labs to run the tests
 		        wbDv = new RemoteWebDriver( new URL("http://saurabh1989:5f55923f-bb32-47dd-9e00-68d930372e09@ondemand.saucelabs.com:80/wd/hub"),capabilities);
-                 */
+	*/
 				}
 			
              driver = new EventFiringWebDriver(wbDv);
