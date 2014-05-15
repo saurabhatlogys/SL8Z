@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -111,16 +112,20 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  //Click on Job Posting
 			  TestUtil.click("btn_job_posting");
 			  Reporter.log("Clicked on job posting button");
+			  
 			  //Basic Information Tab
 			  TestUtil.click("tab_basic_information");
 			  Reporter.log("Clicked on Basic Information Tab");
+			  
 			  // Position Title
 			  TestUtil.setText("Txt_Position_Title",PositionTitle);
 			  Reporter.log("Entered Postion Title");
+			  
 			  // Position Metro Area
 			  TestUtil.setText("Txt_Position_Metro_Area","Bangalore");
 			  TestUtil.sleep(2);
 			  driver.findElement(By.xpath("//input[@id='location_metro_area']")).sendKeys(Keys.DOWN);
+			  
 			  // Reports to
 			  TestUtil.setText("Txt_Reports_To", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ae");
 			  Reporter.log("Entered Reports to");
@@ -139,31 +144,42 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Position Summary
 			  driver.switchTo().frame("position_summary_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Postion_Summary"));
+			  WebElement editor = driver.findElement(By.tagName("body"));
+			  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Postion_Summary")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Postion_Summary"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Position Summary");
+			  
 			  //Duties and Responsibilities
 			  driver.switchTo().frame("duties_responsibilities_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Position_Duties_Responsibilities"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Position_Duties_Responsibilities")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Position_Duties_Responsibilities"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Duties and Responsibilities");
+			  
 			  //Position Requirements
 			  driver.switchTo().frame("position_requirements_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Requirements"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Requirements")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Requirements"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Position Requirements"); 
+			  
 			  //Candidate Calibration Tab
 			  TestUtil.click("tab_Candidate_Calibration");
 			  Reporter.log("Clicked on Candidate Calibration Tab");
+			  
 			  //Ideal candidate profile
 			  driver.switchTo().frame("ideal_candidate_profile_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Ideal_Candidate_profile"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Ideal_Candidate_profile")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Ideal_Candidate_profile"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Ideal candidate profile");
 			 
 			  //Selling Points Tab
 			  TestUtil.click("tab_Selling_Point");
 			  Reporter.log("Clicked on Selling Points Tab");
+			  
 			  // Selling Points
 			  TestUtil.setText("Txt_Selling_Point", config.getProperty("Selling_Point"));
 			  Reporter.log("Entered Selling Point 1");
@@ -189,6 +205,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  TestUtil.click("tab_set_your_placement_fee");
 			  Reporter.log("Clicked on Set Your Fee Tab");
 			  TestUtil.setText("Txt_Placement_Fee", config.getProperty("Placement_Fee"));
+			  
 			  //Activate Search Tab
 			  TestUtil.click("Txt_Activate_Search");
 			  Reporter.log("Clicked on Activate Search Tab");
@@ -472,7 +489,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Enter detailed description
 									  driver.switchTo().frame("detailed_company_description_ifr");
-									  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Detailed_Description"));
+									  WebElement editor = driver.findElement(By.tagName("body"));
+									  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Detailed_Description")+"'", editor);
+									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Detailed_Description"));
 									  driver.switchTo().defaultContent();
 									  Reporter.log("Entered detailed description");
 									  
@@ -482,19 +502,22 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									 //Position Summary
 									  driver.switchTo().frame("position_summary_ifr");
-									  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Position_Summary"));
+									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Position_Summary")+"'", editor);
+									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Position_Summary"));
 									  driver.switchTo().defaultContent();
 									  Reporter.log("Entered Position Summary");
 									  
 									  //Duties and Responsibilities
 									  driver.switchTo().frame("duties_responsibilities_ifr");
-									  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Position_Duties_Responsibilities"));
+									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Position_Duties_Responsibilities")+"'", editor);
+									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Position_Duties_Responsibilities"));
 									  driver.switchTo().defaultContent();
 									  Reporter.log("Entered Duties and Responsibilities");
 									  
 									  //Position Requirements
 									  driver.switchTo().frame("position_requirements_ifr");
-									  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Requirements"));
+									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Requirements")+"'", editor);
+									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Requirements"));
 									  driver.switchTo().defaultContent();
 									  Reporter.log("Entered Position Requirements"); 
 									  
@@ -504,7 +527,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Ideal candidate profile
 									  driver.switchTo().frame("ideal_candidate_profile_ifr");
-									  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Ideal_Candidate_profile"));
+									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Ideal_Candidate_profile")+"'", editor);
+									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Ideal_Candidate_profile"));
 									  driver.switchTo().defaultContent();
 									  Reporter.log("Entered Ideal candidate profile");
 									  
@@ -514,13 +538,15 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Detail culture description
 									  driver.switchTo().frame("unique_corporation_aspects_ifr");
-									  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Corporate_Culture_Description"));
+									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Corporate_Culture_Description")+"'", editor);
+									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Corporate_Culture_Description"));
 									  driver.switchTo().defaultContent();
 									  Reporter.log("Entered Detail culture description"); 
 									  
 									  //Hiring Manager information
 									  driver.switchTo().frame("hiring_manager_info_ifr");
-									  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Hiring_Manager_information"));
+									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Hiring_Manager_information")+"'", editor);
+									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Hiring_Manager_information"));
 									  driver.switchTo().defaultContent();
 									  Reporter.log("Entered Hiring Manager information");
 									  
@@ -530,7 +556,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Comments
 									  driver.switchTo().frame("comments_ifr");
-									  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Comments"));
+									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Comments")+"'", editor);
+									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Comments"));
 									  driver.switchTo().defaultContent();
 									  Reporter.log("Entered Comments/Other Information");
 									  
@@ -1727,7 +1754,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			 //Enter Summary
 			  driver.switchTo().frame("summary_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Summary"));
+			  WebElement editor = driver.findElement(By.tagName("body"));
+			  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Summary")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Summary"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Summary");  
 		  
@@ -1793,7 +1823,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			 //Enter Awards, Interests, Languages 
 			  driver.switchTo().frame("awards_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("AwardsInterestsLanguages")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Awards, Interests, Languages"); 
 			 
@@ -1831,7 +1862,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Recruiter Assessment
 			  driver.switchTo().frame("acid_test_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("RecruiterAssessment")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Recruiter Assessment"); 
 			  
@@ -1841,7 +1873,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Transmittal Comments
 			  driver.switchTo().frame("comments_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("TransmittalComments")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Transmittal Comments"); 
 			  
@@ -2037,7 +2070,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			 //Enter Summary
 			  driver.switchTo().frame("summary_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Summary"));
+			  WebElement editor = driver.findElement(By.tagName("body"));
+			  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Summary")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Summary"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Summary"); 
 	  
@@ -2175,7 +2211,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Awards, Interests, Languages 
 			  driver.switchTo().frame("awards_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("AwardsInterestsLanguages")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Awards, Interests, Languages"); 
 		  
@@ -2281,7 +2318,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				   
 				  //Enter Recruiter Assessment
 				  driver.switchTo().frame("acid_test_ifr");
-				  driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
+				  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("RecruiterAssessment")+"'", editor);
+				  //driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
 				  driver.switchTo().defaultContent();
 				  Reporter.log("Entered Recruiter Assessment"); 
 				  
@@ -2299,7 +2337,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				  
 				  //Enter Transmittal Comments
 				  driver.switchTo().frame("comments_ifr");
-				  driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
+				  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("TransmittalComments")+"'", editor);
+				  //driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
 				  driver.switchTo().defaultContent();
 				  Reporter.log("Entered Transmittal Comments"); 
 		}
@@ -2373,7 +2412,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			 //Enter Summary
 			  driver.switchTo().frame("summary_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Summary"));
+			  WebElement editor = driver.findElement(By.tagName("body"));
+			  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Summary")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Summary"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Summary"); 
 	  
@@ -2415,7 +2457,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			 //Enter Awards, Interests, Languages 
 			  driver.switchTo().frame("awards_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("AwardsInterestsLanguages")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Awards, Interests, Languages"); 
 			 
@@ -2453,7 +2496,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Recruiter Assessment
 			  driver.switchTo().frame("acid_test_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("RecruiterAssessment")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Recruiter Assessment"); 
 			  
@@ -2463,7 +2507,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Transmittal Comments
 			  driver.switchTo().frame("comments_ifr");
-			  driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
+			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("TransmittalComments")+"'", editor);
+			  //driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Transmittal Comments"); 
 			  
@@ -2497,7 +2542,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			 //Click on  Position Link
 			  Assert.assertTrue(TestUtil.click("Lnk_Position"),"Positions are not available");
 			  Reporter.log("Clicked on Position Link");
-			  
+	
 			//Click on  My Candidate Button
 			  Assert.assertTrue(TestUtil.click("btn_my_candidate"),"My Candidate Button does not working");
 			  Reporter.log("Clicked on My Candidate Button");
@@ -2582,7 +2627,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				  
 				 //Enter Summary
 				  driver.switchTo().frame("summary_ifr");
-				  driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Summary"));
+				  WebElement editor = driver.findElement(By.tagName("body"));
+				  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+				  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Summary")+"'", editor);
+				  /*driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Summary"));*/
 				  driver.switchTo().defaultContent();
 				  Reporter.log("Entered Summary"); 
 		  
@@ -2696,7 +2744,9 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 						  
 						 //Enter Awards, Interests, Languages 
 						  driver.switchTo().frame("awards_ifr");
-						  driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
+						  editor = driver.findElement(By.tagName("body"));
+						  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("AwardsInterestsLanguages")+"'", editor);
+						 //driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
 						  driver.switchTo().defaultContent();
 						  Reporter.log("Entered Awards, Interests, Languages"); 
 						  
@@ -2811,7 +2861,9 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 						  
 						  //Enter Recruiter Assessment
 						  driver.switchTo().frame("acid_test_ifr");
-						  driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
+						  editor = driver.findElement(By.tagName("body"));
+						  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("RecruiterAssessment")+"'", editor);
+						  //driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
 						  driver.switchTo().defaultContent();
 						  Reporter.log("Entered Recruiter Assessment"); 
 						  
@@ -2846,13 +2898,82 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			
 		}
 		
+		public static void VerifyPartnerSideEngagementPageLinks()
+		{
+			String Id=null;
+			String Position_Title=null;
+/*			
+			//Click on Profile Link
+			Assert.assertTrue(TestUtil.click("Lnk_Profile"),"Profile link is not working");
+			Reporter.log("Clicked on Profile Link");
+			
+			//Verifying Profile Link
+			Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Profile"),"Profile Link does not navigate to profile page");
+			Reporter.log("Verified Profile link is navigated to profile page");
+			
+			//Click on Dashboard Link
+			Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
+			Reporter.log("Clicked on Dashboard Link");
+			
+			//Verifying Dashboard Link
+			Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Engagement Dashboard"),"Dashboard Link does not navigate to profile page");
+			Reporter.log("Verified Dashboard link is navigated to Engagement Dashboard page");
+*/	
+			//Counting number of rows in Free Position Table
+			WebElement element=driver.findElement(By.id("EngagedTable"));
+			List<WebElement> rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
+			
+			if(rowCollection.size()>0)
+			{
+				for(int i=1;i<=rowCollection.size();i++)
+				{
+				Id=	driver.findElement(By.xpath("//tr["+i+"]/td/div/span")).getText().replaceAll("[^0-9]", "");
+				Position_Title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+i+"]/td[1]/div/span[3]/a")).getText();
+				driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+i+"]/td[1]/div/span[3]/a")).click();
+				Reporter.log("Clicked on "+Position_Title);
+				
+				  //Switching to new window tab and verifying edit button
+				   Set<String> handles = driver.getWindowHandles();
+				   String current = driver.getWindowHandle();
+				   handles.remove(current);
+				   String newTab = handles.iterator().next();
+				   driver.switchTo().window(newTab);
+	
+				//Verifying Position Link
+				Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Single Job Dashboard"),"Position Link does not navigate to single job dashboard page");
+				Reporter.log("Verified Position link is navigated to single job dashboard page");
+				Assert.assertTrue(TestUtil.getObject("lbl_ID").getText().replaceAll("[^0-9]", "").equalsIgnoreCase(Id),"Position ID MisMatched");
+				Reporter.log("Verified Position id is ID #"+Id);
+				driver.close(); 
+			    driver.switchTo().window(current);
+			   
+			    //Verifying # of Submit Links
+			    driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+i+"]/td[3]/a")).click();
+			    Reporter.log("Clicked on number of submit link for"+Position_Title);
+			    
+			   //Switching to new window tab and verifying edit button
+				   handles = driver.getWindowHandles();
+				   current = driver.getWindowHandle();
+				   handles.remove(current);
+				   newTab = handles.iterator().next();
+				   driver.switchTo().window(newTab);
+				   
+				//Verifying MyCandidates Page
+				Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("My Candidates"),"# of Submit link does not navigate to My Candidates page");
+				Reporter.log("Verified "+Position_Title+" submit link is navigated to My Candidates Page");
+				driver.close(); 
+			    driver.switchTo().window(current);
+		  
+				}
+			}
+		}
 		
 		
 	public static boolean isSkip(String testCase){
 		
 		for(int i=2; i<=datatable.getRowCount("Test Cases"); i++){
 			
-			if(datatable.getCellData("Test Cases", "Test Cases", i).equalsIgnoreCase(testCase)){
+			if(datatable.getCellData("Test Cases", "TCID", i).equalsIgnoreCase(testCase)){
 				
 				if(datatable.getCellData("Test Cases", "Runmode", i).equalsIgnoreCase("Y")){
 					
@@ -2890,7 +3011,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			
 		}catch(Exception e){
 			
-			e.printStackTrace();
+			//e.printStackTrace();
 			return false;
 		}
 	}
