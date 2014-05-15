@@ -30,7 +30,7 @@
       	<version>2.16</version>
       	<configuration>
       	<suiteXmlFiles>
-      	<suiteXmlFile>Test.xml</suiteXmlFile>
+      	<suiteXmlFile>abc.xml</suiteXmlFile>
       	</suiteXmlFiles>
       	 <!-- Setting properties for test execution -->
      <properties>
