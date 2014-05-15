@@ -33,11 +33,40 @@
       	<suiteXmlFiles>
       	<suiteXmlFile>abc.xml</suiteXmlFile>
       	</suiteXmlFiles>
+                <!-- Setting properties for test execution -->
+                <properties>
+                    <property>
+                        <name>usedefaultlisteners</name>
+                        <value>false</value>
+                    </property>
+                    <property>
+                        <name>listener</name>
+                        <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                    </property>
+                </properties>
+                <reportsDirectory>${project.basedir}/target/</reportsDirectory>
       	</configuration>
       </plugin>
     </plugins>
   </build>
- 
+ <reporting>
+    <plugins>
+    <!-- TestNG-xslt related configuration. -->
+      <plugin>
+        <groupId>org.reportyng</groupId>
+        <artifactId>reporty-ng</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <!-- Output directory for the testng xslt report -->
+          <outputdir>/target/testng-xslt-report</outputdir>
+          <sorttestcaselinks>true</sorttestcaselinks>
+          <testdetailsfilter>FAIL,SKIP,PASS,CONF,BY_CLASS</testdetailsfilter>
+          <showruntimetotals>true</showruntimetotals>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
    <repositories>
     <repository>
         <id>java-net</id>
