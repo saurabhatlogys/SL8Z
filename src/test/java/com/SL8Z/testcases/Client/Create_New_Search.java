@@ -27,13 +27,13 @@ public class Create_New_Search extends TestBase {
 		TestUtil.SL8Z_Homepage();
 		
 		//Log into the application
-		//TestUtil.Login();	
+		TestUtil.Login();	
 		
 	 //Create New Search
-	 //TestUtil.Create_New_Search(PositionTitle);
+	    TestUtil.Create_New_Search(PositionTitle);
 	 
 	//Logout from the application
-	 //TestUtil.logout();
+	     TestUtil.logout();
 	}
 	
 	@DataProvider

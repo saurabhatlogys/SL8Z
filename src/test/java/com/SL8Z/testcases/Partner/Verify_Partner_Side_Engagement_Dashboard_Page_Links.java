@@ -26,9 +26,6 @@ public class Verify_Partner_Side_Engagement_Dashboard_Page_Links {
 		//Verifying Engagement Dashboard Page Links
 		TestUtil.VerifyPartnerSideEngagementPageLinks();
 		
-		//Logout
-		TestUtil.logout();
-		
 		
 	}
 }

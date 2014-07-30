@@ -15,8 +15,8 @@ public class Verify_Action_Buttons_Single_Job_Dashboard {
 		if(TestUtil.isSkip("Test_VerifyActionButtonsSingleJobDashboard"))
 		throw new SkipException("Runmode set to No");
 	}
-	@Test(dataProvider ="getData")
-	public void VerifyActionButtonsSingleJobDashboard(String PositionTitle)
+	@Test
+	public void VerifyActionButtonsSingleJobDashboard()
 	{
 		//Navigate to Home Page
 		TestUtil.SL8Z_Homepage();
@@ -25,16 +25,10 @@ public class Verify_Action_Buttons_Single_Job_Dashboard {
 		TestUtil.Login();	  
 		
 		//Verifying Action Buttons
-		TestUtil.VerifyActionButtonsSingleJobDashboard(PositionTitle);
+		TestUtil.VerifyActionButtonsSingleJobDashboard();
 		
 		//Logout from the application
 		 TestUtil.logout();
 		
-	}
-	
-	@DataProvider
-	public Object[][] getData() {
-		
-		return TestUtil.getData("Job Position");
 	}
 }

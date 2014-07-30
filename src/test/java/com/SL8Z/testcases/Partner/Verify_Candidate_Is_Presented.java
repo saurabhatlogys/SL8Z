@@ -1,5 +1,7 @@
 package com.SL8Z.testcases.Partner;
 
+import java.io.IOException;
+
 import org.testng.SkipException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,7 +19,7 @@ public class Verify_Candidate_Is_Presented extends TestBase {
 	
 	}
 	@Test
-	public void VerifyCandidateIsPresented()
+	public void VerifyCandidateIsPresented() throws IOException
 	{
 		//Navigate to Home Page
 		TestUtil.SL8Z_Homepage();

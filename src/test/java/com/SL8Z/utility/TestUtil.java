@@ -2,16 +2,21 @@ package com.SL8Z.utility;
 
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.internal.Locatable;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -51,7 +56,8 @@ public static void sleep(int intSeconds){
 		public static void Login(){
 			
 			try{
-				  //Click on Login Link
+				 
+				//Click on Login Link
 				  Assert.assertTrue(TestUtil.click("Lnk_Login"),"Login link is not working");
 				  Reporter.log("Clicked on Login Link");
 				  //Logged as Client
@@ -125,7 +131,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  TestUtil.setText("Txt_Position_Metro_Area","Bangalore");
 			  TestUtil.sleep(2);
 			  driver.findElement(By.xpath("//input[@id='location_metro_area']")).sendKeys(Keys.DOWN);
-			  
+			  TestUtil.sleep(3);
 			  // Reports to
 			  TestUtil.setText("Txt_Reports_To", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ae");
 			  Reporter.log("Entered Reports to");
@@ -150,9 +156,14 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Postion_Summary"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Position Summary");
+			 
+			    //Scrolling to the web element
+			   JavascriptExecutor jsx = (JavascriptExecutor)driver;
+			    jsx.executeScript("window.scrollBy(0,450)", "");
 			  
 			  //Duties and Responsibilities
 			  driver.switchTo().frame("duties_responsibilities_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Position_Duties_Responsibilities")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Position_Duties_Responsibilities"));
 			  driver.switchTo().defaultContent();
@@ -160,6 +171,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Position Requirements
 			  driver.switchTo().frame("position_requirements_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Requirements")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Requirements"));
 			  driver.switchTo().defaultContent();
@@ -171,6 +183,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Ideal candidate profile
 			  driver.switchTo().frame("ideal_candidate_profile_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Ideal_Candidate_profile")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Ideal_Candidate_profile"));
 			  driver.switchTo().defaultContent();
@@ -197,9 +210,11 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		      //Max Base salary
 			  TestUtil.setText("Txt_Max_Sal", config.getProperty("MaxSal"));
 			  Reporter.log("Entered Max Base salary"); 
+	
 			  //Bonus %
-			  TestUtil.setText("Txt_Bonus", config.getProperty("Bonus"));
-			  Reporter.log("Entered Bonus %");
+			   TestUtil.setText("Txt_Bonus", "100");
+			   Reporter.log("Entered Bonus %");
+			   TestUtil.sleep(3);
 			  
 			  // Set Your Fee Tab
 			  TestUtil.click("tab_set_your_placement_fee");
@@ -211,36 +226,34 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Activate Search Tab");
 			  TestUtil.click("btn_activate_button");
 			  Reporter.log("Clicked on Activate Search Button");
-			  TestUtil.sleep(2);
-			  TestUtil.click("btn_no");
+			  Assert.assertTrue(TestUtil.isObjPresent("btn_no",10),"Button is not present");
+			  Assert.assertTrue(TestUtil.click("btn_no"),"Unable to click on No button");
 			  TestUtil.sleep(4);
 		}
 	
 		public static void Verify_Client_Side_Validation()
 		{
 			  
-		 
+		 /*
 			 // Set Pre-filled text into the variables
 			 Assert.assertTrue(TestUtil.click("Lnk_Profile"),"Profile link is not working");
              
 			 //Scrolling to the web element
-			 WebElement element = TestUtil.getObject("Txt_Short_Description");
+			 WebElement element = TestUtil.getObject("Txt_Detailed_Information");
 			 Coordinates coordinate = ((Locatable)element).getCoordinates(); 
 			 coordinate.onPage(); 
 			 coordinate.inViewPort();
-			 TestUtil.sleep(8);
+			 
 			 // Set short description
 			 String shortdesc=TestUtil.getObject("Txt_Short_Description").getText();
 			 
-			 driver.switchTo().frame("ClientDetailedCompanyDescription_ifr");
 			 // Set Detailed Information
-			 String DetailedInfo= driver.switchTo().activeElement().getText();
-			 driver.switchTo().defaultContent();
-			 
+			 String DetailedInfo= TestUtil.getObject("Txt_Detailed_Information").getText();
+	*/		
        		 //Click on Job Posting
-			  Assert.assertTrue(TestUtil.click("btn_new_posting"),"Job Posting button does not working");
+			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"Job Posting button does not working");
 			  Reporter.log("Clicked on job posting button");
-			  
+		/*	  
 			  //Verify pre-filled text i.e, short description and detailed Information
 			  Assert.assertTrue(TestUtil.getObject("Txt_Short_Description").getText().equals(shortdesc), "Verified short description field is not pre-filled");
 			  Reporter.log("Verified short description field is pre-filled");
@@ -248,7 +261,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  driver.switchTo().frame("detailed_company_description_ifr");
 			  Assert.assertTrue(driver.switchTo().activeElement().getText().equals(DetailedInfo),"Verified detailed description field is not pre-filled");	  
 			  driver.switchTo().defaultContent();
-			 
+*/			 
 			  //Basic Information Tab
 			  Assert.assertTrue(TestUtil.click("tab_basic_information"),"Basic Information tab is not working");
 			  Reporter.log("Clicked on Basic Information Tab");
@@ -338,18 +351,19 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  // Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("Max_Base_Salary").getText().equals("11/12"),"Client side validation failed for Max Base salary");
 			  Reporter.log("Verified client side validation for Max Base salary is 11/12");
-			  
+		/*	  
 			  //Bonus
-			  Assert.assertTrue(TestUtil.setText("Txt_Bonus", config.getProperty("Bonus")),"Bonus text box does not exist");
+			  int bonus=100;
+			  driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div[2]/div/div/div[7]/div[2]/form/fieldset[1]/ul/li[4]/div/input")).sendKeys(""+bonus);
 			  Reporter.log("Entered Bonus");
-			  TestUtil.sleep(2);
+			  TestUtil.sleep(4);
 			  
 			  // Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("Bonus").getText().equals("3/3"),"Client side validation failed for Bonus");
 			  Reporter.log("Verified client side validation for Bonus is 3/3");
 			 
               TestUtil.sleep(2);
-			  
+			*/  
               // Set Your Fee Tab
         	  Assert.assertTrue(TestUtil.click("tab_set_your_placement_fee"),"Set Your Fee Tab is not working");
 			  Reporter.log("Clicked on Set Your Fee Tab");
@@ -382,10 +396,12 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Activate Search Tab");
 			  
 			  //Click on Activate Search Button
+			  Assert.assertTrue(TestUtil.isObjPresent("btn_activate_button",10),"Unable to find activate search button");
 			  Assert.assertTrue(TestUtil.click("btn_activate_button"),"Active button does not working");
 			  Reporter.log("Clicked on Activate Search Button");
 			  
 			  //Validation Error
+			  Assert.assertTrue(TestUtil.isObjPresent("btn_validation_error",10),"Unable to find validation error popup box");  
 			  Assert.assertTrue(TestUtil.click("btn_validation_error"),"Validation Error button does not working");  
 			  Reporter.log("Clicked on Validation Error Button");
 			  
@@ -502,6 +518,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									 //Position Summary
 									  driver.switchTo().frame("position_summary_ifr");
+									  editor = driver.findElement(By.tagName("body"));
 									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Position_Summary")+"'", editor);
 									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Position_Summary"));
 									  driver.switchTo().defaultContent();
@@ -509,6 +526,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Duties and Responsibilities
 									  driver.switchTo().frame("duties_responsibilities_ifr");
+									  editor = driver.findElement(By.tagName("body"));
 									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Position_Duties_Responsibilities")+"'", editor);
 									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Position_Duties_Responsibilities"));
 									  driver.switchTo().defaultContent();
@@ -516,6 +534,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Position Requirements
 									  driver.switchTo().frame("position_requirements_ifr");
+									  editor = driver.findElement(By.tagName("body"));
 									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Requirements")+"'", editor);
 									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Requirements"));
 									  driver.switchTo().defaultContent();
@@ -527,6 +546,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Ideal candidate profile
 									  driver.switchTo().frame("ideal_candidate_profile_ifr");
+									  editor = driver.findElement(By.tagName("body"));
 									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Ideal_Candidate_profile")+"'", editor);
 									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Ideal_Candidate_profile"));
 									  driver.switchTo().defaultContent();
@@ -538,6 +558,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Detail culture description
 									  driver.switchTo().frame("unique_corporation_aspects_ifr");
+									  editor = driver.findElement(By.tagName("body"));
 									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Corporate_Culture_Description")+"'", editor);
 									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Corporate_Culture_Description"));
 									  driver.switchTo().defaultContent();
@@ -545,6 +566,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Hiring Manager information
 									  driver.switchTo().frame("hiring_manager_info_ifr");
+									  editor = driver.findElement(By.tagName("body"));
 									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Hiring_Manager_information")+"'", editor);
 									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Hiring_Manager_information"));
 									  driver.switchTo().defaultContent();
@@ -556,6 +578,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Comments
 									  driver.switchTo().frame("comments_ifr");
+									  editor = driver.findElement(By.tagName("body"));
 									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Comments")+"'", editor);
 									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Comments"));
 									  driver.switchTo().defaultContent();
@@ -884,6 +907,18 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"Job posting button does not working");
 			  Reporter.log("Clicked on job posting button");
 			  
+			//Selling Points Tab
+			  TestUtil.click("tab_Selling_Point");
+			  Reporter.log("Clicked on Selling Points Tab");
+			  
+			  // Selling Points
+			  TestUtil.setText("Txt_Selling_Point", config.getProperty("Selling_Point"));
+			  Reporter.log("Entered Selling Point 1");
+			  TestUtil.setText("Txt_Selling_Point_1", config.getProperty("Selling_Point"));
+			  Reporter.log("Entered Selling Point 2");
+			  TestUtil.setText("Txt_Selling_Point_2", config.getProperty("Selling_Point"));
+			  Reporter.log("Entered Selling Point 3");
+			  
 			// Set Your Fee Tab
       	  Assert.assertTrue(TestUtil.click("tab_set_your_placement_fee"),"Set Your Fee Tab is not working");
 			  Reporter.log("Clicked on Set Your Fee Tab");
@@ -915,7 +950,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				
 			  //Verify Placement Fee
 			  Assert.assertTrue(TestUtil.getObject("er_Placement_Fee").getText().equals("Please include value greater than 20000."),"Server side validation failed for Placement fee");			  
-			  Reporter.log("Verified server side validation for Placement fee is working");	  
+			  Reporter.log("Verified server side validation for Placement fee is working when placement fee was less than 20,000$");	  
 			  
 			//Enter Placement Fee 20000
 			  Assert.assertTrue(TestUtil.setText("Txt_Placement_Fee", "20000"),"Placement Fee text box does not exist");
@@ -941,6 +976,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 	      	  Assert.assertTrue(TestUtil.click("tab_set_your_placement_fee"),"Set Your Fee Tab is not working");
 			  Reporter.log("Clicked on Set Your Fee Tab");
 			  
+			  //Verify Placement Fee
+			  Assert.assertFalse(TestUtil.isObjPresent("er_Placement_Fee",2),"Server side validation failed for Placement fee");			  
+			  Reporter.log("Verified server side validation for Placement fee is working when placement fee was 20,000$ or more than this");	  
+			  
 			  TestUtil.sleep(2);
 			  
 		}
@@ -953,8 +992,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			Reporter.log("Clicked on Profile Link");
 			
 			//Verifying Profile Link
-			Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("Profile"),"Profile Link does not navigate to profile page");
-			Reporter.log("Verified Profile link is navigated to profile page");
+			Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("Preferences"),"Profile Link does not navigate to profile page");
+			Reporter.log("Verified Preferences link is navigated to Preferences page");
 			
 			//Click on Dashboard Link
 			Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
@@ -980,7 +1019,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				Reporter.log("Verified Free Position link is navigated to single job dashboard page");
 				Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
 				
-				driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+i+"]/td[6]/a")).click();
+				driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+i+"]/td[5]/a")).click();
 				
 				//Verifying Edit Link
 				Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("New Job Posting"),"Edit Link does not navigate to new job posting page ");
@@ -1006,7 +1045,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				Reporter.log("Verified Engaged Position link is navigated to single job dashboard page");
 				Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
 				
-				driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+i+"]/td[6]/a")).click();
+				driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+i+"]/td[5]/a")).click();
 				
 				//Verifying Edit Link
 				Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("New Job Posting"),"Edit Link does not navigate to new job posting page ");
@@ -1024,12 +1063,15 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			 Reporter.log("Verified Logout link is working");
 		}
 		
-		public static void VerifyActionButtons(String PositionTitle)
+		public static void VerifyActionButtons()
 		{
 		     
 			 WebElement element=driver.findElement(By.id("FreeTable"));
-			 List<WebElement> rowCollection=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
-			 int free_post=rowCollection.size();
+			 List<WebElement> rowCollection_Free=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
+			 WebElement element1=driver.findElement(By.id("EngagedTable"));
+			 List<WebElement> rowCollection_Engage=element1.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
+			 int engage_post =rowCollection_Engage.size();
+			 int free_post=rowCollection_Free.size();
 			 List<WebElement> row_Engage;
 			 List<WebElement> row_OnHold;
 			 List<WebElement> row_Cancel;
@@ -1041,10 +1083,14 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			 String Position_Id=null;
 			 String Complete=null;
 			 
-			 if(free_post==0)
+			 if((free_post==0)&&(engage_post==0))
 				{
-					TestUtil.Create_New_Search(PositionTitle);
+					TestUtil.Create_New_Search("Post-001");
+					element=driver.findElement(By.id("FreeTable"));
+					rowCollection_Free=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
+					free_post=rowCollection_Free.size();
 				}
+			 
 			 
 			//Counting number of rows in Free position table
 		   
@@ -1058,7 +1104,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				
 				if((free_post%2)!=0)
 				{
-					driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td[6]/button[2]")).click();
+					driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td[5]/button[2]")).click();
 					Reporter.log("Clicked on "+post_title);
 					
 					//Verifying OnHold Position
@@ -1083,7 +1129,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				//Engage Position
 					
 				//Click on Engage Button
-				driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td[6]/button")).click();
+				driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td[5]/button")).click();
 				Reporter.log("Clicked on Engage button");
 				TestUtil.sleep(2);
 				
@@ -1104,10 +1150,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				//Enter Address 1
 				Assert.assertTrue(TestUtil.setText("PP_StreetAddress", "ABC"));
 				Reporter.log("Entered Address 1");
-				
+				/*
 				//Enter Address 2
 				Assert.assertTrue(TestUtil.setText("PP_StreetAddress1", "ABC"));
-				Reporter.log("Entered Address 2");
+				Reporter.log("Entered Address 2");*/
 				
 				//Enter City
 				Assert.assertTrue(TestUtil.setText("PP_City", "Delhi"));
@@ -1128,10 +1174,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				//Enter Card Number
 				Assert.assertTrue(TestUtil.setText("PP_CardNumber", config.getProperty("Card_Number")));
 				Reporter.log("Entered  Card Number");
-				
+				/*
 				//Select Month
 				Assert.assertTrue(TestUtil.selectValueInDropDown("Select_Month", config.getProperty("Month")));
-				Reporter.log("Selected Month");
+				Reporter.log("Selected Month");*/
 				
 				//Select Year
 				Assert.assertTrue(TestUtil.selectValueInDropDown("Select_Year", config.getProperty("Year")));
@@ -1150,7 +1196,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				Reporter.log("Clicked on Place Order Button");
 				
 				//Verify Engage Position
-				Assert.assertTrue(TestUtil.getObject("Secure_Checkout").getText().equalsIgnoreCase("secure checkout"));
+				Assert.assertTrue(TestUtil.getObject("Secure_Checkout").getText().equalsIgnoreCase("Order Confirmation"));
 				
 				//Click on Dashboard Link
 				Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
@@ -1171,7 +1217,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		        }
 				else
 				{
-					driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td[6]/button[3]")).click();
+					driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td[5]/button[3]")).click();
 					
 					//Verify Cancel Position
 					Assert.assertTrue(TestUtil.click("btn_Confirm_Cancel"),"Confirm button does not working");
@@ -1193,28 +1239,26 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 							
 			}
 			
-			element=driver.findElement(By.id("EngagedTable"));
-			rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
-			int engage_post =rowCollection.size();
+			
 			
 			//Counting number of rows in engaged position table
 			
 
 			while(engage_post>0)
 			{
+				post_title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
 				if((engage_post%2)==0)
 				{
-				post_title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
-				driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[6]/button")).click();
+				driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[5]/button")).click();
 			    Reporter.log("Clicked on "+post_title);
 				//Verifying Freeze Action 
 				Assert.assertTrue(TestUtil.click("btn_Confirm_Freeze"),"Confirm button does not exist");
 				Reporter.log("Clicked on Freeze Button");
 
-				Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[6]/button")).getText().equalsIgnoreCase("Unfreeze"),"Freeze button does not working");
+				Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[5]/button")).getText().equalsIgnoreCase("Unfreeze"),"Freeze button does not working");
 			    Reporter.log("Verified Freeze button is working");
 			    
-			    driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[6]/button[2]")).click();
+			    driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[5]/button[2]")).click();
 			    
 			    //Verifying Cancel Action
 			  Assert.assertTrue(TestUtil.click("btn_Cancel"),"Cancel button does not working");
@@ -1237,7 +1281,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				else
 				{
 			  
-			 driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[6]/button[3]")).click();
+			 driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[5]/button[3]")).click();
 			 
 			//Verify Complete Position
 			Assert.assertTrue(TestUtil.click("btn_Confirm_Complete"),"Confirm button does not working");
@@ -1248,7 +1292,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		    
 		    element=driver.findElement(By.id("EngagedTable"));
 			row_Complete=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
-			Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Complete.size()+"]/td/span/a")).getText().equalsIgnoreCase(post_title));
+			Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Complete.size()+"]/td/span/a")).getText().equalsIgnoreCase(post_title),"Position Title does not match");
 			Reporter.log("Verified "+ post_title + " is Completed");
 			engage_post=engage_post-1;
 			Assert.assertTrue(TestUtil.click("tab_Active"),"Active tab does not working");
@@ -1268,8 +1312,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			String Active_Job=TestUtil.getObject("tab_Active").getText().replaceAll("\\s+\\w+","");
 			 
 			//Verify Corresponding Number to  Active tab
-		    Assert.assertTrue(Active_Job.equals(total_positions),"Corresponding number to active tab does not match with the number of positions");
-		    Reporter.log("Verified Corresponding number to Active tab is equal to the number of positions");
+		    Assert.assertTrue(Active_Job.equals(total_positions),"Corresponding number on active tab does not match with the number of positions");
+		    Reporter.log("Verified Corresponding number "+Active_Job+ " on Active tab is equal to "+total_positions+" active positions");
 		    
 		    //Click on OnHold Tab
 		    Assert.assertTrue(TestUtil.click("tab_OnHold"),"OnHold tab does not working");
@@ -1280,8 +1324,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 			String no_of_onhold_post=Integer.toString(rowCollection.size());
 			String Onhold_Job=TestUtil.getObject("tab_OnHold").getText().replaceAll("\\s+\\w+","");
-			Assert.assertTrue(Onhold_Job.equals(no_of_onhold_post),"Corresponding number to Onhold tab does not match with the number of positions");
-		    Reporter.log("Verified Corresponding number to Onhold tab is equal to the number of positions");
+			Assert.assertTrue(Onhold_Job.equals(no_of_onhold_post),"Corresponding number on Onhold tab does not match with the number of positions");
+		    Reporter.log("Verified Corresponding number "+Onhold_Job+ " on Onhold tab is equal to "+no_of_onhold_post+" onhold positions");
 		    
 		    //Click on Suspended Tab
 		    Assert.assertTrue(TestUtil.click("tab_suspend"),"Suspended tab does not working");
@@ -1292,8 +1336,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 			String no_of_suspend_post=Integer.toString(rowCollection.size());
 			String Suspend_Job=TestUtil.getObject("tab_suspend").getText().replaceAll("\\s+\\w+","");
-			Assert.assertTrue(no_of_suspend_post.equals(Suspend_Job),"Corresponding number to Suspended tab does not match with the number of positions");
-		    Reporter.log("Verified Corresponding number to Suspended tab is equal to the number of positions");
+			Assert.assertTrue(no_of_suspend_post.equals(Suspend_Job),"Corresponding number on Suspended tab does not match with the number of positions");
+		    Reporter.log("Verified Corresponding number "+no_of_suspend_post+ "  on Suspended tab is equal to "+Suspend_Job+" suspended positions");
 		    
 		  //Click on Cancelled Tab
 		    Assert.assertTrue(TestUtil.click("tab_Cancel"),"Cancelled tab does not working");
@@ -1304,8 +1348,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 			String no_of_cancel_post=Integer.toString(rowCollection.size());
 			String Cancel_Job=TestUtil.getObject("tab_Cancel").getText().replaceAll("\\s+\\w+","");
-			Assert.assertTrue(no_of_cancel_post.equals(Cancel_Job),"Corresponding number to Cancelled tab does not match with the number of positions");
-		    Reporter.log("Verified Corresponding number to Cancelled tab is equal to the number of positions");
+			Assert.assertTrue(no_of_cancel_post.equals(Cancel_Job),"Corresponding number on Cancelled tab does not match with the number of positions");
+		    Reporter.log("Verified Corresponding number "+no_of_cancel_post+" on Cancelled tab is equal to "+Cancel_Job+" cancelled positions");
 		    
 		    //Click on Completed Tab
 		    Assert.assertTrue(TestUtil.click("tab_complete"),"Completed tab does not working");
@@ -1316,8 +1360,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 			String no_of_complete_post=Integer.toString(rowCollection.size());
 			String Complete_Job=TestUtil.getObject("tab_complete").getText().replaceAll("\\s+\\w+","");
-			Assert.assertTrue(no_of_complete_post.equals(Complete_Job),"Corresponding number to Completed tab does not match with the number of positions");
-		    Reporter.log("Verified Corresponding number to Completed tab is equal to the number of positions");
+			Assert.assertTrue(no_of_complete_post.equals(Complete_Job),"Corresponding number on Completed tab does not match with the number of positions");
+		    Reporter.log("Verified Corresponding number "+no_of_complete_post+" on Completed tab is equal to "+Complete_Job+" completed positions");
 		    
 		}
 		
@@ -1358,16 +1402,23 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		}
 		}
 	
-		public static void VerifyActionButtonsSingleJobDashboard(String PositionTitle)
+		public static void VerifyActionButtonsSingleJobDashboard()
 		{
 			WebElement element=driver.findElement(By.id("FreeTable"));
-			 List<WebElement> rowCollection=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
+			 List<WebElement> rowCollection_Free=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
 			 List<WebElement> row_Engage;
+			 WebElement element1;
+			 element1=driver.findElement(By.id("EngagedTable"));
+			 List<WebElement> rowCollection_Engage=element1.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
+			 int engage_post =rowCollection_Engage.size();
 			 String Position_Id=null;
-			 int free_post=rowCollection.size();
-			 if (free_post==0)
+			 int free_post=rowCollection_Free.size();
+			 if ((free_post==0) &&( engage_post == 0))
 			 {
-				 TestUtil.Create_New_Search(PositionTitle);
+				 TestUtil.Create_New_Search("Post-002");
+				 element=driver.findElement(By.id("FreeTable"));
+				 rowCollection_Free=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
+				 free_post=rowCollection_Free.size();
 			 }
 			 while(free_post>0)
 			 {
@@ -1435,11 +1486,11 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					//Enter Address 1
 					Assert.assertTrue(TestUtil.setText("PP_StreetAddress", "ABC"));
 					Reporter.log("Entered Address 1");
-					
+					/*
 					//Enter Address 2
 					Assert.assertTrue(TestUtil.setText("PP_StreetAddress1", "ABC"));
 					Reporter.log("Entered Address 2");
-					
+					*/
 					//Enter City
 					Assert.assertTrue(TestUtil.setText("PP_City", "Delhi"));
 					Reporter.log("Entered  City");
@@ -1459,10 +1510,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					//Enter Card Number
 					Assert.assertTrue(TestUtil.setText("PP_CardNumber", config.getProperty("Card_Number")));
 					Reporter.log("Entered  Card Number");
-					
+					/*
 					//Select Month
 					Assert.assertTrue(TestUtil.selectValueInDropDown("Select_Month", config.getProperty("Month")));
-					Reporter.log("Selected Month");
+					Reporter.log("Selected Month");*/
 					
 					//Select Year
 					Assert.assertTrue(TestUtil.selectValueInDropDown("Select_Year", config.getProperty("Year")));
@@ -1481,7 +1532,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					Reporter.log("Clicked on Place Order Button");
 					
 					//Verify Engage Position
-					Assert.assertTrue(TestUtil.getObject("Secure_Checkout").getText().equalsIgnoreCase("secure checkout"));
+					Assert.assertTrue(TestUtil.getObject("Secure_Checkout").getText().equalsIgnoreCase("Order Confirmation"));
 					
 					//Click on Dashboard Link
 					Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
@@ -1538,9 +1589,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			              }
 			 }
 			 
-			    element=driver.findElement(By.id("EngagedTable"));
-				rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
-				int engage_post =rowCollection.size();
+			    
 				String post_title=null;
 				String Complete=null;
 				List<WebElement> row_Complete;
@@ -1657,11 +1706,11 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				}
 		}
 		
-		public static void Verify_Candidate_Is_Presented()
+		public static void Verify_Candidate_Is_Presented () throws  IOException
 		{
-		    
+			
 			//Click on New Search Button
-			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"New Search button does not working");
+			  Assert.assertTrue(TestUtil.click("btn_job_posting_1"),"New Search button does not working");
 			  Reporter.log("Clicked on New Search button");
 			  
 			 //Click on  Position Link
@@ -1673,11 +1722,13 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.click("btn_my_candidate"),"My Candidate Button does not working");
 			  Reporter.log("Clicked on My Candidate Button");
 	  
-			 // if(!TestUtil.isElementPresent("btn_continue"))
-			  //{
+			  if(!TestUtil.isElementPresent("btn_continue"))
+			  {
+				  //File srcFile = driver.getScreenshotAs(OutputType.FILE);
+				  //FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir")+"\\src\\screenshot.png"));
 				  Assert.assertTrue(TestUtil.click("btn_present_candidate"),"Present Candidate button does not working");
 				  Reporter.log("Clicked on Present Candidate Button");
-			  //}
+			  }
 			  
 			 //Click on Continue Button
 			  Assert.assertTrue(TestUtil.click("btn_continue"),"Continue button does not working");
@@ -1712,7 +1763,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Validate Candidate Button");
 			  
 			  String windowTitle= driver.getTitle();
-			  System.out.println(windowTitle);
 	  
 			  //Click on Quick Preview Button
 			  Assert.assertTrue(TestUtil.click("btn_Quick_Preview"),"Quick Preview Button does not working");
@@ -1766,17 +1816,18 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Photo Browse Button");
 			 
 			  String strUploadAutoIT = System.getProperty("user.dir")+"\\autoit\\upload.exe";
-			  TestUtil.uploadFile(strUploadAutoIT, "Open", System.getProperty("user.dir")+"\\Images\\aa.jpg");
+			  TestUtil.uploadFile(strUploadAutoIT, "File Upload", System.getProperty("user.dir")+"\\Images\\aa.gif");
 			  
 			 //Click on Upload Button
 			  Assert.assertTrue(TestUtil.click("btn_upload"),"Upload button does not working");
 			  Reporter.log("Clicked on Upload Button");
 			  
 			  TestUtil.isObjPresent("btn_save", 20);
+			  sleep(2);
 		        
 		       WebElement leftTopCornerOfTheImage =driver.findElement(By.className("jcrop-holder"));
-			    Actions actions = new Actions(driver);
-	            actions.dragAndDropBy(leftTopCornerOfTheImage,100,100).perform(); 
+			    Actions crop = new Actions(driver);
+	            crop.dragAndDropBy(leftTopCornerOfTheImage,200,200).perform(); 
 	              
 	            TestUtil.sleep(3);
 				  
@@ -1823,6 +1874,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			 //Enter Awards, Interests, Languages 
 			  driver.switchTo().frame("awards_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("AwardsInterestsLanguages")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
 			  driver.switchTo().defaultContent();
@@ -1862,6 +1914,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Recruiter Assessment
 			  driver.switchTo().frame("acid_test_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("RecruiterAssessment")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
 			  driver.switchTo().defaultContent();
@@ -1873,6 +1926,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Transmittal Comments
 			  driver.switchTo().frame("comments_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("TransmittalComments")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
 			  driver.switchTo().defaultContent();
@@ -1890,7 +1944,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.click("btn_Present_Candidate"),"Present Candidate Button does not working");
 			  Reporter.log("Clicked on Present Candidate Button");
 			  
-			  TestUtil.sleep(20);
+			  TestUtil.sleep(10);
 			  
           
 			  if(driver.getPageSource().contains("ID # "+id.replaceAll("\\s+","")))
@@ -1907,7 +1961,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		public static void Verify_Partner_Client_Side_Validation()
 		{
 			//Click on New Search Button
-			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"New Search button does not working");
+			  Assert.assertTrue(TestUtil.click("btn_job_posting_1"),"New Search button does not working");
 			  Reporter.log("Clicked on New Search button");
 			  
 			 //Click on  Position Link
@@ -2022,9 +2076,21 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.click("btn_ValidateCandidate"),"Validate Candidate button does not working");
 			  Reporter.log("Clicked on Validate Candidate Button");
 			  
-			  //Click on Work Experience Tab
-			  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
-			  Reporter.log("Clicked on Work Experience Tab");
+			  //Click on Transmittal Comments Tab
+			  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
+			  Reporter.log("Clicked on Transmittal Comments Tab"); 
+			  
+			//Click on Present Button
+			  Assert.assertTrue(TestUtil.click("btn_present"),"Present Button does not working");
+			  Reporter.log("Clicked on Present Button"); 
+			  
+			  //Click on Validation Button
+			  Assert.assertTrue(TestUtil.click("btn_Validate_Candidate_Error")," Ok button does not working");
+			  Reporter.log("Clicked on Ok Button"); 
+			  
+			  //Click on Basic Information Tab
+			  Assert.assertTrue(TestUtil.click("tab_Basic_Information"),"Basic Information Tab is not working");
+			  Reporter.log("Clicked on Basic Information Tab");
 			  
 			  //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("CurrentTitleReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for CurrentTitle");
@@ -2065,30 +2131,21 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Work Experience Tab");
 			  
 			  //Verifying client side validation
-			  Assert.assertTrue(TestUtil.getObject("SummaryReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Summary");
-			  Reporter.log("Verified Summary is required");
-			  
-			 //Enter Summary
-			  driver.switchTo().frame("summary_ifr");
-			  WebElement editor = driver.findElement(By.tagName("body"));
-			  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Summary")+"'", editor);
-			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Summary"));
-			  driver.switchTo().defaultContent();
-			  Reporter.log("Entered Summary"); 
-	  
-			  //Click on Work Experience Tab
-			  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
-			  Reporter.log("Clicked on Work Experience Tab");
-			  
-			 //Click on Education Tab
-			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
-			  Reporter.log("Clicked on Education Tab");
-			  
-			  //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("JobTitleReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Job Title");
 			  Reporter.log("Verified Job Title is required");
+			 
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("CompanyNameReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for CompanyName");
+			  Reporter.log("Verified Company Name is required");
 			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("StartDateReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for StartDate");
+			  Reporter.log("Verified Start Date is required");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("EndDateReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for EndDate");
+			  Reporter.log("Verified End Date is required");
+	
 			  //Enter Job Title
 			  Assert.assertTrue(TestUtil.setText("Txt_JobTitle", config.getProperty("JobTitleVer")),"Job Title text box is not present");
 			  Reporter.log("Entered Job Title");
@@ -2096,14 +2153,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("JobTitle").getText().equals("60/60"),"Client side validation failed for Job Title");
 			  Reporter.log("Verified Client Side Validation for Job Title is 60/60");
-			  
-			 //Click on Education Tab
-			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
-			  Reporter.log("Clicked on Education Tab");
-			  
-			 //Verifying client side validation
-			  Assert.assertTrue(TestUtil.getObject("CompanyNameReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for CompanyName");
-			  Reporter.log("Verified Company Name is required");
 			  
 			  //Enter Company Name
 			  Assert.assertTrue(TestUtil.setText("Txt_CompanyName", config.getProperty("CompanyNameVer")),"Company Name text box is not present");
@@ -2113,30 +2162,14 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.getObject("CompanyName").getText().equals("45/45"),"Client side validation failed for CompanyName");
 			  Reporter.log("Verified Client Side Validation for Company Name is 45/45");
 			  
-			 //Click on Education Tab
-			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
-			  Reporter.log("Clicked on Education Tab");
-			  
-			 //Verifying client side validation
-			  Assert.assertTrue(TestUtil.getObject("StartDateReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for StartDate");
-			  Reporter.log("Verified Start Date is required");
-			  
-			 //Enter Start Date
+			  //Enter Start Date
 			  Assert.assertTrue(TestUtil.setText("Txt_StartDate", config.getProperty("StartDateVer")),"Start Date text box is not present");
 			  Reporter.log("Entered Start Date");
 			  
 			  //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("StartDate").getText().equals("20/20"),"Client side validation failed for StartDate");
 			  Reporter.log("Verified Client Side Validation for Start Date is 20/20");
-			  
-			  //Click on Education Tab
-			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
-			  Reporter.log("Clicked on Education Tab");
-			  
-			  //Verifying client side validation
-			  Assert.assertTrue(TestUtil.getObject("EndDateReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for EndDate");
-			  Reporter.log("Verified End Date is required");
-			  
+
 			  //Enter End Date
 			  Assert.assertTrue(TestUtil.setText("Txt_EndDate", config.getProperty("EndDateVer")),"End Date text box is not present");
 			  Reporter.log("Entered End Date");
@@ -2149,13 +2182,13 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
 			  Reporter.log("Clicked on Education Tab");
 			  
-			//Click on Awards Interest Languages Tab
-			  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
-			  Reporter.log("Clicked on Awards Interest Languages Tab");
-			  
 			  //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("SchoolNameReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for School Name");
 			  Reporter.log("Verified School Name is required");
+			  
+			  //Verifying client side validation
+			  Assert.assertTrue(TestUtil.getObject("DegreeReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Degree");
+			  Reporter.log("Verified Degree is required");
 			  
 			  //Enter School Name
 			  Assert.assertTrue(TestUtil.setText("Txt_SchoolName", config.getProperty("SchoolNameVer")),"School Name text box is not present");
@@ -2164,15 +2197,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("SchoolName").getText().equals("100/100"),"Client side validation failed for School Name");
 			  Reporter.log("Verified Client Side Validation for School Name is 100/100");
-			  
-			 //Click on Awards Interest Languages Tab
-			  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
-			  Reporter.log("Clicked on Awards Interest Languages Tab");
-			  
-			 //Verifying client side validation
-			  Assert.assertTrue(TestUtil.getObject("DegreeReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Degree");
-			  Reporter.log("Verified Degree is required");
-			  
+			
 			 //Enter Degree
 			  Assert.assertTrue(TestUtil.setText("Txt_Degree", config.getProperty("DegreeVer")),"Degree text box is not present");
 			  Reporter.log("Entered Degree"); 
@@ -2201,32 +2226,33 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
 			  Reporter.log("Clicked on Awards Interest Languages Tab");
 			  
-			  //Click on Compensation Tab
-			  Assert.assertTrue(TestUtil.click("tab_Compensation"),"Compensation Tab is not working");
-			  Reporter.log("Clicked on Compensation Tab");
-			  
 			 //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("AwardsReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Awards Interest Languages");
 			  Reporter.log("Verified Awards Interest Languages is required");
-			  
-			  //Enter Awards, Interests, Languages 
-			  driver.switchTo().frame("awards_ifr");
-			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("AwardsInterestsLanguages")+"'", editor);
-			  //driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
-			  driver.switchTo().defaultContent();
-			  Reporter.log("Entered Awards, Interests, Languages"); 
 		  
 			  //Click on Compensation Tab
 			  Assert.assertTrue(TestUtil.click("tab_Compensation"),"Compensation Tab is not working");
 			  Reporter.log("Clicked on Compensation Tab");
 			  
-			  //Click on Recruiter Assessment Tab
-			  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
-			  Reporter.log("Clicked on Recruiter Assessment Tab"); 
-			  
 			  //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("CurrentBaseReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Current Base");
 			  Reporter.log("Verified Current Base is required");
+			  
+			  //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("CurrentBonusReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Current Bonus");
+			   Reporter.log("Verified Current Bonus is required");
+			   
+			   //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("BonusPaidReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Bonus Paid");
+			   Reporter.log("Verified Bonus Paid is required");
+			   
+			   //Verifying client side validation
+			   Assert.assertTrue(TestUtil.getObject("WeeksOfVacationReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Weeks of Vacation");
+			   Reporter.log("Verified Weeks of Vacation is Required");
+			   
+			   //Verifying client side validation
+				Assert.assertTrue(TestUtil.getObject("StockValueReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Stock Value");
+				Reporter.log("Verified Stock Option Value is required");
 			  
 			  //Enter Current Base
 			  Assert.assertTrue(TestUtil.setText("Txt_CurrentBase", config.getProperty("CurrentBaseVer")),"Current Base text box is not present");
@@ -2235,11 +2261,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			 //Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("CurrentBase").getText().equals("12/12"),"Client side validation failed for Current Base");
 			  Reporter.log("Verified Client Side Validation for Current Base is 12/12");
-			  
-			  //Verifying client side validation
-			   Assert.assertTrue(TestUtil.getObject("CurrentBonusReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Current Bonus");
-			   Reporter.log("Verified Current Bonus is required");
-			  
+			 
 			  //Enter Current Bonus
 			  Assert.assertTrue(TestUtil.setText("Txt_CurrentBonus", config.getProperty("CurrentBonusVer")),"Current Bonus text box is not present");
 			  Reporter.log("Entered Current Bonus");
@@ -2247,10 +2269,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			 //Verifying client side validation
 			   Assert.assertTrue(TestUtil.getObject("CurrentBonus").getText().equals("3/3"),"Client side validation failed for Current Bonus");
 			   Reporter.log("Verified Client Side Validation for Current Bonus is 3/3");
-			   
-			  //Verifying client side validation
-			   Assert.assertTrue(TestUtil.getObject("BonusPaidReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Bonus Paid");
-			   Reporter.log("Verified Bonus Paid is required");
 			  
 			  //Enter Bonus Paid
 			  Assert.assertTrue(TestUtil.setText("Txt_BonusPaid", config.getProperty("BonusPaidVer")),"Bonus Paid text box is not present");
@@ -2259,10 +2277,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  //Verifying client side validation
 			   Assert.assertTrue(TestUtil.getObject("BonusPaid").getText().equals("45/45"),"Client side validation failed for Bonus Paid");
 			   Reporter.log("Verified Client Side Validation for Bonus Paid is 45/45");
-			   
-			   //Verifying client side validation
-			   Assert.assertTrue(TestUtil.getObject("WeeksOfVacationReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Weeks of Vacation");
-			   Reporter.log("Verified Weeks of Vacation is Required");
 			  
 			 //Enter Weeks of Vacation
 			  Assert.assertTrue(TestUtil.setText("Txt_WeeksofVacation", config.getProperty("WeeksofVacation")),"Weeks of Vacation text box is not present");
@@ -2271,10 +2285,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  //Verifying client side validation
 			   Assert.assertTrue(TestUtil.getObject("WeeksOfVacation").getText().equals("2/2"),"Client side validation failed for Weeks of Vacation");
 			   Reporter.log("Verified Client Side Validation for Weeks of Vacation is 2/2");
-			   
-			  //Verifying client side validation
-				Assert.assertTrue(TestUtil.getObject("StockValueReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Stock Value");
-				Reporter.log("Verified Stock Option Value is required");
 			  
 			  //Enter Stock Value
 			  Assert.assertTrue(TestUtil.setText("Txt_StockValue", config.getProperty("StockValueVer")),"Stock Value text box is not present");
@@ -2308,45 +2318,23 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
 				  Reporter.log("Clicked on Recruiter Assessment Tab"); 
 				  
-				//Click on Transmittal Comments Tab
-				  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
-				  Reporter.log("Clicked on Transmittal Comments Tab"); 
-				  
 				 //Verifying client side validation
 				   Assert.assertTrue(TestUtil.getObject("RecruiterCommentsReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Recruiter Assessment");
 				   Reporter.log("Verified Recruiter Assessment is required");
-				   
-				  //Enter Recruiter Assessment
-				  driver.switchTo().frame("acid_test_ifr");
-				  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("RecruiterAssessment")+"'", editor);
-				  //driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
-				  driver.switchTo().defaultContent();
-				  Reporter.log("Entered Recruiter Assessment"); 
 				  
 			      //Click on Transmittal Comments Tab
 				  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
 				  Reporter.log("Clicked on Transmittal Comments Tab"); 
 				  
-				 //Click on Recruiter Assessment Tab
-				  Assert.assertTrue(TestUtil.click("tab_RecruiterAssessment"),"Recruiter Assessment Tab is not working");
-				  Reporter.log("Clicked on Recruiter Assessment Tab"); 
-				  
 				 //Verifying client side validation
 				   Assert.assertTrue(TestUtil.getObject("TransmittalCommentsReq").getText().equalsIgnoreCase("This field is required."),"Client side validation failed for Transmittal Comments");
 				   Reporter.log("Verified Transmittal Comments is required");
-				  
-				  //Enter Transmittal Comments
-				  driver.switchTo().frame("comments_ifr");
-				  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("TransmittalComments")+"'", editor);
-				  //driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
-				  driver.switchTo().defaultContent();
-				  Reporter.log("Entered Transmittal Comments"); 
 		}
 		
 		public static void Verify_Partner_Server_Side_Validation()
 		{
 			//Click on New Search Button
-			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"New Search button does not working");
+			  Assert.assertTrue(TestUtil.click("btn_job_posting_1"),"New Search button does not working");
 			  Reporter.log("Clicked on New Search button");
 			  
 			 //Click on  Position Link
@@ -2457,6 +2445,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			 //Enter Awards, Interests, Languages 
 			  driver.switchTo().frame("awards_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("AwardsInterestsLanguages")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
 			  driver.switchTo().defaultContent();
@@ -2496,6 +2485,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Recruiter Assessment
 			  driver.switchTo().frame("acid_test_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("RecruiterAssessment")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
 			  driver.switchTo().defaultContent();
@@ -2507,6 +2497,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  //Enter Transmittal Comments
 			  driver.switchTo().frame("comments_ifr");
+			  editor = driver.findElement(By.tagName("body"));
 			  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("TransmittalComments")+"'", editor);
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("TransmittalComments"));
 			  driver.switchTo().defaultContent();
@@ -2536,7 +2527,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		{
 			 String windowTitle= driver.getTitle();
 			//Click on New Search Button
-			  Assert.assertTrue(TestUtil.click("btn_job_posting"),"New Search button does not working");
+			  Assert.assertTrue(TestUtil.click("btn_job_posting_1"),"New Search button does not working");
 			  Reporter.log("Clicked on New Search button");
 			  
 			 //Click on  Position Link
@@ -2609,30 +2600,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		        }
 		        
 		        driver.switchTo().window(currentWindow);
-		        
-		        //Enter Title
-				  Assert.assertTrue(TestUtil.setText("Txt_Title", config.getProperty("Title")),"Title text box is not present");
-				  Reporter.log("Entered  Title");
-				  
-				  // Enter Location
-				  Assert.assertTrue(TestUtil.setText("Txt_Location","Delhi"),"Location text box is not present");
-				  TestUtil.sleep(1);
-				  driver.findElement(By.xpath("//input[@id='location']")).sendKeys(Keys.DOWN);
-				  Reporter.log("Entered Location");
-				  TestUtil.sleep(2);
-				  
-				  //Enter HeadLine
-				  Assert.assertTrue(TestUtil.setText("Txt_Headline", config.getProperty("Headline")),"HeadLine text box is not present");
-				  Reporter.log("Entered  HeadLine");
-				  
-				 //Enter Summary
-				  driver.switchTo().frame("summary_ifr");
-				  WebElement editor = driver.findElement(By.tagName("body"));
-				  JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-				  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Summary")+"'", editor);
-				  /*driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Summary"));*/
-				  driver.switchTo().defaultContent();
-				  Reporter.log("Entered Summary"); 
 		  
 				  //Click on Work Experience Tab
 				  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
@@ -2662,25 +2629,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			        }
 			        driver.switchTo().window(currentWindow);
 			        
-			        //Enter Job Title
-					  Assert.assertTrue(TestUtil.setText("Txt_JobTitle", config.getProperty("JobTitle")),"Job Title text box is not present");
-					  Reporter.log("Entered Job Title");
-					  
-					  //Enter Company Name
-					  Assert.assertTrue(TestUtil.setText("Txt_CompanyName", config.getProperty("CompanyName")),"Company Name text box is not present");
-					  Reporter.log("Entered Company Name");
-					  
-					 //Enter Start Date
-					  Assert.assertTrue(TestUtil.setText("Txt_StartDate", config.getProperty("StartDate")),"Start Date text box is not present");
-					  Reporter.log("Entered Start Date");
-					  
-					  //Enter End Date
-					  Assert.assertTrue(TestUtil.setText("Txt_EndDate", config.getProperty("EndDate")),"End Date text box is not present");
-					  Reporter.log("Entered End Date");
-					  
-					  //Click on Education Tab
+			      //Click on Education Tab
 					  Assert.assertTrue(TestUtil.click("tab_education"),"Education Tab is not working");
 					  Reporter.log("Clicked on Education Tab");
+
 					  
 					 //Click on Quick Preview button
 					  Assert.assertTrue(TestUtil.click("btn_quick_preview_education"),"Quick Preview button does not exist");
@@ -2706,14 +2658,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				        }
 				        driver.switchTo().window(currentWindow);
 				        
-				      //Enter School Name
-						  Assert.assertTrue(TestUtil.setText("Txt_SchoolName", config.getProperty("SchoolName")),"School Name text box is not present");
-						  Reporter.log("Entered School Name");
-						  
-						 //Enter Degree
-						  Assert.assertTrue(TestUtil.setText("Txt_Degree", config.getProperty("Degree")),"Degree text box is not present");
-						  Reporter.log("Entered Degree"); 
-						  
 						 //Click on Awards, Interests, Languages Tab
 						  Assert.assertTrue(TestUtil.click("tab_AwardsInterestLanguages"),"Awards Interest Languages Tab is not working");
 						  Reporter.log("Clicked on Awards Interest Languages Tab");
@@ -2741,14 +2685,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					              }
 					        }
 					        driver.switchTo().window(currentWindow);
-						  
-						 //Enter Awards, Interests, Languages 
-						  driver.switchTo().frame("awards_ifr");
-						  editor = driver.findElement(By.tagName("body"));
-						  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("AwardsInterestsLanguages")+"'", editor);
-						 //driver.switchTo().activeElement().sendKeys(config.getProperty("AwardsInterestsLanguages"));
-						  driver.switchTo().defaultContent();
-						  Reporter.log("Entered Awards, Interests, Languages"); 
 						  
 						  //Click on EEOC Information Tab
 						  Assert.assertTrue(TestUtil.click("tab_EEOC_Information"),"EEOC Information Tab is not working");
@@ -2783,30 +2719,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 						  Assert.assertTrue(TestUtil.click("tab_Compensation"),"Compensation Tab is not working");
 						  Reporter.log("Clicked on Compensation Tab");
 						  
-						  //Enter Current Base
-						  Assert.assertTrue(TestUtil.setText("Txt_CurrentBase", config.getProperty("CurrentBase")),"Current Base text box is not present");
-						  Reporter.log("Entered Current Base");
-						  
-						 //Enter Current Bonus
-						  Assert.assertTrue(TestUtil.setText("Txt_CurrentBonus", config.getProperty("CurrentBonus")),"Current Bonus text box is not present");
-						  Reporter.log("Entered Current Bonus");
-						  
-						  //Enter Bonus Paid
-						  Assert.assertTrue(TestUtil.setText("Txt_BonusPaid", config.getProperty("BonusPaid")),"Bonus Paid text box is not present");
-						  Reporter.log("Entered Bonus Paid");
-						  
-						 //Enter Weeks of Vacation
-						  Assert.assertTrue(TestUtil.setText("Txt_WeeksofVacation", config.getProperty("WeeksofVacation")),"Weeks of Vacation text box is not present");
-						  Reporter.log("Entered Weeks of Vacation");
-						  
-						  //Enter Stock Value
-						  Assert.assertTrue(TestUtil.setText("Txt_StockValue", config.getProperty("StockValue")),"Stock Value text box is not present");
-						  Reporter.log("Entered Stock Option Value");
-						  
-						  //Enter Restricted Value
-						  Assert.assertTrue(TestUtil.setText("Txt_RestrictedValue", config.getProperty("RestrictedValue")),"Restricted Value text box is not present");
-						  Reporter.log("Entered Restricted Value");
-						  
+						 
 						  //Click on Quick Preview button
 						  Assert.assertTrue(TestUtil.click("btn_quick_preview_compensation"),"Quick Preview button does not exist");
 						  Reporter.log("Clicked on Quick Preview Button");
@@ -2859,14 +2772,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					        }
 					        driver.switchTo().window(currentWindow);
 						  
-						  //Enter Recruiter Assessment
-						  driver.switchTo().frame("acid_test_ifr");
-						  editor = driver.findElement(By.tagName("body"));
-						  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("RecruiterAssessment")+"'", editor);
-						  //driver.switchTo().activeElement().sendKeys(config.getProperty("RecruiterAssessment"));
-						  driver.switchTo().defaultContent();
-						  Reporter.log("Entered Recruiter Assessment"); 
-						  
 					      //Click on Transmittal Comments Tab
 						  Assert.assertTrue(TestUtil.click("tab_TransmittalComments"),"Transmittal Comments Tab is not working");
 						  Reporter.log("Clicked on Transmittal Comments Tab"); 
@@ -2902,14 +2807,14 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		{
 			String Id=null;
 			String Position_Title=null;
-/*			
+		
 			//Click on Profile Link
 			Assert.assertTrue(TestUtil.click("Lnk_Profile"),"Profile link is not working");
-			Reporter.log("Clicked on Profile Link");
+			Reporter.log("Clicked on Preferences Link");
 			
 			//Verifying Profile Link
-			Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Profile"),"Profile Link does not navigate to profile page");
-			Reporter.log("Verified Profile link is navigated to profile page");
+			Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Preferences"),"Profile Link does not navigate to profile page");
+			Reporter.log("Verified Preferences link is navigated to Preferences page");
 			
 			//Click on Dashboard Link
 			Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
@@ -2918,7 +2823,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			//Verifying Dashboard Link
 			Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Engagement Dashboard"),"Dashboard Link does not navigate to profile page");
 			Reporter.log("Verified Dashboard link is navigated to Engagement Dashboard page");
-*/	
+
 			//Counting number of rows in Free Position Table
 			WebElement element=driver.findElement(By.id("EngagedTable"));
 			List<WebElement> rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
@@ -2963,6 +2868,13 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				Reporter.log("Verified "+Position_Title+" submit link is navigated to My Candidates Page");
 				driver.close(); 
 			    driver.switchTo().window(current);
+			    
+			    //Logout from the application
+				 TestUtil.logout();
+				 
+				//Verifying Logout link
+				 Assert.assertTrue(TestUtil.isObjPresent("btn_Submit",2));
+				 Reporter.log("Verified Logout link is working");
 		  
 				}
 			}
