@@ -47,6 +47,34 @@
                 <reportsDirectory>${project.basedir}/target/</reportsDirectory>
       	</configuration>
       </plugin>
+      	<plugin>
+<groupId>ch.fortysix</groupId>
+<artifactId>maven-postman-plugin</artifactId>
+<executions>
+<execution>
+<id>send a mail</id>
+<phase>test</phase>
+<goals>
+<goal>send-mail</goal>
+</goals>
+<inherited>false</inherited>
+<configuration>
+<from>http://107.22.190.41:8081/</from>
+<failonerror>false</failonerror>
+<mailhost>smtp.gmail.com</mailhost>
+<mailport>465</mailport>
+<mailuser>saurabh@atlogys.com</mailuser>
+<mailpassword>saurabhisg8955</mailpassword>
+<mailssl>true</mailssl>
+<mailAltConfig>true</mailAltConfig> 
+<htmlMessageFile>${basedir}/target/surefire-reports/a.html</htmlMessageFile>
+<receivers>
+<receiver>saurabh@atlogys.com</receiver>
+</receivers>
+</configuration>
+</execution>
+</executions>
+</plugin>
     </plugins>
   </build>
  <reporting>
