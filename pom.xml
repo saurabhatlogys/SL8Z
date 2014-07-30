@@ -67,7 +67,7 @@
 <mailpassword>saurabhisg8955</mailpassword>
 <mailssl>true</mailssl>
 <mailAltConfig>true</mailAltConfig> 
-<htmlMessageFile>${basedir}/target/surefire-reports/a.html</htmlMessageFile>
+<htmlMessageFile>${basedir}/target/html/index.html</htmlMessageFile>
 <receivers>
 <receiver>saurabh@atlogys.com</receiver>
 </receivers>
