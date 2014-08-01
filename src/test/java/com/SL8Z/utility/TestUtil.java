@@ -56,7 +56,7 @@ public static void sleep(int intSeconds){
 		public static void Login(){
 			
 			try{
-				 
+			
 				//Click on Login Link
 				  Assert.assertTrue(TestUtil.click("Lnk_Login"),"Login link is not working");
 				  Reporter.log("Clicked on Login Link");
@@ -220,7 +220,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  TestUtil.click("tab_set_your_placement_fee");
 			  Reporter.log("Clicked on Set Your Fee Tab");
 			  TestUtil.setText("Txt_Placement_Fee", config.getProperty("Placement_Fee"));
-			  
+			  /*
 			  //Activate Search Tab
 			  TestUtil.click("Txt_Activate_Search");
 			  Reporter.log("Clicked on Activate Search Tab");
@@ -228,7 +228,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Activate Search Button");
 			  Assert.assertTrue(TestUtil.isObjPresent("btn_no",10),"Button is not present");
 			  Assert.assertTrue(TestUtil.click("btn_no"),"Unable to click on No button");
-			  TestUtil.sleep(4);
+			  TestUtil.sleep(4);*/
 		}
 	
 		public static void Verify_Client_Side_Validation()
@@ -351,10 +351,9 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  // Verifying client side validation
 			  Assert.assertTrue(TestUtil.getObject("Max_Base_Salary").getText().equals("11/12"),"Client side validation failed for Max Base salary");
 			  Reporter.log("Verified client side validation for Max Base salary is 11/12");
-		/*	  
+			  
 			  //Bonus
-			  int bonus=100;
-			  driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div[2]/div/div/div[7]/div[2]/form/fieldset[1]/ul/li[4]/div/input")).sendKeys(""+bonus);
+			  Assert.assertTrue(TestUtil.setText("Bonus",config.getProperty("Bonus")),"Unable to enter the bonus in the given textbox");
 			  Reporter.log("Entered Bonus");
 			  TestUtil.sleep(4);
 			  
@@ -363,7 +362,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Verified client side validation for Bonus is 3/3");
 			 
               TestUtil.sleep(2);
-			*/  
+			
               // Set Your Fee Tab
         	  Assert.assertTrue(TestUtil.click("tab_set_your_placement_fee"),"Set Your Fee Tab is not working");
 			  Reporter.log("Clicked on Set Your Fee Tab");
@@ -439,6 +438,10 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				  
 				  TestUtil.sleep(2);
 				  
+				//Verify Server Error
+				  Assert.assertTrue(TestUtil.getObject("er_Function").getText().equals("Please choose a function category."),"Server side validation failed for Position summary");
+				  Reporter.log("Verified server side validation for function category is working");
+					
 			  //Verifying Server Error
 				  Assert.assertTrue(TestUtil.getObject("er_Position_Summary").getText().equals("This field cannot be empty."),"Server side validation failed for Position summary");
 				  Reporter.log("Verified server side validation for Position summary is working");
@@ -455,12 +458,12 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				  Assert.assertTrue(TestUtil.click("tab_Candidate_Calibration"),"Candidate Calibration Tab is not working");
 				  Reporter.log("Clicked on Candidate Calibration Tab");
 					  
-					  TestUtil.sleep(2);
+				  TestUtil.sleep(2);
 					  
 			   //Verifying Server Error
-					  Assert.assertTrue(TestUtil.getObject("er_ideal_candidate_profile").getText().equals("This field cannot be empty."),"Server side validation failed for Ideal candidate profile");
-					  Reporter.log("Verified server side validation for Ideal candidate profile is working");
-					
+				  Assert.assertTrue(TestUtil.getObject("er_ideal_candidate_profile").getText().equalsIgnoreCase("This field cannot be empty."),"Server side validation failed for Ideal candidate profile");
+				  Reporter.log("Verified server side validation for Ideal candidate profile is working");
+				
 			  //Selling Points Tab
 					  Assert.assertTrue(TestUtil.click("tab_Selling_Point"),"Selling Point Tab is not working");
 					  Reporter.log("Clicked on Selling Points Tab");
@@ -468,25 +471,25 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					  TestUtil.sleep(2);
 					  
 			  //Verifying Server Error
-					  Assert.assertTrue(TestUtil.getObject("er_selling_points").getText().equals("All three selling points are mandatory"),"Server side validation failed for Selling Point profile");
+					  Assert.assertTrue(TestUtil.getObject("er_selling_points").getText().equalsIgnoreCase("All three selling points are mandatory"),"Server side validation failed for Selling Point profile");
 					  Reporter.log("Verified server side validation for Selling Point is working");
-						
-						 //Compensation Tab 
-						  Assert.assertTrue(TestUtil.click("tab_compensation"),"Compensation Tab is not working");
-						  Reporter.log("Clicked on Compensation Tab"); 
+					
+			 //Compensation Tab 
+					 Assert.assertTrue(TestUtil.click("tab_compensation"),"Compensation Tab is not working");
+					 Reporter.log("Clicked on Compensation Tab"); 
 						  
-						  TestUtil.sleep(2);
+					 TestUtil.sleep(2);
 						  
 			  //Verifying Server Error
-						  Assert.assertTrue(TestUtil.getObject("er_Min_Sal").getText().equals("This field cannot be empty."),"Server side validation failed for Min Base salary");	  
+						  Assert.assertTrue(TestUtil.getObject("er_Min_Sal").getText().equalsIgnoreCase("This field cannot be empty."),"Server side validation failed for Min Base salary");	  
 						  Reporter.log("Verified server side validation for Min Base salary is working");
 								
 			 //Verifying Server Error
-						  Assert.assertTrue(TestUtil.getObject("er_Max_Sal").getText().equals("This field cannot be empty."),"Server side validation failed for Max Base salary");
+						  Assert.assertTrue(TestUtil.getObject("er_Max_Sal").getText().equalsIgnoreCase("This field cannot be empty."),"Server side validation failed for Max Base salary");
 						  Reporter.log("Verified server side validation for Max Base salary is working");
 							
 			  //Verifying Server Error
-						  Assert.assertTrue(TestUtil.getObject("er_Bonus").getText().equals("This field cannot be empty."),"Server side validation failed for Bonus ");
+						  Assert.assertTrue(TestUtil.getObject("er_Bonus").getText().equalsIgnoreCase("This field cannot be empty."),"Server side validation failed for Bonus ");
 						  Reporter.log("Verified server side validation for Bonus is working");
 							
 			  // Set Your Fee Tab
@@ -496,7 +499,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 								  TestUtil.sleep(2);
 								  
 			 //Verifying Server Error
-								  Assert.assertTrue(TestUtil.getObject("er_Placement_Fee").getText().equals("This field cannot be empty."),"Server side validation failed for Placement fee");			  
+								  Assert.assertTrue(TestUtil.getObject("er_Placement_Fee").getText().equalsIgnoreCase("This field cannot be empty."),"Server side validation failed for Placement fee");			  
 								  Reporter.log("Verified server side validation for Placement fee is working");
 									
 									 //Company Information Tab 
@@ -566,6 +569,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  
 									  //Hiring Manager information
 									  driver.switchTo().frame("hiring_manager_info_ifr");
+									  driver.switchTo().activeElement().clear();
 									  editor = driver.findElement(By.tagName("body"));
 									  jsExecutor.executeScript("arguments[0].innerHTML ='"+config.getProperty("Server_Hiring_Manager_information")+"'", editor);
 									  //driver.switchTo().activeElement().sendKeys(config.getProperty("Server_Hiring_Manager_information"));
@@ -599,7 +603,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 									  TestUtil.sleep(2);
 									  
 									 //Verifying Server Error
-									  Assert.assertTrue(TestUtil.getObject("er_detail_description").getText().equals("This field cannot be more than 2000 characters long."),"Server side validation failed for Detailed Description");
+									  Assert.assertTrue(TestUtil.getObject("er_detail_description").getText().equalsIgnoreCase("This field cannot be more than 2000 characters long."),"Server side validation failed for Detailed Description");
 									  Reporter.log("Verified server side validation for Detailed Description is working");
 										 
 									  //Job Details Tab
@@ -609,15 +613,15 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 										  TestUtil.sleep(2);
 										  
 									  //Verifying Server Error
-										  Assert.assertTrue(TestUtil.getObject("er_Position_Summary").getText().equals("This field cannot be more than 2000 characters long."),"Server side validation failed for Position summary");
+										  Assert.assertTrue(TestUtil.getObject("er_Position_Summary").getText().equalsIgnoreCase("This field cannot be more than 2000 characters long."),"Server side validation failed for Position summary");
 										  Reporter.log("Verified server side validation for Position summary is working");
 											
 									 //Verifying Server Error
-										  Assert.assertTrue(TestUtil.getObject("er_Position_Duties_Responsibility").getText().equals("This field cannot be more than 6000 characters long."),"Server side validation failed for Position Duties & Responsibilities");  
+										  Assert.assertTrue(TestUtil.getObject("er_Position_Duties_Responsibility").getText().equalsIgnoreCase("This field cannot be more than 6000 characters long."),"Server side validation failed for Position Duties & Responsibilities");  
 										  Reporter.log("Verified server side validation for Position Duties & Responsibilities is working");
 											
 									  //Verifying Server Error
-										  Assert.assertTrue(TestUtil.getObject("er_Requirements").getText().equals("This field cannot be more than 5000 characters long."),"Server side validation failed for Requirements"); 
+										  Assert.assertTrue(TestUtil.getObject("er_Requirements").getText().equalsIgnoreCase("This field cannot be more than 5000 characters long."),"Server side validation failed for Requirements"); 
 										  Reporter.log("Verified server side validation for Requirements is working");
 											
 									   //Candidate Calibration Tab
@@ -627,7 +631,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 											  TestUtil.sleep(2);
 											  
 									   //Verifying Server Error
-											  Assert.assertTrue(TestUtil.getObject("er_ideal_candidate_profile").getText().equals("This field cannot be more than 2500 characters long."),"Server side validation failed for Ideal candidate profile");
+											  Assert.assertTrue(TestUtil.getObject("er_ideal_candidate_profile").getText().equalsIgnoreCase("This field cannot be more than 2500 characters long."),"Server side validation failed for Ideal candidate profile");
 											  Reporter.log("Verified server side validation for Ideal candidate profile is working");
 												
 												 //Corporate Culture Tab
@@ -635,29 +639,22 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 												  Reporter.log("Clicked on Corporate Culture Tab");  
 												  
 												//Verifying Server Error
-												  Assert.assertTrue(TestUtil.getObject("er_Corporate_culture_description").getText().equals("This field cannot be more than 1500 characters long."),"Server side validation failed for Corporate culture description");
+												  Assert.assertTrue(TestUtil.getObject("er_Corporate_culture_description").getText().equalsIgnoreCase("This field cannot be more than 1500 characters long."),"Server side validation failed for Corporate culture description");
 												  Reporter.log("Verified server side validation for Corporate culture description is working");
 													
-									  /*
+									 
 													//Verifying Server Error
-													 if(TestUtil.getObject("er_Hiring_Manager_information").getText().equals("This field cannot be more than 1500 characters long."))
-													  {
-														  Reporter.log("Verified server side validation for Hiring Manager information is working");
-													  }
-													  else
-													  {
-														  Reporter.log("Server side validation failed for Hiring Manager information");
-													  } 
-										*/
-													 
-													  //Selling Points Tab
+													Assert.assertTrue(TestUtil.getObject("er_Hiring_Manager_information").getText().equalsIgnoreCase("This field cannot be more than 1500 characters long."),"Server side validation failed for Hiring Manager information");
+												    Reporter.log("Verified server side validation for Hiring Manager information is working");
+									 
+												    //Selling Points Tab
 													  Assert.assertTrue(TestUtil.click("tab_Selling_Point"),"Selling Point Tab is not working");
 													  Reporter.log("Clicked on Selling Points Tab");
 													  
 													  TestUtil.sleep(2);
 													  
 													//Verifying Server Error
-													  Assert.assertTrue(TestUtil.getObject("er_Comments").getText().equals("This field cannot be more than 750 characters long."),"Server side validation failed for Comments / Other information ");
+													  Assert.assertTrue(TestUtil.getObject("er_Comments").getText().equalsIgnoreCase("This field cannot be more than 750 characters long."),"Server side validation failed for Comments / Other information ");
 													  Reporter.log("Verified server side validation for Comments / Other information is working");
 														
 		}
@@ -1370,35 +1367,88 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			
 			 WebElement element=driver.findElement(By.id("FreeTable"));
 			 List<WebElement> rowCollection=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
+			 WebElement element1=driver.findElement(By.id("EngagedTable"));
+			 List<WebElement> rowCollection_Engage=element1.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 			 List<WebElement> candidate;
-			 String no_of_candidate;
+			 String no_of_candidate=null;
+			 String Slate_Candidate=null;
+			 String Rejected_Candidate=null;
+			 String Withdrawn_Candidate=null;
+			 String post_title=null;
 			 int free_post=rowCollection.size();
+			 int engage_post =rowCollection_Engage.size();
+
 			 
-			 if(free_post>0)
-			 {
+			 while(free_post>0)
+				{
+				 post_title=driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td/span/a")).getText();
 				 driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td/span/a")).click();
+				 Reporter.log("Clicked on "+ post_title+" position");
 			
-				 //Verify Corresponding Number to New tab
-				 candidate=driver.findElements(By.xpath("//div[@id='newPattern-bg']/DIV[2]/DIV[1]/DIV[2]/DIV[3]/DIV[1]/DIV[1]"));
-				// candidate=driver.findElements(By.xpath("//div[@id='newPattern-bg']/div[2]/div/div[2]/div[3]/div"));
+				 //Verify Corresponding Number to Candidate Slate
+				 candidate=driver.findElements(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[4]/div[1]/div/ul/li"));
 				 no_of_candidate= Integer.toString(candidate.size());
-				 System.out.println(candidate.size());
-				 String New_Candidate=TestUtil.getObject("tab_New").getText().replaceAll("\\s+\\w+","");
-				 System.out.println(New_Candidate);
-				 Assert.assertTrue(no_of_candidate.equals(New_Candidate),"Corresponding number to New tab does not match with the number of candidates");
-				 Reporter.log("Verified Corresponding number to New tab is equal to the number of candidates");
+				 Slate_Candidate=TestUtil.getObject("tab_candidate_slate").getText().replaceAll("\\s+\\w+","");
+				
+				 Assert.assertTrue(no_of_candidate.equals(Slate_Candidate),"Corresponding number to New tab does not match with the number of candidates");
+				 Reporter.log("Verified Corresponding number "+"'"+Slate_Candidate+"'"+"on candidate slate tab is equal to the number of "+"'"+no_of_candidate+"'"+" candidates");
+				
+				 //Click on Rejected Tab
+				 Assert.assertTrue(TestUtil.click("tab_Reject"),"Rejected tab does not working");
+				 Reporter.log("Clicked on Rejected tab");
+				 Rejected_Candidate=TestUtil.getObject("tab_Rejected").getText().replaceAll("\\s+\\w+","");
+				 candidate=driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[4]/div[1]/div/div"));
+				 no_of_candidate= Integer.toString(candidate.size());
+				 Assert.assertTrue(no_of_candidate.equals(Rejected_Candidate),"Corresponding number to rejected tab does not match with the number of candidates");
+				 Reporter.log("Verified Corresponding number "+"'"+Rejected_Candidate+"'"+"on Rejected tab is equal to the number of "+"'"+no_of_candidate+"'"+" candidates");
 				 
-				 //Click on In Play Tab
-				 Assert.assertTrue(TestUtil.click("tab_InPlay"),"In Play tab does not working");
-				 Reporter.log("Clicked on In Play tab");
-		/*		
-				 //Verify Corresponding Number to In Play tab
-				 candidate=driver.findElements(By.xpath("//body/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[3]/div"));
+			
+				 //Verify Corresponding Number to withdrawn tab
+				 Assert.assertTrue(TestUtil.click("tab_Withdraw"),"Rejected tab does not working");
+				 Reporter.log("Clicked on withdrawn tab");
+				 candidate=driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[4]/div[1]/div/div"));
 				 no_of_candidate= Integer.toString(candidate.size());
-				 String InPlay_Candidate=TestUtil.getObject("tab_InPlay").getText().replaceAll("\\s+\\w+","");
-				 Assert.assertTrue(no_of_candidate.equals(InPlay_Candidate),"Corresponding number to In Play tab does not match with the number of candidates");
-				 Reporter.log("Verified Corresponding number to In Play tab is equal to the number of candidates");
-				 */
+				 Withdrawn_Candidate=TestUtil.getObject("tab_Withdrawn").getText().replaceAll("\\s+\\w+","");
+				 Assert.assertTrue(no_of_candidate.equals( Withdrawn_Candidate),"Corresponding number to withdrawn tab does not match with the number of candidates");
+				 Reporter.log("Verified Corresponding number "+"'"+Withdrawn_Candidate+"'"+"on withdrawn tab is equal to the number of "+"'"+no_of_candidate+"'"+" candidates");
+				 free_post=free_post-1;
+				 Assert.assertTrue(TestUtil.click("Lnk_Dashboard"), "Unable to click on dashboard link");
+		}
+			 
+			 while(engage_post>0)
+				{
+				  post_title=driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
+				 driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+engage_post+"]/td/span/a")).click();
+				 Reporter.log("Clicked on "+ post_title+" position");
+			
+				 //Verify Corresponding Number to Candidate Slate
+				 candidate=driver.findElements(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[4]/div[1]/div/ul/li"));
+				 no_of_candidate= Integer.toString(candidate.size());
+				 Slate_Candidate=TestUtil.getObject("tab_candidate_slate").getText().replaceAll("\\s+\\w+","");
+				
+				 Assert.assertTrue(no_of_candidate.equals(Slate_Candidate),"Corresponding number to New tab does not match with the number of candidates");
+				 Reporter.log("Verified Corresponding number "+"'"+Slate_Candidate+"'"+"on candidate slate tab is equal to the number of "+"'"+no_of_candidate+"'"+" candidates");
+				
+				 //Click on Rejected Tab
+				 Assert.assertTrue(TestUtil.click("tab_Reject"),"Rejected tab does not working");
+				 Reporter.log("Clicked on Rejected tab");
+				 Rejected_Candidate=TestUtil.getObject("tab_Rejected").getText().replaceAll("\\s+\\w+","");
+				 candidate=driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[4]/div[1]/div/div"));
+				 no_of_candidate= Integer.toString(candidate.size());
+				 Assert.assertTrue(no_of_candidate.equals(Rejected_Candidate),"Corresponding number to rejected tab does not match with the number of candidates");
+				 Reporter.log("Verified Corresponding number "+"'"+Rejected_Candidate+"'"+"on Rejected tab is equal to the number of "+"'"+no_of_candidate+"'"+" candidates");
+				 
+			
+				 //Verify Corresponding Number to withdrawn tab
+				 Assert.assertTrue(TestUtil.click("tab_Withdraw"),"Rejected tab does not working");
+				 Reporter.log("Clicked on withdrawn tab");
+				 candidate=driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[4]/div[1]/div/div"));
+				 no_of_candidate= Integer.toString(candidate.size());
+				 Withdrawn_Candidate=TestUtil.getObject("tab_Withdrawn").getText().replaceAll("\\s+\\w+","");
+				 Assert.assertTrue(no_of_candidate.equals( Withdrawn_Candidate),"Corresponding number to withdrawn tab does not match with the number of candidates");
+				 Reporter.log("Verified Corresponding number "+"'"+Withdrawn_Candidate+"'"+"on withdrawn tab is equal to the number of "+"'"+no_of_candidate+"'"+" candidates");
+				 engage_post=engage_post-1;
+				 Assert.assertTrue(TestUtil.click("Lnk_Dashboard"), "Unable to click on dashboard link");
 		}
 		}
 	
@@ -1815,8 +1865,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.click("btn_browse"),"Browse button does not working");
 			  Reporter.log("Clicked on Photo Browse Button");
 			 
-			  String strUploadAutoIT = System.getProperty("user.dir")+"\\autoit\\upload.exe";
-			  TestUtil.uploadFile(strUploadAutoIT, "File Upload", System.getProperty("user.dir")+"\\Images\\aa.gif");
+			  String strUploadAutoIT = System.getProperty("user.dir")+"//autoit//upload.exe";
+			  TestUtil.uploadFile(strUploadAutoIT, "File Upload", System.getProperty("user.dir")+"//Images//aa.gif");
 			  
 			 //Click on Upload Button
 			  Assert.assertTrue(TestUtil.click("btn_upload"),"Upload button does not working");
@@ -1827,7 +1877,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		        
 		       WebElement leftTopCornerOfTheImage =driver.findElement(By.className("jcrop-holder"));
 			    Actions crop = new Actions(driver);
-	            crop.dragAndDropBy(leftTopCornerOfTheImage,200,200).perform(); 
+	            crop.dragAndDropBy(leftTopCornerOfTheImage,100,100).perform(); 
 	              
 	            TestUtil.sleep(3);
 				  
