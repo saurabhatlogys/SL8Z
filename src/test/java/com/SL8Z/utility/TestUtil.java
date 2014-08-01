@@ -220,7 +220,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  TestUtil.click("tab_set_your_placement_fee");
 			  Reporter.log("Clicked on Set Your Fee Tab");
 			  TestUtil.setText("Txt_Placement_Fee", config.getProperty("Placement_Fee"));
-			  /*
+			  
 			  //Activate Search Tab
 			  TestUtil.click("Txt_Activate_Search");
 			  Reporter.log("Clicked on Activate Search Tab");
@@ -228,7 +228,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Activate Search Button");
 			  Assert.assertTrue(TestUtil.isObjPresent("btn_no",10),"Button is not present");
 			  Assert.assertTrue(TestUtil.click("btn_no"),"Unable to click on No button");
-			  TestUtil.sleep(4);*/
+			  TestUtil.sleep(4);
 		}
 	
 		public static void Verify_Client_Side_Validation()
@@ -353,7 +353,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Verified client side validation for Max Base salary is 11/12");
 			  
 			  //Bonus
-			  Assert.assertTrue(TestUtil.setText("Bonus",config.getProperty("Bonus")),"Unable to enter the bonus in the given textbox");
+			  Assert.assertTrue(TestUtil.setText("Txt_Bonus",config.getProperty("Bonus")),"Unable to enter the bonus in the given textbox");
 			  Reporter.log("Entered Bonus");
 			  TestUtil.sleep(4);
 			  
@@ -1482,37 +1482,48 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				 Reporter.log("Clicked on edit button");
 				 TestUtil.sleep(10);
 				 
+				 /*
 				  //Switching to new window tab and verifying edit button
 				   Set<String> handles = driver.getWindowHandles();
 				   String current = driver.getWindowHandle();
 				   handles.remove(current);
 				   String newTab = handles.iterator().next();
 				   driver.switchTo().window(newTab);
-				   
+				   */
+				 
 				   //Verify Edit button
 				   TestUtil.isObjPresent("Title", 10);
 	                Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("New Job Posting"),"Edit button does not navigate to new job posting page ");
 					Reporter.log("Verified edit button  navigates to new job posting page");
-				    driver.close(); 
-				    driver.switchTo().window(current);
+				   
+					/*
+					driver.close(); 
+				    driver.switchTo().window(current);*/
+				    driver.navigate().back();
 				    
 				  //Click on View button
 					 Assert.assertTrue(TestUtil.click("btn_View"),"View button does not working");
 					 Reporter.log("Clicked on edit button");
-					 
+					
+					 /* 
 				 //Switching to new window tab and verifying view button
 					 handles = driver.getWindowHandles();
 					 current = driver.getWindowHandle();
 					 handles.remove(current);
 					 newTab = handles.iterator().next();
 					 driver.switchTo().window(newTab);
-					   
-				 //Verify view button
+					   */
+					 
+				    //Verify view button
 					 TestUtil.isObjPresent("Title", 10);
 		             Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("View Position"),"View button does not navigate to View Position page ");
 				     Reporter.log("Verified view button  navigates to View Position page");
-					 driver.close(); 
+					driver.navigate().back();
+				     /*
+				     driver.close(); 
 					 driver.switchTo().window(current);
+					 */
+				     
 					 if((free_post%2)!=0)
 					 {
 				 //Click on Engage button
@@ -1605,6 +1616,9 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					Assert.assertTrue(TestUtil.click("btn_onhold"),"On Hold button does not working");
 					Reporter.log("Clicked on OnHold button");
 					
+					Assert.assertTrue(TestUtil.click("PB_Onhold"), "Unable to click on Put On hold Button");
+					Reporter.log("Clicked on Put On hold button");
+					
 				//Verify OnHold Button
 					Assert.assertTrue(TestUtil.getObject("btn_onhold").getText().equalsIgnoreCase("Resume"),"Position does not OnHold");
 					Reporter.log("Verified Position is OnHold");
@@ -1617,10 +1631,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					Assert.assertTrue(TestUtil.click("btn_cancel"),"Cancel button does not working");
 					Reporter.log("Clicked on cancel button");
 					
-					//Verify Cancel Position
-					Assert.assertTrue(TestUtil.click("btn_Submit"),"Confirm button does not working");
-					Reporter.log("Clicked on Confirm Cancel button");
-					
+					Assert.assertTrue(TestUtil.click("PB_Free_Cancel"), "Unable to click on Continue Button");
+					Reporter.log("Clicked on Continue button");
 					 
 					 List<WebElement> row_Cancel;
 					 String cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
@@ -1657,43 +1669,50 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					 Assert.assertTrue(TestUtil.click("btn_edit"),"Edit button does not working");
 					 Reporter.log("Clicked on edit button");
 					 TestUtil.sleep(10);
-					 
+				/*	 
 					  //Switching to new window tab and verifying edit button
 					   Set<String> handles = driver.getWindowHandles();
 					   String current = driver.getWindowHandle();
 					   handles.remove(current);
 					   String newTab = handles.iterator().next();
-					   driver.switchTo().window(newTab);
+					   driver.switchTo().window(newTab);*/
 					   
 					   //Verify Edit button
 					   TestUtil.isObjPresent("Title", 10);
 		                Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("New Job Posting"),"Edit button does not navigate to new job posting page ");
 						Reporter.log("Verified edit button  navigates to new job posting page");
-					    driver.close(); 
-					    driver.switchTo().window(current);
+					    driver.navigate().back();
+						//driver.close(); 
+					    //driver.switchTo().window(current);
 					    
 					  //Click on View button
 						 Assert.assertTrue(TestUtil.click("btn_View"),"View button does not working");
 						 Reporter.log("Clicked on edit button");
-						 
+					/*	 
 					 //Switching to new window tab and verifying view button
 						 handles = driver.getWindowHandles();
 						 current = driver.getWindowHandle();
 						 handles.remove(current);
 						 newTab = handles.iterator().next();
 						 driver.switchTo().window(newTab);
-						   
+						 */
+						 
 					 //Verify view button
 						 TestUtil.isObjPresent("Title", 10);
 			             Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("View Position"),"View button does not navigate to View Position page ");
 					     Reporter.log("Verified view button  navigates to View Position page");
-						 driver.close(); 
-						 driver.switchTo().window(current);
+						 driver.navigate().back();
+						 
+					     //driver.close(); 
+						 //driver.switchTo().window(current);
 						 
 						//Click on Freeze button
 						 
 							Assert.assertTrue(TestUtil.click("btn_freeze"),"Freeze button does not working");
 							Reporter.log("Clicked on Freeze button");
+							
+							Assert.assertTrue(TestUtil.click("PB_Freeze"), "Unable to click on Confirm Button");
+							Reporter.log("Clicked on confirm button");
 						
 						//Verify Freeze Button
 							TestUtil.sleep(4);
@@ -1712,9 +1731,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					Assert.assertTrue(TestUtil.click("btn_cancel"),"Cancel button does not working");
 					Reporter.log("Clicked on cancel button");
 					
-					//Verify Cancel Position
-					Assert.assertTrue(TestUtil.click("btn_cancel_continue"),"Confirm button does not working");
-					Reporter.log("Clicked on Confirm Cancel button");
+					Assert.assertTrue(TestUtil.click("PB_Engage_Cancel"), "Unable to click on Continue Button");
+					Reporter.log("Clicked on Continue button");
 							 
 					 List<WebElement> row_Cancel;
 					 String cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
@@ -1732,6 +1750,9 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 						//Click on Complete button
 						Assert.assertTrue(TestUtil.click("btn_complete"),"Complete button does not working");
 						Reporter.log("Clicked on complete button");
+						
+						Assert.assertTrue(TestUtil.click("PB_Complete"), "Unable to click on continue Button");
+						Reporter.log("Clicked on Continue button");
 						
 						//Verify Complete Position
 						Assert.assertTrue(TestUtil.click("btn_confirm_continue"),"Confirm button does not working");
@@ -2412,19 +2433,19 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Fill Manually Button");
 			  
 			  //Enter FirstName
-			  Assert.assertTrue(TestUtil.setText("Txt_FirstName", config.getProperty("FirstName")));
+			  Assert.assertTrue(TestUtil.setText("Txt_FirstName", config.getProperty("FirstNameVer")));
 			  Reporter.log("Entered  First Name");
 			  
 			  //Enter Last Name
-			  Assert.assertTrue(TestUtil.setText("Txt_LastName", config.getProperty("LastName")));
+			  Assert.assertTrue(TestUtil.setText("Txt_LastName", config.getProperty("LastNameVer")));
 			  Reporter.log("Entered  Last Name");
 			  
 			  //Enter Phone Number
-			  Assert.assertTrue(TestUtil.setText("Txt_PhoneNumber", config.getProperty("PhoneNumber")));
+			  Assert.assertTrue(TestUtil.setText("Txt_PhoneNumber", config.getProperty("LandLine")));
 			  Reporter.log("Entered  Phone Number");
 			  
 			  //Enter Email Address
-			  Assert.assertTrue(TestUtil.setText("Txt_Email", config.getProperty("Email")));
+			  Assert.assertTrue(TestUtil.setText("Txt_Email", config.getProperty("EmailVer")));
 			  Reporter.log("Entered  Email Address");
 			  
 			  //Enter Current Employer
@@ -2613,11 +2634,11 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Entered  Last Name");
 			  
 			  //Enter Phone Number
-			  Assert.assertTrue(TestUtil.setText("Txt_PhoneNumber", config.getProperty("PhoneNumber")));
+			  Assert.assertTrue(TestUtil.setText("Txt_PhoneNumber", config.getProperty("LandLine")));
 			  Reporter.log("Entered  Phone Number");
 			  
 			  //Enter Email Address
-			  Assert.assertTrue(TestUtil.setText("Txt_Email", config.getProperty("Email")));
+			  Assert.assertTrue(TestUtil.setText("Txt_Email", config.getProperty("EmailVer")));
 			  Reporter.log("Entered  Email Address");
 			  
 			  //Enter Current Employer
@@ -2886,52 +2907,55 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				for(int i=1;i<=rowCollection.size();i++)
 				{
 				Id=	driver.findElement(By.xpath("//tr["+i+"]/td/div/span")).getText().replaceAll("[^0-9]", "");
+				
 				Position_Title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+i+"]/td[1]/div/span[3]/a")).getText();
 				driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+i+"]/td[1]/div/span[3]/a")).click();
-				Reporter.log("Clicked on "+Position_Title);
-				
+				Reporter.log("Clicked on "+Position_Title+" position");
+				/*
 				  //Switching to new window tab and verifying edit button
 				   Set<String> handles = driver.getWindowHandles();
 				   String current = driver.getWindowHandle();
 				   handles.remove(current);
 				   String newTab = handles.iterator().next();
 				   driver.switchTo().window(newTab);
-	
+	            */
 				//Verifying Position Link
 				Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("Single Job Dashboard"),"Position Link does not navigate to single job dashboard page");
 				Reporter.log("Verified Position link is navigated to single job dashboard page");
+				
 				Assert.assertTrue(TestUtil.getObject("lbl_ID").getText().replaceAll("[^0-9]", "").equalsIgnoreCase(Id),"Position ID MisMatched");
-				Reporter.log("Verified Position id is ID #"+Id);
-				driver.close(); 
-			    driver.switchTo().window(current);
+				Reporter.log("Verified Position id is # "+Id);
+				//driver.close(); 
+			    //driver.switchTo().window(current);
+			   driver.navigate().back();
 			   
 			    //Verifying # of Submit Links
 			    driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+i+"]/td[3]/a")).click();
-			    Reporter.log("Clicked on number of submit link for"+Position_Title);
-			    
+			    Reporter.log("Clicked on number of submit link for "+Position_Title+" position");
+			  /*  
 			   //Switching to new window tab and verifying edit button
 				   handles = driver.getWindowHandles();
 				   current = driver.getWindowHandle();
 				   handles.remove(current);
 				   newTab = handles.iterator().next();
 				   driver.switchTo().window(newTab);
-				   
+				   */
+			    
 				//Verifying MyCandidates Page
 				Assert.assertTrue(TestUtil.getObject("lbl_heading").getText().equalsIgnoreCase("My Candidates"),"# of Submit link does not navigate to My Candidates page");
 				Reporter.log("Verified "+Position_Title+" submit link is navigated to My Candidates Page");
-				driver.close(); 
-			    driver.switchTo().window(current);
-			    
+				driver.navigate().back();
+				//driver.close(); 
+			    //driver.switchTo().window(current);
+				}
+			}
 			    //Logout from the application
 				 TestUtil.logout();
 				 
 				//Verifying Logout link
 				 Assert.assertTrue(TestUtil.isObjPresent("btn_Submit",2));
 				 Reporter.log("Verified Logout link is working");
-		  
-				}
 			}
-		}
 		
 		
 	public static boolean isSkip(String testCase){

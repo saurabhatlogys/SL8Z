@@ -2,7 +2,6 @@ package com.SL8Z.testcases.Client;
 
 import org.testng.SkipException;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.SL8Z.utility.TestUtil;
