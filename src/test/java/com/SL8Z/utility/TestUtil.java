@@ -1815,6 +1815,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  String windowTitle= driver.getTitle();
 	  
 			  //Click on Quick Preview Button
+			  Assert.assertTrue(TestUtil.isObjPresent("btn_Quick_Preview",10),"Unable to find quick preview button");
 			  Assert.assertTrue(TestUtil.click("btn_Quick_Preview"),"Quick Preview Button does not working");
 			  Reporter.log("Clicked on Quick Preview Button");
 			  TestUtil.sleep(3);
@@ -2131,6 +2132,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Transmittal Comments Tab"); 
 			  
 			//Click on Present Button
+			  Assert.assertTrue(TestUtil.isObjPresent("btn_present",10),"Unable to find Present Button");
 			  Assert.assertTrue(TestUtil.click("btn_present"),"Present Button does not working");
 			  Reporter.log("Clicked on Present Button"); 
 			  
@@ -2627,6 +2629,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Reporter.log("Clicked on Validate Candidate Button");
 			  
 			//Click on Quick Preview button
+			  Assert.assertTrue(TestUtil.isObjPresent("btn_quick_preview_basic_info",10),"Unable to find quick Preview button");
 			  Assert.assertTrue(TestUtil.click("btn_quick_preview_basic_info"),"Quick Preview button does not exist");
 			  Reporter.log("Clicked on Quick Preview Button");
 			  
