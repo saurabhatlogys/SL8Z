@@ -1417,8 +1417,8 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			 
 			 while(engage_post>0)
 				{
-				  post_title=driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
-				 driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+engage_post+"]/td/span/a")).click();
+				  post_title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
+				 driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).click();
 				 Reporter.log("Clicked on "+ post_title+" position");
 			
 				 //Verify Corresponding Number to Candidate Slate
@@ -1882,7 +1882,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  //driver.switchTo().activeElement().sendKeys(config.getProperty("Summary"));
 			  driver.switchTo().defaultContent();
 			  Reporter.log("Entered Summary");  
-		  
+		/*  
 			  //Click on Browse Button
 			  Assert.assertTrue(TestUtil.click("btn_browse"),"Browse button does not working");
 			  Reporter.log("Clicked on Photo Browse Button");
@@ -1907,7 +1907,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				  Assert.assertTrue(TestUtil.click("btn_save"),"Save button does not working");
 				  Reporter.log("Clicked on Save Button");
              
-	  
+	*/  
 			  //Click on Work Experience Tab
 			  Assert.assertTrue(TestUtil.click("tab_WorkExperience"),"Work Experience Tab is not working");
 			  Reporter.log("Clicked on Work Experience Tab");
