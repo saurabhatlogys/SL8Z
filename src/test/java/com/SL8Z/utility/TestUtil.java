@@ -1641,7 +1641,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				    element=driver.findElement(By.id("EngagedTable"));
 					row_Cancel=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 					 
-					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title));
+					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title),"Position does not cancelled");
 					Reporter.log("Verified "+ post_title + " is Cancelled");
 					
 					//Click on Active Tab
@@ -1741,7 +1741,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				    element=driver.findElement(By.id("EngagedTable"));
 					row_Cancel=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 					 
-					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title));
+					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title),"Position does not cancelled");
 					Reporter.log("Verified "+ post_title + " is Cancelled");
 					
 			       }
