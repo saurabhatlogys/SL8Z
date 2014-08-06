@@ -1226,7 +1226,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				    
 				    for(int i=1;i<=Cancelled_Positions_ID.size();i++)
 				    { 	
-				    	if(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value").equalsIgnoreCase(Position_Id.replaceAll("\\D+","")))
+				    	if(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value").equals(Position_Id.replaceAll("\\D+","")))
 				    	{
 				    		Reporter.log("Verified "+ post_title + " is Cancelled");
 				    		break;
@@ -1777,13 +1777,12 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					 List<WebElement> row_Cancel;
 					 String cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
 				    Assert.assertTrue(cancel.equalsIgnoreCase("Cancelled"),post_title+" does not Cancelled");	
-				    System.out.println(Engage_Position_id);
+				    
 				    
                     List<WebElement> Cancelled_Positions_ID= driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr"));
 				   
 				    for(int i=1;i<=Cancelled_Positions_ID.size();i++)
 				    { 	
-				    	System.out.println(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value"));
 				    	if(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value").equalsIgnoreCase(Engage_Position_id))
 				    	{
 				    		Reporter.log("Verified "+ post_title + " is Cancelled");
