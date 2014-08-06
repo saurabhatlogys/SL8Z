@@ -2,21 +2,19 @@ package com.SL8Z.utility;
 
 
 
-import java.io.File;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.internal.Coordinates;
-import org.openqa.selenium.internal.Locatable;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -1078,6 +1076,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			 String cancel=null;
 			 String Onhold=null;
 			 String Position_Id=null;
+			 String Engage_Position_id=null;
 			 String Complete=null;
 			 
 			 if((free_post==0)&&(engage_post==0))
@@ -1223,11 +1222,25 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
 				    Assert.assertTrue(cancel.equalsIgnoreCase("Cancelled"),post_title+" does not Cancelled");	
 				    
+                    List<WebElement> Cancelled_Positions_ID= driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr"));
+				    
+				    for(int i=1;i<=Cancelled_Positions_ID.size();i++)
+				    { 	
+				    	if(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value").equalsIgnoreCase(Position_Id.replaceAll("\\D+","")))
+				    	{
+				    		Reporter.log("Verified "+ post_title + " is Cancelled");
+				    		break;
+				    	}
+				    }
+				    
+				    /*
 				    element=driver.findElement(By.id("EngagedTable"));
 					row_Cancel=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 					 
 					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title));
 					Reporter.log("Verified "+ post_title + " is Cancelled");
+					*/
+				    
 					free_post=free_post-1;
 				   
 					Assert.assertTrue(TestUtil.click("tab_Active"),"Active tab does not working");
@@ -1236,18 +1249,19 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 							
 			}
 			
-			
-			
 			//Counting number of rows in engaged position table
 			
 
 			while(engage_post>0)
 			{
 				post_title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
+				Engage_Position_id=TestUtil.getObject("Engage_Position_ID").getText().replaceAll("\\D+","");
 				if((engage_post%2)==0)
 				{
 				driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[5]/button")).click();
+				Engage_Position_id=TestUtil.getObject("Engage_Position_ID").getText();
 			    Reporter.log("Clicked on "+post_title);
+			    
 				//Verifying Freeze Action 
 				Assert.assertTrue(TestUtil.click("btn_Confirm_Freeze"),"Confirm button does not exist");
 				Reporter.log("Clicked on Freeze Button");
@@ -1262,12 +1276,25 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  
 			  cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
 			  Assert.assertTrue(cancel.equalsIgnoreCase("cancelled"),post_title+" does not cancelled");
+			  
+			  List<WebElement> Cancelled_Positions_ID= driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr"));
+			   
+			    for(int i=1;i<=Cancelled_Positions_ID.size();i++)
+			    { 	
+			    	System.out.println(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value"));
+			    	if(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value").equalsIgnoreCase(Engage_Position_id))
+			    	{
+			    		Reporter.log("Verified "+ post_title + " is Cancelled");
+			    		break;
+			    	}
+			    }
 			
+			  /*
 			  element=driver.findElement(By.id("EngagedTable"));
 			   row_Engage_Cancel=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 			  driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Engage_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title);
 			  Reporter.log("Verified "+ post_title +"  is cancelled");
-			  
+			  */
 			  //Click on Active Tab
 			  Assert.assertTrue(TestUtil.click("tab_Active"),"Active tab does not working");
 			  Reporter.log("Clicked on Active tab");
@@ -1462,6 +1489,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			 List<WebElement> rowCollection_Engage=element1.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 			 int engage_post =rowCollection_Engage.size();
 			 String Position_Id=null;
+			 String Engage_Position_id=null;
 			 int free_post=rowCollection_Free.size();
 			 if ((free_post==0) &&( engage_post == 0))
 			 {
@@ -1635,15 +1663,26 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					Reporter.log("Clicked on Continue button");
 					 
 					 List<WebElement> row_Cancel;
-					 String cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
+					String cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
 				    Assert.assertTrue(cancel.equalsIgnoreCase("Cancelled"),post_title+" does not Cancelled");	
 				    
+				    List<WebElement> Cancelled_Positions_ID= driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr"));
+				    
+				    for(int i=1;i<=Cancelled_Positions_ID.size();i++)
+				    { 	
+				    	if(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value").equalsIgnoreCase(Position_Id.replaceAll("\\D+","")))
+				    	{
+				    		Reporter.log("Verified "+ post_title + " is Cancelled");
+				    		break;
+				    	}
+				    }
+				    /*
 				    element=driver.findElement(By.id("EngagedTable"));
 					row_Cancel=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 					 
 					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title),"Position does not cancelled");
 					Reporter.log("Verified "+ post_title + " is Cancelled");
-					
+					*/
 					//Click on Active Tab
 					 Assert.assertTrue(TestUtil.click("tab_Active"),"Active tab does not working");
 					 Reporter.log("Clicked on Active tab");
@@ -1663,6 +1702,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 				{
 					post_title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
 					driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).click();
+					Engage_Position_id=TestUtil.getObject("Engage_Position_ID").getText().replaceAll("\\D+","");
 				    Reporter.log("Clicked on "+post_title);
 				    
 					 //Click on edit button
@@ -1737,12 +1777,28 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 					 List<WebElement> row_Cancel;
 					 String cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
 				    Assert.assertTrue(cancel.equalsIgnoreCase("Cancelled"),post_title+" does not Cancelled");	
+				    System.out.println(Engage_Position_id);
 				    
+                    List<WebElement> Cancelled_Positions_ID= driver.findElements(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr"));
+				   
+				    for(int i=1;i<=Cancelled_Positions_ID.size();i++)
+				    { 	
+				    	System.out.println(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value"));
+				    	if(driver.findElement(By.xpath("//html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div[1]/div/table/tbody/tr["+i+"]/td[1]/input")).getAttribute("value").equalsIgnoreCase(Engage_Position_id))
+				    	{
+				    		Reporter.log("Verified "+ post_title + " is Cancelled");
+				    		break;
+				    	}
+				    }
+				    
+				    /*
 				    element=driver.findElement(By.id("EngagedTable"));
 					row_Cancel=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
-					 
+					System.out.println(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText());
+					System.out.println(post_title);
 					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title),"Position does not cancelled");
 					Reporter.log("Verified "+ post_title + " is Cancelled");
+					*/
 					
 			       }
 					else
@@ -2406,6 +2462,7 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 		
 		public static void Verify_Partner_Server_Side_Validation()
 		{
+			
 			//Click on New Search Button
 			  Assert.assertTrue(TestUtil.click("btn_job_posting_1"),"New Search button does not working");
 			  Reporter.log("Clicked on New Search button");
@@ -2456,6 +2513,33 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  Assert.assertTrue(TestUtil.click("btn_ValidateCandidate"),"Validate Candidate button does not working");
 			  Reporter.log("Clicked on Validate Candidate Button");
 			  
+			  String windowTitle= driver.getTitle();
+			  
+			  //Click on Quick Preview Button
+			  Assert.assertTrue(TestUtil.isObjPresent("btn_Quick_Preview",10),"Unable to find quick preview button");
+			  Assert.assertTrue(TestUtil.click("btn_Quick_Preview"),"Quick Preview Button does not working");
+			  Reporter.log("Clicked on Quick Preview Button");
+			  TestUtil.sleep(3);
+			   	
+			    //Switching to pop up window and verifying quick preview button
+			  String currentWindow = driver.getWindowHandle();
+			  Set<String> sHandlers= driver.getWindowHandles();
+			  String id=null;
+		        for(String sHandler:sHandlers)
+		        {
+		            if(driver.switchTo().window(sHandler).getTitle().equals(windowTitle))
+		            {
+		                driver.switchTo().window(sHandler);
+		                if(driver.findElement(By.xpath("//h2")).getText().equalsIgnoreCase("Candidate Profile"))
+		                {
+		                 id=TestUtil.getObject("Candidate_Id").getText();
+			             driver.close();
+		                }
+		            }
+		        }
+		        
+		        driver.switchTo().window(currentWindow);
+		        
 			  //Enter Title
 			  Assert.assertTrue(TestUtil.setText("Txt_Title", config.getProperty("Title")),"Title text box is not present");
 			  Reporter.log("Entered  Title");
@@ -2593,7 +2677,6 @@ public static void uploadFile(String strAutoITPath, String strWinTitle, String s
 			  //Verifying Server side validation
 			   Assert.assertTrue(TestUtil.getObject("er_Summary").getText().equalsIgnoreCase("This field cannot be more than 600 characters long."),"Server side validation failed for Summary");
 			   Reporter.log("Verified Server side validation for Summary is 600 Characters");
-			   	  
 		}
 		
 		public static void VerifyPartnerQuickPreviewButtons()

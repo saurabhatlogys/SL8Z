@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="Verify Partner Server Side Validation"
-           tests="2"
+           tests="1"
            failures="0"
            errors="0"
-           skipped="2"
-           time="0.000">
+           skipped="0"
+           time="69.191">
   <properties />
   
-            <testcase name="isSkipped" time="0.0" classname="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
-          <skipped />
-    </testcase>
-            <testcase name="VerifyPartnerServerSideValidation" time="0.0" classname="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation">
-          <skipped />
-    </testcase>
   
-  
+            <testcase name="VerifyPartnerServerSideValidation" time="69.191" classname="com.SL8Z.testcases.Partner.Verify_Partner_Server_Side_Validation" />
+      
 </testsuite>

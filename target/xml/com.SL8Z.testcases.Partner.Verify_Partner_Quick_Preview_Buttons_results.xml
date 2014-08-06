@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="Verify Partner Quick Preview Buttons"
-           tests="1"
+           tests="2"
            failures="0"
            errors="0"
-           skipped="0"
-           time="170.268">
+           skipped="2"
+           time="0.000">
   <properties />
   
+            <testcase name="isSkipped" time="0.0" classname="com.SL8Z.testcases.Partner.Verify_Partner_Quick_Preview_Buttons">
+          <skipped />
+    </testcase>
+            <testcase name="VerifyPartnerQuickPreviewButtons" time="0.0" classname="com.SL8Z.testcases.Partner.Verify_Partner_Quick_Preview_Buttons">
+          <skipped />
+    </testcase>
   
-            <testcase name="VerifyPartnerQuickPreviewButtons" time="170.268" classname="com.SL8Z.testcases.Partner.Verify_Partner_Quick_Preview_Buttons" />
-      
+  
 </testsuite>
